@@ -1,11 +1,20 @@
-Sturrocks HVAC Solutions Website
+# Sturrocks HVAC Solutions Website
 
-Primary domain:
-sturrockshvac.com
+Pre-launch marketing website for Sturrocks HVAC Solutions.
 
-To update branding:
-- Replace assets/img/logo.svg
-- Update hero background image if desired
-- Edit text directly in HTML files
+## Features
+- Dynamic service modals
+- Service-specific CTA logic
+- Pre-qualified contact form
+- Two-level service request selection
 
-Designed mobile-first.
+## Tech Stack
+- HTML5
+- CSS (custom)
+- Vanilla JavaScript
+
+## Status
+Pre-launch development (private repository)
+
+---
+© Sturrocks HVAC Solutions LLC
