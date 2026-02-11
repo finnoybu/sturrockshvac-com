@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logos/large_logo.png" alt="Sturrocks HVAC Solutions Logo" width="300">
+</p>
+
 # Sturrocks HVAC Solutions Website
 
 Pre-launch marketing website for Sturrocks HVAC Solutions.
