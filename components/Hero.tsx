@@ -1,4 +1,4 @@
-import { heroContent } from "@/lib/content";
+import { heroContent, companyInfo } from "@/lib/content";
 
 export default function Hero() {
   return (
@@ -20,7 +20,7 @@ export default function Hero() {
                 {heroContent.primaryCTA}
               </a>
               <a
-                href="tel:(555) 123-4567"
+                href={`tel:${companyInfo.phone}`}
                 className="bg-white hover:bg-navy-50 text-navy-900 font-semibold px-8 py-4 rounded-lg transition-colors shadow-lg text-center"
               >
                 {heroContent.secondaryCTA}
