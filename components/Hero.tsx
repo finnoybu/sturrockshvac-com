@@ -2,7 +2,7 @@ import { heroContent, companyInfo } from "@/lib/content";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-br from-primary-800 to-primary-900 text-white">
+    <section className="bg-linear-to-br from-primary-800 to-primary-900 text-white">
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
@@ -30,7 +30,7 @@ export default function Hero() {
           
           <div className="relative">
             <div className="aspect-square bg-primary-700 rounded-2xl shadow-2xl overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-6xl bg-gradient-to-br from-accent-400 to-accent-600">
+              <div className="w-full h-full flex items-center justify-center text-6xl bg-linear-to-br from-accent-400 to-accent-600">
                 ❄️
               </div>
             </div>
