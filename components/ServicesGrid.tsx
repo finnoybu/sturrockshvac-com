@@ -39,8 +39,7 @@ export default function ServicesGrid() {
             href="/services"
             className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-semibold text-lg transition-colors"
           >
-            View All Services
-            <span aria-hidden="true">→</span>
+            View All Services →
           </Link>
         </div>
       </div>

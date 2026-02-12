@@ -12,7 +12,7 @@ export default function Hero() {
             <p className="text-lg md:text-xl text-navy-200">
               {heroContent.subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-4 max-w-sm">
               <a
                 href="#contact"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-lg transition-colors shadow-lg text-center"
@@ -21,7 +21,7 @@ export default function Hero() {
               </a>
               <a
                 href={`tel:${companyInfo.phone}`}
-                className="bg-white hover:bg-navy-50 text-navy-900 font-semibold px-8 py-4 rounded-lg transition-colors shadow-lg text-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-navy-900 font-semibold px-8 py-4 rounded-lg transition-colors text-center"
               >
                 {heroContent.secondaryCTA}
               </a>
