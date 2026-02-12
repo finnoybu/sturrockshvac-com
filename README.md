@@ -1,2 +1,0 @@
-# sturrock-experimental
-temporary experimental
