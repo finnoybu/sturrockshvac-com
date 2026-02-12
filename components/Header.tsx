@@ -3,7 +3,7 @@ import { companyInfo } from "@/lib/content";
 
 export default function Header() {
   return (
-    <header className="bg-primary-900 text-white shadow-md">
+    <header className="text-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
           <div className="bg-accent-500 p-2 rounded-lg">
