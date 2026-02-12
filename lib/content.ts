@@ -9,58 +9,64 @@ export const heroContent = {
   title: "Expert HVAC Services You Can Trust",
   subtitle: "Professional heating and cooling solutions for your home and business",
   primaryCTA: "Contact Us",
-  secondaryCTA: "24/7 Emergency Service",
+  secondaryCTA: "Emergency Service",
 };
 
 export const trustPoints = [
   "Licensed & Insured",
-  "20+ Years Experience",
-  "Same-Day Service Available",
-  "100% Satisfaction Guaranteed",
+  "Serving Since 2008",
+  "NATE-Certified Technicians",
 ];
 
 export const services = [
   {
     id: 1,
-    title: "AC Repair & Maintenance",
-    description: "Keep your air conditioning running efficiently with our expert repair and maintenance services.",
-    icon: "❄️",
-    demand: 1, // Highest demand
+    title: "Emergency HVAC Repair",
+    description: "Rapid response for urgent heating and cooling breakdowns, day or night.",
+    icon: "🚨",
+    demand: 1,
   },
   {
     id: 2,
-    title: "Heating System Installation",
-    description: "Professional installation of furnaces, heat pumps, and heating systems for optimal comfort.",
-    icon: "🔥",
+    title: "Air Conditioning Repair & Replacement",
+    description: "Restore comfort fast with expert AC troubleshooting, repairs, and upgrades.",
+    icon: "❄️",
     demand: 2,
   },
   {
     id: 3,
-    title: "Emergency HVAC Service",
-    description: "24/7 emergency service for urgent heating and cooling issues. We're here when you need us.",
-    icon: "🚨",
+    title: "Heating & Furnace Service",
+    description: "Keep your furnace reliable with thorough inspections, repairs, and tune-ups.",
+    icon: "🔥",
     demand: 3,
   },
   {
     id: 4,
-    title: "Air Quality Solutions",
-    description: "Improve indoor air quality with our filtration, purification, and ventilation services.",
-    icon: "🌬️",
+    title: "Heat Pumps",
+    description: "Efficient heat pump installation and service for year-round comfort.",
+    icon: "♨️",
     demand: 4,
   },
   {
     id: 5,
-    title: "Duct Cleaning & Repair",
-    description: "Professional duct cleaning and repair services to improve efficiency and air quality.",
-    icon: "🔧",
+    title: "Preventative Maintenance",
+    description: "Seasonal maintenance plans that improve efficiency and prevent costly issues.",
+    icon: "🧰",
     demand: 5,
   },
   {
     id: 6,
-    title: "Thermostat Installation",
-    description: "Upgrade to smart thermostats for better control and energy savings.",
+    title: "Thermostats & Controls",
+    description: "Modern thermostats and smart controls for better comfort and energy savings.",
     icon: "🌡️",
     demand: 6,
+  },
+  {
+    id: 7,
+    title: "Ductwork & Indoor Air Quality",
+    description: "Optimize airflow and air quality with ductwork service and filtration solutions.",
+    icon: "🌬️",
+    demand: 7,
   },
 ];
 

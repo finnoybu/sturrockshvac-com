@@ -8,15 +8,16 @@ export default function TrustBar() {
           {trustPoints.map((point, index) => (
             <div key={index} className="flex items-center gap-4">
               <span className="text-navy-700 font-medium text-sm md:text-base whitespace-nowrap">
-                {point}
-              </span>
-              {index < trustPoints.length - 1 && (
-                <span className="text-navy-300 hidden sm:inline" aria-hidden="true">
-                  •
-                </span>
-              )}
-            </div>
-          ))}
+              {point}
+            </span>
+            {index < trustPoints.length - 1 && (
+              <span
+                className="hidden sm:inline-block h-1.5 w-1.5 rounded-full bg-navy-300"
+                aria-hidden="true"
+              />
+            )}
+          </div>
+        ))}
         </div>
       </div>
     </section>
