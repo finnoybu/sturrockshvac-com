@@ -2,7 +2,7 @@ import { companyInfo } from "@/lib/content";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-950 text-white py-8">
+    <footer className="text-white py-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-center md:text-left">
