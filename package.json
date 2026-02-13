@@ -21,6 +21,10 @@
     "url": "https://github.com/finnoybu/sturrock-experimental/issues"
   },
   "homepage": "https://github.com/finnoybu/sturrock-experimental#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "npm@10.0.0",
   "dependencies": {
     "next": "^16.1.6",
     "react": "^19.2.4",
