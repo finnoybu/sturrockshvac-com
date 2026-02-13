@@ -2,7 +2,8 @@
 const nextConfig = {
 	reactStrictMode: true,
 	output: "standalone",
-	allowedDevOrigins: ["127.0.0.1"],
+	poweredByHeader: false,
+	allowedDevOrigins: ["localhost", "127.0.0.1"],
 };
 
 export default nextConfig;

@@ -1,8 +1,6 @@
 {
   "name": "sturrock-experimental",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,8 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/finnoybu/sturrock-experimental.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
