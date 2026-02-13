@@ -13,7 +13,7 @@ export default function Header() {
         </Link>
         
         <a 
-          href={`tel:${companyInfo.phone}`}
+          href={`tel:${companyInfo.phoneE164}`}
           className="bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors shadow-md flex items-center gap-2"
         >
           <span className="text-xl">📞</span>

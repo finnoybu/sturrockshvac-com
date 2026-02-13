@@ -1,6 +1,7 @@
 export const companyInfo = {
   name: "Sturrock HVAC",
   phone: "(555) 123-4567",
+  phoneE164: "+15551234567",
   email: "info@sturrockhvac.com",
   tagline: "Your Comfort is Our Priority",
 };
@@ -83,4 +84,5 @@ export const finalCTA = {
   subtitle: "Contact us today for a free consultation and quote",
   buttonText: "Schedule Service",
   phone: companyInfo.phone,
+  phoneE164: companyInfo.phoneE164,
 };

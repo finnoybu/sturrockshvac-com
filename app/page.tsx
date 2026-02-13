@@ -4,6 +4,7 @@ import TrustBar from "@/components/TrustBar";
 import ServicesGrid from "@/components/ServicesGrid";
 import BrandLogoStrip from "@/components/BrandLogoStrip";
 import FinalCTA from "@/components/FinalCTA";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <ServicesGrid />
       <BrandLogoStrip />
       <FinalCTA />
+      <ContactSection />
       <Footer />
     </main>
   );

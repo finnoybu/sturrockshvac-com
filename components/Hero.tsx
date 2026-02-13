@@ -20,7 +20,7 @@ export default function Hero() {
                 {heroContent.primaryCTA}
               </a>
               <a
-                href={`tel:${companyInfo.phone}`}
+                href={`tel:${companyInfo.phoneE164}`}
                 className="border-2 border-white text-white hover:bg-white hover:text-primary-900 font-semibold px-8 py-4 rounded-lg transition-colors text-center"
               >
                 {heroContent.secondaryCTA}
