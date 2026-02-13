@@ -7,6 +7,8 @@ import FinalCTA from "@/components/FinalCTA";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
+export const dynamic = "force-static";
+
 export default function Home() {
   return (
     <main className="min-h-screen">

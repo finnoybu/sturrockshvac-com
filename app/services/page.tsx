@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { companyInfo, services } from "@/lib/content";
 
+export const dynamic = "force-static";
+
 export default function ServicesPage() {
   return (
     <main className="min-h-screen">
