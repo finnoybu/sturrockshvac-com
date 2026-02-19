@@ -1,7 +1,7 @@
 export const companyInfo = {
-  name: "Sturrock HVAC",
-  phone: "(555) 123-4567",
-  phoneE164: "+15551234567",
+  name: "Sturrock HVAC Solutions",
+  phone: "(571) 258-7983",
+  phoneE164: "+15712587983",
   email: "info@sturrockhvac.com",
   tagline: "Your Comfort is Our Priority",
 };

@@ -9,27 +9,27 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sturrockhvac.com"),
-  title: "Sturrock HVAC - Professional Heating & Cooling Services",
+  title: "Sturrock HVAC Solutions - Professional Heating & Cooling Services",
   description: "Expert HVAC services for your home and business. 24/7 emergency service available.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://sturrockhvac.com",
-    siteName: "Sturrock HVAC",
-    title: "Sturrock HVAC - Professional Heating & Cooling Services",
+    siteName: "Sturrock HVAC Solutions",
+    title: "Sturrock HVAC Solutions - Professional Heating & Cooling Services",
     description: "Expert HVAC services for your home and business. 24/7 emergency service available.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Sturrock HVAC",
+        alt: "Sturrock HVAC Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sturrock HVAC - Professional Heating & Cooling Services",
+    title: "Sturrock HVAC Solutions - Professional Heating & Cooling Services",
     description: "Expert HVAC services for your home and business. 24/7 emergency service available.",
     images: ["/og-image.jpg"],
   },
