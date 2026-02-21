@@ -49,18 +49,28 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Light blue internal divider */
+.header-calibration {
+  position: relative;
+  background: linear-gradient(
+    to right,
+    #07132f 0%,
+    #1c3052 50%,
+    #07132f 100%
+  );
+
+  /* NEW: real shadow */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
 .header-calibration::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-
-  bottom: 6px; /* controls vertical placement */
+  bottom: 6px;
   height: 1px;
 
-  /* background: rgba(93,115,153,0.9); */
-    background: linear-gradient(
+  background: linear-gradient(
     to right,
     #364360 0%,
     #617599 50%,
@@ -69,5 +79,3 @@ body {
 
   pointer-events: none;
 }
-
-
