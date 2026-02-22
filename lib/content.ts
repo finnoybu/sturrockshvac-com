@@ -22,7 +22,7 @@ export const serviceAreas = {
 };
 
 // =============================
-// SERVICES WITH SUBSERVICES
+// SERVICES
 // =============================
 
 export const services = [
@@ -32,210 +32,81 @@ export const services = [
     summary:
       "Expert air conditioning repair, preventive maintenance, and installation.",
     description:
-      "Expert air conditioning repair, preventive maintenance, and full system installation to keep your home cool, efficient, and dependable through the hottest months.",
-    footerText: "Stay cool before the heat becomes a problem.",
-    ctaText: "Schedule AC Service",
-
+      "Professional cooling solutions including system diagnostics, repair, installation, and seasonal maintenance to keep your home comfortable during peak summer heat.",
     subservices: [
-      {
-        key: "ac-repair",
-        name: "AC Repair",
-        description:
-          "Fast diagnostics and reliable repair to restore cooling performance and airflow.",
-      },
-      {
-        key: "ac-installation",
-        name: "New AC Installation",
-        description:
-          "Professional installation of properly sized, energy-efficient air conditioning systems.",
-      },
-      {
-        key: "ac-replacement",
-        name: "AC Replacement",
-        description:
-          "Upgrade aging systems to improve efficiency, reliability, and long-term performance.",
-      },
-      {
-        key: "ac-tune-up",
-        name: "Seasonal AC Tune-Up",
-        description:
-          "Preventive maintenance designed to reduce breakdowns and improve energy efficiency.",
-      },
-    ],
-
-    benefits: [
-      "Fast, accurate diagnostics",
-      "Energy-efficient system upgrades",
-      "Seasonal maintenance programs",
-      "Service for all major brands",
-      "Improved comfort and lower utility costs",
+      { key: "ac-repair", name: "AC Repair" },
+      { key: "ac-installation", name: "New AC Installation" },
+      { key: "ac-replacement", name: "AC Replacement" },
+      { key: "ac-tune-up", name: "Seasonal AC Tune-Up" },
     ],
   },
-
   {
     slug: "heating",
     title: "Heating & Furnace",
     summary:
       "Professional furnace repair, maintenance, and energy-efficient installation.",
     description:
-      "Professional heating and furnace repair, maintenance, and installation to keep your home warm and energy-efficient throughout the winter.",
-    footerText: "Restore warmth before temperatures drop.",
-    ctaText: "Schedule Heating Service",
-
+      "Complete heating services including furnace repair, replacement, and seasonal maintenance to ensure reliable winter performance.",
     subservices: [
-      {
-        key: "furnace-repair",
-        name: "Furnace Repair",
-        description:
-          "Comprehensive diagnostics and dependable repair to restore safe heating.",
-      },
-      {
-        key: "furnace-installation",
-        name: "New Furnace Installation",
-        description:
-          "Properly sized, high-efficiency heating systems installed for long-term reliability.",
-      },
-      {
-        key: "furnace-replacement",
-        name: "Furnace Replacement",
-        description:
-          "Upgrade aging equipment to improve efficiency and comfort.",
-      },
-      {
-        key: "heating-tune-up",
-        name: "Heating Tune-Up",
-        description:
-          "Preventive inspections and maintenance before peak winter demand.",
-      },
-    ],
-
-    benefits: [
-      "Reliable winter performance",
-      "High-efficiency installation options",
-      "Reduced breakdown risk",
-      "Lower heating costs",
-      "Service for major brands",
+      { key: "furnace-repair", name: "Furnace Repair" },
+      { key: "furnace-installation", name: "New Furnace Installation" },
+      { key: "furnace-replacement", name: "Furnace Replacement" },
+      { key: "heating-tune-up", name: "Heating Tune-Up" },
     ],
   },
-
   {
     slug: "heat-pumps",
-    title: "Heat Pumps",
+    title: "Heat Pump Services",
     summary:
       "Efficient heat pump installation and service for year-round comfort.",
     description:
       "Professional heat pump repair, installation, and maintenance delivering efficient heating and cooling from a single system.",
-    footerText: "Get efficient year-round comfort.",
-    ctaText: "Schedule Heat Pump Service",
-
     subservices: [
-      {
-        key: "heat-pump-repair",
-        name: "Heat Pump Repair",
-        description:
-          "Restore performance and efficiency with accurate troubleshooting.",
-      },
-      {
-        key: "heat-pump-installation",
-        name: "Heat Pump Installation",
-        description:
-          "High-efficiency heat pump systems sized and installed properly.",
-      },
-      {
-        key: "heat-pump-replacement",
-        name: "Heat Pump Replacement",
-        description:
-          "Upgrade to modern, energy-efficient equipment.",
-      },
-      {
-        key: "heat-pump-maintenance",
-        name: "Heat Pump Maintenance",
-        description:
-          "Preventive inspections to maintain year-round reliability.",
-      },
-    ],
-
-    benefits: [
-      "Energy-efficient comfort",
-      "Single-system heating and cooling",
-      "Lower operating costs",
-      "Reliable year-round performance",
+      { key: "heat-pump-repair", name: "Heat Pump Repair" },
+      { key: "heat-pump-installation", name: "Heat Pump Installation" },
+      { key: "heat-pump-replacement", name: "Heat Pump Replacement" },
+      { key: "heat-pump-maintenance", name: "Heat Pump Maintenance" },
     ],
   },
-
-  {
-    slug: "system-replacement",
-    title: "System Replacement",
-    summary:
-      "Upgrade aging HVAC systems with high-efficiency equipment.",
-    description:
-      "Professional evaluation and replacement of outdated heating and cooling systems for improved performance and energy savings.",
-    footerText: "Upgrade your comfort and efficiency.",
-    ctaText: "Request Replacement Estimate",
-
-    subservices: [],
-    benefits: [
-      "High-efficiency system options",
-      "Professional load calculations",
-      "Improved airflow and comfort",
-      "Manufacturer-backed warranties",
-    ],
-  },
-
   {
     slug: "ductwork",
     title: "Ductwork & Venting",
     summary:
       "Professional duct inspection, repair, and airflow optimization.",
     description:
-      "Improve airflow, eliminate hot and cold spots, and maximize system efficiency through expert ductwork and venting services.",
-    footerText: "Improve airflow and balanced comfort.",
-    ctaText: "Schedule Duct Service",
-
+      "Improve airflow, eliminate hot and cold spots, and maximize system efficiency through expert ductwork services.",
     subservices: [
-      {
-        key: "duct-inspection",
-        name: "Duct Inspection",
-        description:
-          "Identify leaks, restrictions, and airflow issues.",
-      },
-      {
-        key: "duct-repair",
-        name: "Duct Repair",
-        description:
-          "Seal and repair damaged duct sections to improve efficiency.",
-      },
-      {
-        key: "airflow-balancing",
-        name: "Airflow Balancing",
-        description:
-          "Correct uneven temperatures and airflow distribution.",
-      },
-    ],
-
-    benefits: [
-      "Improved airflow",
-      "Reduced energy loss",
-      "Balanced indoor comfort",
+      { key: "duct-inspection", name: "Duct Inspection" },
+      { key: "duct-repair", name: "Duct Repair" },
+      { key: "airflow-balancing", name: "Airflow Balancing" },
     ],
   },
-
   {
-    slug: "maintenance",
-    title: "Maintenance & Tune-Ups",
+    slug: "thermostats",
+    title: "Thermostats",
     summary:
-      "Preventative service plans that extend equipment life.",
+      "Smart thermostat installation and upgrade services.",
     description:
-      "Seasonal inspections and maintenance programs designed to reduce breakdowns and improve efficiency year-round.",
-    footerText: "Prevent breakdowns before they happen.",
-    ctaText: "Schedule Tune-Up",
-
+      "Upgrade your HVAC control with programmable and smart thermostat solutions.",
     subservices: [],
-    benefits: [
-      "Reduced emergency repairs",
-      "Improved system lifespan",
-      "Priority scheduling",
-    ],
+  },
+  {
+    slug: "plumbing",
+    title: "Plumbing Services",
+    summary:
+      "Water heating and sump pump solutions for residential properties.",
+    description:
+      "Installation, replacement, and service for water heaters and sump pump systems.",
+    subservices: [],
+  },
+  {
+    slug: "commercial-hvac",
+    title: "Commercial HVAC",
+    summary:
+      "Heating and cooling solutions for commercial properties.",
+    description:
+      "Installation, maintenance, and repair services for light commercial HVAC systems.",
+    subservices: [],
   },
 ];
 
@@ -251,7 +122,6 @@ export type Brand = {
 };
 
 export const brands: Brand[] = [
-  // PRIMARY (Premium Flagship)
   { name: "Carrier", file: "carrier.svg", url: "https://www.carrier.com/residential", tier: "primary" },
   { name: "Trane", file: "trane.svg", url: "https://www.trane.com/residential", tier: "primary" },
   { name: "Lennox", file: "lennox.svg", url: "https://www.lennox.com", tier: "primary" },
@@ -259,7 +129,6 @@ export const brands: Brand[] = [
   { name: "York", file: "york.svg", url: "https://www.york.com/residential-equipment", tier: "primary" },
   { name: "Rheem", file: "rheem.svg", url: "https://www.rheem.com", tier: "primary" },
 
-  // MAJOR NATIONAL / MODERN
   { name: "Bryant", file: "bryant.svg", url: "https://www.bryant.com", tier: "secondary" },
   { name: "Goodman", file: "goodman.svg", url: "https://www.goodmanmfg.com", tier: "secondary" },
   { name: "Amana", file: "amana.svg", url: "https://www.amana-hac.com", tier: "secondary" },
@@ -272,8 +141,6 @@ export const brands: Brand[] = [
   { name: "LG", file: "lg.svg", url: "https://www.lghvac.com", tier: "secondary" },
   { name: "Aprilaire", file: "aprilaire.svg", url: "https://www.aprilaire.com", tier: "secondary" },
   { name: "Honeywell Home", file: "honeywell-home.svg", url: "https://www.honeywellhome.com", tier: "secondary" },
-
-  // VALUE / BUILDER-GRADE (Limited)
   { name: "Ducane", file: "ducane.svg", url: "https://www.ducanehvac.com", tier: "secondary" },
   { name: "Comfortmaker", file: "comfortmaker.svg", url: "https://www.comfortmaker.com", tier: "secondary" },
 ];
