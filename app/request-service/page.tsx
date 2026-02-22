@@ -27,27 +27,39 @@ export default function RequestServicePage() {
   );
 
   return (
-    <div className="min-h-screen bg-primary-50">
+    <div className="min-h-screen bg-primary-50 border-t border-primary-200">
       <Header />
 
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="container mx-auto px-4 pt-10 pb-20">
 
-        {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-serif text-primary-900 mb-6">
-          Request Service
-        </h1>
+        {/* Section Title */}
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
+          <h1 className="text-3xl md:text-4xl 2xl:text-5xl italic font-serif text-primary-900 whitespace-nowrap">
+            Request Service
+          </h1>
+          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
+        </div>
 
-        <p className="text-gray-700 mb-10">
+        <p className="text-center text-gray-700 max-w-xl mx-auto mb-12">
           Have questions or ready to schedule? Contact us today.
         </p>
 
-        {/* Primary Call Block */}
-        <div className="bg-primary-100 rounded-xl p-8 text-center mb-12">
-          <h2 className="text-xl font-serif text-primary-900 mb-3">
+        {/* Call Block */}
+        <div className="
+          bg-white
+          rounded-xl
+          border border-primary-200
+          shadow-[0_6px_18px_rgba(0,0,0,0.05)]
+          p-8
+          text-center
+          mb-12
+        ">
+          <h2 className="text-xl md:text-2xl font-serif text-primary-900 mb-4">
             Call for Fastest Service
           </h2>
 
-          <p className="text-gray-700 mb-4">
+          <p className="text-gray-700 mb-6">
             Call us directly to discuss your heating and cooling needs.
           </p>
 
@@ -64,8 +76,14 @@ export default function RequestServicePage() {
         </div>
 
         {/* Service Request Form */}
-        <div className="bg-white rounded-xl shadow-md p-8">
-          <h2 className="text-2xl font-serif text-primary-900 mb-6">
+        <div className="
+          bg-white
+          rounded-xl
+          border border-primary-200
+          shadow-[0_6px_18px_rgba(0,0,0,0.05)]
+          p-8
+        ">
+          <h2 className="text-xl md:text-2xl font-serif text-primary-900 mb-6">
             Service Request Form
           </h2>
 
@@ -154,13 +172,11 @@ export default function RequestServicePage() {
                   >
                     <option value="">-- Select service type --</option>
 
-                    {selectedServiceObject.subservices.map(
-                      (sub: Service["subservices"][number]) => (
-                        <option key={sub.key} value={sub.key}>
-                          {sub.name}
-                        </option>
-                      )
-                    )}
+                    {selectedServiceObject.subservices.map((sub) => (
+                      <option key={sub.key} value={sub.key}>
+                        {sub.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               )}

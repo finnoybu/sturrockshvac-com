@@ -4,22 +4,36 @@ import { services } from "@/lib/content";
 
 export default function ServicesDirectory() {
   return (
-    <div className="min-h-screen bg-primary-50">
+    <div className="min-h-screen bg-primary-50 border-t border-primary-200">
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 py-16">
+      <main className="container mx-auto px-4 pt-10 pb-20">
 
-        <h1 className="text-4xl md:text-5xl font-serif text-primary-900 mb-10">
-          Our Services
-        </h1>
+        {/* Section Title */}
+        <div className="flex items-center justify-center gap-3 mb-10">
+          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
+          <h1 className="text-3xl md:text-4xl 2xl:text-5xl italic font-serif text-primary-900 whitespace-nowrap">
+            Our Services
+          </h1>
+          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
+        </div>
 
-        <div className="space-y-10">
+        {/* Services List */}
+        <div className="space-y-8">
           {services.map((service) => (
             <div
               key={service.slug}
-              className="bg-white rounded-xl shadow-md p-8"
+              className="
+                bg-white
+                rounded-xl
+                border border-primary-200
+                shadow-[0_6px_18px_rgba(0,0,0,0.05)]
+                px-6 py-6
+                transition duration-200
+                hover:shadow-[0_12px_26px_rgba(0,0,0,0.10)]
+              "
             >
-              <h2 className="text-2xl font-serif text-primary-900 mb-4">
+              <h2 className="text-xl md:text-2xl font-serif text-primary-900 mb-4">
                 {service.title}
               </h2>
 
@@ -33,7 +47,7 @@ export default function ServicesDirectory() {
 
               <Link
                 href={`/services/${service.slug}`}
-                className="text-accent-600 hover:text-accent-700 font-semibold"
+                className="text-accent-600 hover:text-accent-700 font-semibold transition-colors"
               >
                 Learn More →
               </Link>

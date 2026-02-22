@@ -49,7 +49,7 @@ const items = [
   const topSix = items.slice(0, 6);
 
   return (
-    <section className="bg-white pt-10 pb-14 md:pt-12 md:pb-20">
+    <section className="bg-neutral-50 border-t border-white pt-10 pb-14 md:pt-12 md:pb-20">
       <div className="container mx-auto px-4">
 
         {/* Title — match Services spacing */}
@@ -99,7 +99,7 @@ function WhyCard({ item }: { item: WhyItem }) {
   return (
     <div
       className="
-        bg-primary-50
+        bg-white
         rounded-xl
         border border-primary-200
         shadow-[0_6px_18px_rgba(0,0,0,0.05)]
