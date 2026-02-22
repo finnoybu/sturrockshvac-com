@@ -3,10 +3,10 @@
 // =============================
 
 export const companyInfo = {
-  name: "Sturrock HVAC Solutions",
+  name: "Sturrocks HVAC Solutions",
   phone: "(571) 258-7983",
   phoneE164: "+15712587983",
-  email: "info@sturrockhvac.com",
+  email: "andy@hvac-solutions.com",
   tagline: "Your Comfort is Our Priority",
 };
 
@@ -16,7 +16,7 @@ export const companyInfo = {
 
 export const serviceAreas = {
   short:
-    "Loudoun & Fairfax Counties (VA) and Montgomery & Frederick Counties (MD)",
+    "Loudoun/Fairfax Counties (VA) and Montgomery/Frederick Counties (MD)",
   full:
     "Loudoun County and Fairfax County in Virginia, as well as Montgomery County and Frederick County in Maryland",
 };
@@ -33,6 +33,12 @@ export const services = [
       "Expert air conditioning repair, preventive maintenance, and installation.",
     description:
       "Professional cooling solutions including system diagnostics, repair, installation, and seasonal maintenance to keep your home comfortable during peak summer heat.",
+    commonRequests: [
+      "AC blowing warm air",
+      "System short cycling",
+      "High summer energy bills",
+      "Weak airflow in certain rooms"
+    ],
     subservices: [
       { key: "ac-repair", name: "AC Repair" },
       { key: "ac-installation", name: "New AC Installation" },
@@ -47,6 +53,12 @@ export const services = [
       "Professional furnace repair, maintenance, and energy-efficient installation.",
     description:
       "Complete heating services including furnace repair, replacement, and seasonal maintenance to ensure reliable winter performance.",
+    commonRequests: [
+      "Furnace not turning on",
+      "Cold air from vents",
+      "Strange smells or burning odor",
+      "Uneven heating throughout the home"
+    ],
     subservices: [
       { key: "furnace-repair", name: "Furnace Repair" },
       { key: "furnace-installation", name: "New Furnace Installation" },
@@ -61,6 +73,12 @@ export const services = [
       "Efficient heat pump installation and service for year-round comfort.",
     description:
       "Professional heat pump repair, installation, and maintenance delivering efficient heating and cooling from a single system.",
+    commonRequests: [
+      "Heat pump stuck in one mode",
+      "System running constantly",
+      "Icing on outdoor unit",
+      "Poor heating performance in winter"
+    ],
     subservices: [
       { key: "heat-pump-repair", name: "Heat Pump Repair" },
       { key: "heat-pump-installation", name: "Heat Pump Installation" },
@@ -75,6 +93,12 @@ export const services = [
       "Professional duct inspection, repair, and airflow optimization.",
     description:
       "Improve airflow, eliminate hot and cold spots, and maximize system efficiency through expert ductwork services.",
+    commonRequests: [
+      "Hot and cold spots in rooms",
+      "Weak airflow from vents",
+      "Noisy duct rattling",
+      "Excess dust buildup"
+    ],
     subservices: [
       { key: "duct-inspection", name: "Duct Inspection" },
       { key: "duct-repair", name: "Duct Repair" },
@@ -88,6 +112,12 @@ export const services = [
       "Smart thermostat installation and upgrade services.",
     description:
       "Upgrade your HVAC control with programmable and smart thermostat solutions.",
+    commonRequests: [
+      "Thermostat not responding",
+      "Inaccurate temperature readings",
+      "WiFi connectivity issues",
+      "Upgrade to smart thermostat"
+    ],
     subservices: [],
   },
   {
@@ -97,7 +127,32 @@ export const services = [
       "Water heating and sump pump solutions for residential properties.",
     description:
       "Installation, replacement, and service for water heaters and sump pump systems.",
+    commonRequests: [
+      "Water heater not producing hot water",
+      "Water heater leaking",
+      "Sump pump not activating",
+      "Replacement of aging water heater"
+    ],
     subservices: [],
+  },
+  {
+    slug: "preventative-maintenance",
+    title: "Preventative Maintenance",
+    summary:
+      "Seasonal HVAC maintenance plans to maximize performance and system lifespan.",
+    description:
+      "Protect your investment with professional seasonal maintenance designed to improve efficiency, reduce unexpected breakdowns, and extend the life of your HVAC system.",
+    commonRequests: [
+      "Seasonal AC or heating tune-ups",
+      "Reduce risk of unexpected breakdowns",
+      "Improve energy efficiency",
+      "Extend system lifespan"
+    ],
+    subservices: [
+      { key: "ac-maintenance", name: "AC Maintenance" },
+      { key: "heating-maintenance", name: "Heating Maintenance" },
+      { key: "system-inspection", name: "Full System Inspection" }
+    ],
   },
   {
     slug: "commercial-hvac",
@@ -106,6 +161,12 @@ export const services = [
       "Heating and cooling solutions for commercial properties.",
     description:
       "Installation, maintenance, and repair services for light commercial HVAC systems.",
+    commonRequests: [
+      "Inconsistent office temperatures",
+      "Rooftop unit not cooling properly",
+      "Preventative maintenance scheduling",
+      "System performance concerns"
+    ],
     subservices: [],
   },
 ];

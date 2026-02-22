@@ -2,7 +2,7 @@ import { finalCTA, companyInfo } from "@/lib/content";
 
 export default function FinalCTA() {
   return (
-    <section className="bg-linear-to-r from-accent-500 to-accent-600 text-white py-16 md:py-20">
+    <section className="bg-gradient-to-r from-accent-500 to-accent-600 text-white py-16 md:py-20">
       <div className="container mx-auto px-4 text-center">
 
         <h2 className="text-3xl md:text-4xl font-bold mb-4">

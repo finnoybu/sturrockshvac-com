@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sturrockshvac.com/sitemap.xml

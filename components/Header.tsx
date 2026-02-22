@@ -11,7 +11,7 @@ export default function Header() {
         <Link href="/" className="flex items-center">
           <img
             src="/logo.png"
-            alt="Sturrock HVAC Solutions Logo"
+            alt="Sturrocks HVAC Solutions Logo"
             className="h-14 sm:h-20 md:h-24 w-auto"
           />
         </Link>

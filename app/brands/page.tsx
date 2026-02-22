@@ -5,6 +5,12 @@ import { brands } from "@/lib/content";
 
 export const dynamic = "force-static";
 
+export const metadata = {
+  title: "Brands We Service | Sturrocks HVAC Solutions",
+  description:
+    "See the HVAC brands we service and recommend for new installations and replacements throughout Fairfax and Loudoun, VA and Montgomery and Frederick, MD.",
+};
+
 export default function BrandsPage() {
   const sortedBrands = [...brands].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -22,10 +28,30 @@ export default function BrandsPage() {
           <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
         </div>
 
-        {/* Subtitle */}
-        <p className="text-center text-gray-600 max-w-xl mx-auto mb-14">
-          We service and install equipment from the following manufacturers.
-        </p>
+{/* Subtitle */}
+<p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+  We service and repair equipment from most major HVAC manufacturers and recommend trusted brands we rely on for new installations and system replacements. Every recommendation is based on performance, efficiency, and long-term reliability.
+</p>
+
+{/* CTA */}
+<div className="text-center mb-14">
+  <Link
+    href="/request-service"
+    className="
+      bg-accent-500 hover:bg-accent-600
+      text-white
+      text-sm sm:text-base md:text-lg
+      px-4 sm:px-5 md:px-6
+      py-2 sm:py-2.5
+      rounded-md
+      shadow-md
+      transition-colors
+      inline-block
+    "
+  >
+    Request Service
+  </Link>
+</div>
 
         {/* 5 x 4 Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
