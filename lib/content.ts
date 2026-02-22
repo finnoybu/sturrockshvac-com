@@ -251,33 +251,31 @@ export type Brand = {
 };
 
 export const brands: Brand[] = [
-  // PRIMARY
-  { name: "Carrier", file: "carrier.svg", url: "https://www.carrier.com", tier: "primary" },
-  { name: "Trane", file: "trane.svg", url: "https://www.trane.com", tier: "primary" },
+  // PRIMARY (Premium Flagship)
+  { name: "Carrier", file: "carrier.svg", url: "https://www.carrier.com/residential", tier: "primary" },
+  { name: "Trane", file: "trane.svg", url: "https://www.trane.com/residential", tier: "primary" },
   { name: "Lennox", file: "lennox.svg", url: "https://www.lennox.com", tier: "primary" },
-  { name: "Rheem", file: "rheem.svg", url: "https://www.rheem.com", tier: "primary" },
-  { name: "York", file: "york.svg", url: "https://www.york.com", tier: "primary" },
   { name: "American Standard", file: "american-standard.svg", url: "https://www.americanstandardair.com", tier: "primary" },
+  { name: "York", file: "york.svg", url: "https://www.york.com/residential-equipment", tier: "primary" },
+  { name: "Rheem", file: "rheem.svg", url: "https://www.rheem.com", tier: "primary" },
 
-  // SECONDARY
-  { name: "Amana", file: "amana.svg", url: "https://www.amana-hac.com", tier: "secondary" },
-  { name: "Armstrong Air", file: "armstrong-air.svg", url: "https://www.armstrongair.com", tier: "secondary" },
+  // MAJOR NATIONAL / MODERN
   { name: "Bryant", file: "bryant.svg", url: "https://www.bryant.com", tier: "secondary" },
-  { name: "Comfortmaker", file: "comfortmaker.svg", url: "https://www.comfortmaker.com", tier: "secondary" },
-  { name: "Ducane", file: "ducane.svg", url: "https://www.ducanehvac.com", tier: "secondary" },
-  { name: "Emerson", file: "emerson.svg", url: "https://www.emerson.com", tier: "secondary" },
-  { name: "Fedders", file: "fedders.svg", url: "https://www.fedders.com", tier: "secondary" },
-  { name: "Gibson", file: "gibson.svg", url: "https://www.gibsonhvac.com", tier: "secondary" },
   { name: "Goodman", file: "goodman.svg", url: "https://www.goodmanmfg.com", tier: "secondary" },
-  { name: "Heil", file: "heil.svg", url: "https://www.heil-hvac.com", tier: "secondary" },
-  { name: "Janitrol", file: "janitrol.svg", url: "https://www.janitrolac.com", tier: "secondary" },
-  { name: "Kenmore", file: "kenmore.svg", url: "https://www.kenmore.com", tier: "secondary" },
-  { name: "LG", file: "lg.svg", url: "https://www.lg.com", tier: "secondary" },
-  { name: "Luxaire", file: "luxaire.svg", url: "https://www.luxaire.com", tier: "secondary" },
-  { name: "Payne", file: "payne.svg", url: "https://www.payne.com", tier: "secondary" },
+  { name: "Amana", file: "amana.svg", url: "https://www.amana-hac.com", tier: "secondary" },
   { name: "Ruud", file: "ruud.svg", url: "https://www.ruud.com", tier: "secondary" },
+  { name: "Heil", file: "heil.svg", url: "https://www.heil-hvac.com", tier: "secondary" },
   { name: "Tempstar", file: "tempstar.svg", url: "https://www.tempstar.com", tier: "secondary" },
-  { name: "Weather King", file: "weather-king.svg", url: "https://www.weatherking.com", tier: "secondary" },
+  { name: "Daikin", file: "daikin.svg", url: "https://www.daikincomfort.com", tier: "secondary" },
+  { name: "Mitsubishi Electric", file: "mitsubishi-electric.svg", url: "https://www.mitsubishicomfort.com", tier: "secondary" },
+  { name: "Bosch", file: "bosch.svg", url: "https://www.bosch-thermotechnology.us", tier: "secondary" },
+  { name: "LG", file: "lg.svg", url: "https://www.lghvac.com", tier: "secondary" },
+  { name: "Aprilaire", file: "aprilaire.svg", url: "https://www.aprilaire.com", tier: "secondary" },
+  { name: "Honeywell Home", file: "honeywell-home.svg", url: "https://www.honeywellhome.com", tier: "secondary" },
+
+  // VALUE / BUILDER-GRADE (Limited)
+  { name: "Ducane", file: "ducane.svg", url: "https://www.ducanehvac.com", tier: "secondary" },
+  { name: "Comfortmaker", file: "comfortmaker.svg", url: "https://www.comfortmaker.com", tier: "secondary" },
 ];
 
 // =============================
