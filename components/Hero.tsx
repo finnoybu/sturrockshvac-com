@@ -39,15 +39,15 @@ export default function HeroSection() {
 
         {/* HEADLINE + CTA overlay */}
         <div className="absolute inset-0 z-10">
-          <div className="max-w-screen-2xl mx-auto px-6 md:px-14 lg:px-33 pt-10 md:pt-16 2xl:pt-24">
+          <div className="max-w-screen-2xl mx-auto px-6 md:px-14 lg:px-33 pt-6 md:pt-10 lg:pt-12 2xl:pt-24">
             <div className="max-w-2xl">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl font-serif text-primary-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-5xl 2xl:text-7xl font-serif text-primary-900 leading-tight">
                 Heating & Cooling,
                 <br />
                 Precisely Done.
               </h1>
 
-              <p className="mt-6 text-lg text-gray-700">
+              <p className="mt-4 text-md md:text-lg 2xl:text-2xl text-gray-700">
                 Serving Northern Virginia & Maryland with expert installation
                 and repair.
               </p>
