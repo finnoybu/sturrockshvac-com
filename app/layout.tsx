@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModalProvider from "@/components/ContactModalProvider";
+import { brand, companyInfo } from "@/lib/content";
 import "./globals.css";
-import { brand } from "@/lib/content";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sturrockshvac.com"),
+  metadataBase: new URL(`https://${brand.domain}`),
 
   title: {
     default: `${brand.marketingName} - Professional Heating & Cooling Services`,
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sturrockshvac.com",
+    url: `https://${brand.domain}`,
     siteName: brand.marketingName,
     title: `${brand.marketingName} - Professional Heating & Cooling Services`,
     description:
@@ -61,6 +62,44 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </ContactModalProvider>
+
+        {/* Structured Data: HVAC Business */}
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HVACBusiness",
+              name: brand.marketingName,
+              legalName: brand.legalName,
+              url: `https://${brand.domain}`,
+              telephone: companyInfo.phoneE164,
+              areaServed: [
+                {
+                  "@type": "AdministrativeArea",
+                  name: "Virginia",
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  name: "Maryland",
+                },
+              ],
+              identifier: [
+                {
+                  "@type": "PropertyValue",
+                  name: brand.licenses.VA.label,
+                  value: brand.licenses.VA.number,
+                },
+                {
+                  "@type": "PropertyValue",
+                  name: brand.licenses.MD.label,
+                  value: brand.licenses.MD.number,
+                },
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );
