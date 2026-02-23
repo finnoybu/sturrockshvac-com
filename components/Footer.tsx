@@ -11,9 +11,7 @@ export default function Footer() {
             {companyInfo.name}
           </h3>
 
-          <p className="text-sm text-primary-200 mb-3">
-            {companyInfo.tagline}
-          </p>
+          <p className="text-sm text-primary-200 mb-3">{companyInfo.tagline}</p>
 
           <p className="text-sm mb-1">
             <span className="font-semibold">Phone:</span>{" "}
@@ -35,9 +33,7 @@ export default function Footer() {
             </a>
           </p>
 
-          <p className="text-sm text-primary-200 mt-3">
-            {serviceAreas.short}
-          </p>
+          <p className="text-sm text-primary-200 mt-3">{serviceAreas.short}</p>
 
           <p className="text-sm text-primary-200 mt-3">
             Licensed & Insured in VA & MD
@@ -51,10 +47,38 @@ export default function Footer() {
           </h3>
 
           <ul className="space-y-2 text-sm">
-            <li><Link href="/" className="hover:text-accent-400 transition-colors">Home</Link></li>
-            <li><Link href="/services" className="hover:text-accent-400 transition-colors">Services</Link></li>
-            <li><Link href="/brands" className="hover:text-accent-400 transition-colors">Brands</Link></li>
-            <li><Link href="/request-service" className="hover:text-accent-400 transition-colors">Request Service</Link></li>
+            <li>
+              <Link
+                href="/"
+                className="hover:text-accent-400 transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services"
+                className="hover:text-accent-400 transition-colors"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/brands"
+                className="hover:text-accent-400 transition-colors"
+              >
+                Brands
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/request-service"
+                className="hover:text-accent-400 transition-colors"
+              >
+                Request Service
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -66,17 +90,73 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 gap-x-10">
             <ul className="space-y-3 text-sm">
-              <li><Link href="/services/air-conditioning" className="hover:text-accent-400 transition-colors">Air Conditioning</Link></li>
-              <li><Link href="/services/heating" className="hover:text-accent-400 transition-colors">Heating & Furnace</Link></li>
-              <li><Link href="/services/heat-pumps" className="hover:text-accent-400 transition-colors">Heat Pump Services</Link></li>
-              <li><Link href="/services/ductwork" className="hover:text-accent-400 transition-colors">Ductwork & Venting</Link></li>
+              <li>
+                <Link
+                  href="/services/air-conditioning"
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  Air Conditioning
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/heating"
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  Heating & Furnace
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/heat-pumps"
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  Heat Pump Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/ductwork"
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  Ductwork & Venting
+                </Link>
+              </li>
             </ul>
 
             <ul className="space-y-3 text-sm">
-              <li><Link href="/services/thermostats" className="hover:text-accent-400 transition-colors">Thermostats</Link></li>
-              <li><Link href="/services/plumbing" className="hover:text-accent-400 transition-colors">Plumbing Services</Link></li>
-              <li><Link href="/services/preventative-maintenance" className="hover:text-accent-400 transition-colors whitespace-nowrap">Preventative Maintenance</Link></li>
-              <li><Link href="/services/commercial-hvac" className="hover:text-accent-400 transition-colors">Commercial HVAC</Link></li>
+              <li>
+                <Link
+                  href="/services/thermostats"
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  Thermostats
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/plumbing"
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  Plumbing Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/preventative-maintenance"
+                  className="hover:text-accent-400 transition-colors whitespace-nowrap"
+                >
+                  Preventative Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/commercial-hvac"
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  Commercial HVAC
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -88,9 +168,30 @@ export default function Footer() {
           </h3>
 
           <ul className="space-y-2 text-sm">
-            <li><Link href="/privacy-policy" className="hover:text-accent-400 transition-colors">Privacy Policy</Link></li>
-            <li><Link href="/terms" className="hover:text-accent-400 transition-colors">Terms & Conditions</Link></li>
-            <li><Link href="/accessibility" className="hover:text-accent-400 transition-colors">Accessibility Statement</Link></li>
+            <li>
+              <Link
+                href="/privacy-policy"
+                className="hover:text-accent-400 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/terms"
+                className="hover:text-accent-400 transition-colors"
+              >
+                Terms & Conditions
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/accessibility"
+                className="hover:text-accent-400 transition-colors"
+              >
+                Accessibility Statement
+              </Link>
+            </li>
             <li>
               <a
                 href="/sitemap.xml"
@@ -107,21 +208,26 @@ export default function Footer() {
 
       {/* Bottom Strip */}
       <div className="border-t border-primary-700 relative py-8 text-sm text-primary-300">
+        {/* Finnoybu Logo + Build ID Bottom Left */}
+        <div className="absolute left-6 bottom-6 flex items-center gap-3 text-primary-300">
+          <a
+            href="https://finnoybu.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Site designed by Kenneth Tannenbaum"
+            className="hover:text-accent-500 transition-colors"
+          >
+            <img
+              src="/images/finnoybu-gray.svg"
+              alt="Finnoybu Logo"
+              className="h-8 w-auto"
+            />
+          </a>
 
-        {/* Finnoybu Logo Bottom Left */}
-        <a
-          href="https://finnoybu.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Site designed by Kenneth Tannenbaum"
-          className="absolute left-6 bottom-6 text-primary-300 hover:text-accent-500 transition-colors"
-        >
-          <img
-            src="/images/finnoybu-gray.svg"
-            alt="Finnoybu Logo"
-            className="h-8 w-auto"
-          />
-        </a>
+          <span className="text-[11px] opacity-60 tracking-wide">
+            Build {process.env.NEXT_PUBLIC_BUILD_ID}
+          </span>
+        </div>
 
         {/* Centered Copyright */}
         <div className="text-center">
