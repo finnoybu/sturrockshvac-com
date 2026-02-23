@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { companyInfo } from "@/lib/content";
+import { brand, companyInfo } from "@/lib/content";
 import PrimaryCTA from "./PrimaryCTA";
 
 interface ContactModalProps {
@@ -14,7 +14,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const handleCopy = async () => {
     const fullContact = [
-      "Sturrocks HVAC Solutions",
+      `${brand.marketingName}`,
       "Andy Sturrock, Owner",
       "",
       "11592 Harpers Ferry Rd",
@@ -57,7 +57,7 @@ return (
         <div className="bg-linear-to-b from-primary-900 to-primary-800 py-8 flex justify-center">
           <img
             src="/logo.png"
-            alt="Sturrocks HVAC Solutions"
+            alt={`${brand.marketingName} Logo`}
             className="h-14 w-auto"
           />
         </div>

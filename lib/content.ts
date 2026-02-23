@@ -2,12 +2,34 @@
 // COMPANY INFO
 // =============================
 
+export const brand = {
+  marketingName: "Sturrock's HVAC Solutions",
+  legalName: "Sturrock's HVAC-Solutions",
+  shortName: "Sturrock's",
+  domain: "sturrockshvac.com",
+
+  licenses: {
+    VA: {
+      number: "2705144397",
+      label: "Virginia DPOR License",
+    },
+    MD: {
+      number: "85109",
+      label: "Maryland HVACR License",
+    },
+  },
+
+  tagline: "Your Comfort is Our Priority",
+};
+
 export const companyInfo = {
-  name: "Sturrocks HVAC Solutions",
+  name: brand.marketingName,
+  legalName: brand.legalName,
   phone: "(571) 258-7983",
   phoneE164: "+15712587983",
   email: "andy@hvac-solutions.com",
-  tagline: "Your Comfort is Our Priority",
+  tagline: brand.tagline,
+  licenses: brand.licenses,
 };
 
 // =============================

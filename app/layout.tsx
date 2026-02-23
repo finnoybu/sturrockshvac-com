@@ -3,14 +3,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModalProvider from "@/components/ContactModalProvider";
 import "./globals.css";
+import { brand } from "@/lib/content";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sturrockshvac.com"),
 
   title: {
-    default:
-      "Sturrocks HVAC Solutions - Professional Heating & Cooling Services",
-    template: "%s | Sturrocks HVAC Solutions",
+    default: `${brand.marketingName} - Professional Heating & Cooling Services`,
+    template: `%s | ${brand.marketingName}`,
   },
 
   description:
@@ -20,9 +20,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://sturrockshvac.com",
-    siteName: "Sturrocks HVAC Solutions",
-    title:
-      "Sturrocks HVAC Solutions - Professional Heating & Cooling Services",
+    siteName: brand.marketingName,
+    title: `${brand.marketingName} - Professional Heating & Cooling Services`,
     description:
       "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
     images: [
@@ -30,15 +29,14 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Sturrocks HVAC Solutions",
+        alt: brand.marketingName,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Sturrocks HVAC Solutions - Professional Heating & Cooling Services",
+    title: `${brand.marketingName} - Professional Heating & Cooling Services`,
     description:
       "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
     images: ["/og-image.jpg"],
