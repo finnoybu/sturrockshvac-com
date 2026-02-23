@@ -1,30 +1,19 @@
-```{=html}
 <p align="center">
-```
-`<img src="public/og-image.jpg" alt="Sturrock HVAC Solutions Preview" width="800">`{=html}
-```{=html}
+  <img src="public/og-image.jpg" alt="Sturrock's HVAC Solutions Preview" width="800">
 </p>
-```
-```{=html}
+
 <p align="center">
-```
-`<strong>`{=html}Official Website
-Codebase`</strong>`{=html}`<br>`{=html} Production Deployment -- v1.2
-Infrastructure Stable
-```{=html}
+  <strong>Official Website Codebase</strong><br>
+  Production Deployment – v1.2.0
 </p>
-```
-```{=html}
+
 <p align="center">
-```
-`<img src="https://img.shields.io/badge/runtime-cloudflare--workers-orange" />`{=html}
-`<img src="https://img.shields.io/badge/framework-nextjs--16-black" />`{=html}
-`<img src="https://img.shields.io/badge/version-v1.2-blue" />`{=html}
-`<img src="https://img.shields.io/badge/status-production-green" />`{=html}
-`<img src="https://img.shields.io/badge/license-private-red" />`{=html}
-```{=html}
+  <img src="https://img.shields.io/badge/runtime-cloudflare--workers-orange" />
+  <img src="https://img.shields.io/badge/framework-nextjs--16-black" />
+  <img src="https://img.shields.io/badge/version-v1.2.0-blue" />
+  <img src="https://img.shields.io/badge/status-production-green" />
+  <img src="https://img.shields.io/badge/license-private-red" />
 </p>
-```
 
 ------------------------------------------------------------------------
 
