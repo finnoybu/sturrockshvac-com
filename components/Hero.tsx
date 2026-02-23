@@ -9,10 +9,10 @@ export default function HeroSection() {
   const season = getCurrentSeason();
 
   const heroImageMap: Record<string, string> = {
-    spring: "/hero/spring_hero_2560x1320.png",
-    summer: "/hero/sturrock_summer_hero_2560x1320.png",
-    fall: "/hero/fall_hero_2560x1320.png",
-    winter: "/hero/winter_hero_2560x1320.png",
+    spring: "/hero/spring_hero_2560x1320.webp",
+    summer: "/hero/summer_hero_2560x1320.webp",
+    fall: "/hero/fall_hero_2560x1320.webp",
+    winter: "/hero/winter_hero_2560x1320.webp",
   };
 
   const heroImage = heroImageMap[season];
@@ -25,6 +25,7 @@ export default function HeroSection() {
           alt="Seasonal home exterior"
           fill
           priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1536px) 100vw, 1920px"
           className="object-cover object-[right_40%_top_75%]"
         />
 

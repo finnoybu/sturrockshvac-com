@@ -38,3 +38,11 @@ README_old.md
 
 # vscode
 .vscode/
+
+# OpenNext / Cloudflare
+.open-next/
+.wrangler/
+dist/
+
+# Wrangler local state
+*.dev.vars

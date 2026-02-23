@@ -28,7 +28,7 @@ export default function NotFound() {
           {/* Image */}
           <div className="flex justify-center mb-10">
             <Image
-              src="/images/broken-ac.png"
+              src="/images/broken-ac.webp"
               alt="Disassembled HVAC unit"
               width={300}
               height={200}

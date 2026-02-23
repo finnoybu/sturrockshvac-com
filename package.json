@@ -1,22 +1,23 @@
 {
-  "name": "sturrock-experimental",
+  "name": "sturrockshvac-com",
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "opennextjs-cloudflare build",
+    "build": "next build",
+    "cf:build": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finnoybu/sturrock-experimental.git"
+    "url": "git+https://github.com/finnoybu/sturrockshvac-com.git"
   },
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/finnoybu/sturrock-experimental/issues"
+    "url": "https://github.com/finnoybu/sturrockshvac-com/issues"
   },
-  "homepage": "https://github.com/finnoybu/sturrock-experimental#readme",
+  "homepage": "https://github.com/finnoybu/sturrockshvac-com#readme",
   "engines": {
     "node": ">=20.0.0"
   },
