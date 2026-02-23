@@ -63,7 +63,9 @@ export default function RootLayout({
           <Footer />
         </ContactModalProvider>
 
-        {/* Structured Data: HVAC Business */}
+        {/* =============================
+            Structured Data: Business
+        ============================== */}
         <Script
           id="local-business-schema"
           type="application/ld+json"
@@ -71,20 +73,27 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "HVACBusiness",
+              "@id": `https://${brand.domain}#business`,
               name: brand.marketingName,
               legalName: brand.legalName,
               url: `https://${brand.domain}`,
               telephone: companyInfo.phoneE164,
+              priceRange: "$$",
+
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "11592 Harpers Ferry Rd",
+                addressLocality: "Hillsboro",
+                addressRegion: "VA",
+                postalCode: "20132",
+                addressCountry: "US",
+              },
+
               areaServed: [
-                {
-                  "@type": "AdministrativeArea",
-                  name: "Virginia",
-                },
-                {
-                  "@type": "AdministrativeArea",
-                  name: "Maryland",
-                },
+                { "@type": "AdministrativeArea", name: "Virginia" },
+                { "@type": "AdministrativeArea", name: "Maryland" },
               ],
+
               identifier: [
                 {
                   "@type": "PropertyValue",
