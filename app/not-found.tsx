@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-primary-50 flex flex-col">
-      <Header />
 
       <main className="grow flex items-start justify-center px-6 pt-16 pb-24">
         <div className="max-w-4xl mx-auto text-center">

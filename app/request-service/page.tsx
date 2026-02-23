@@ -113,7 +113,6 @@ export default function RequestServicePage() {
 
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
-      <Header />
 
       <main className="container mx-auto px-4 pt-10 pb-20">
         <div className="flex items-center justify-center gap-3 mb-6">

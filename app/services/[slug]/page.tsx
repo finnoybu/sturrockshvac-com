@@ -52,7 +52,6 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
-      <Header />
 
       <main className="max-w-6xl mx-auto px-6 pt-10 pb-16">
         {/* Back to Services */}

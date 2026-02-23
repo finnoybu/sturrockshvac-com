@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import TrustBar from "./TrustBar";
+import ContactCTA from "@/components/ContactCTA";
 
 const heroImages = [
   "/hero/spring_hero_2560x1320.png",
@@ -52,9 +53,9 @@ export default function HeroSection() {
                 and repair.
               </p>
 
-              <button className="mt-8 bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-md shadow-md transition-colors">
-                Contact Us Today
-              </button>
+              <div className="mt-8">
+                <ContactCTA>Contact Us Today</ContactCTA>
+              </div>
             </div>
           </div>
         </div>

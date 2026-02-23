@@ -9,7 +9,6 @@ export const metadata = {
 export default function Accessibility() {
   return (
     <>
-      <Header />
       <main className="container mx-auto px-4 py-16 max-w-4xl">
         <h1 className="text-3xl font-serif mb-8">
           Accessibility Statement

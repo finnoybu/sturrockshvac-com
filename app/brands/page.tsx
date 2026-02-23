@@ -16,7 +16,6 @@ export default function BrandsPage() {
 
   return (
     <div className="min-h-screen bg-white border-t border-primary-200">
-      <Header />
 
       <main className="container mx-auto px-4 pt-10 pb-20">
         {/* Section Title */}

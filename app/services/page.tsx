@@ -12,7 +12,6 @@ export const metadata = {
 export default function ServicesDirectory() {
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
-      <Header />
 
       <main className="container mx-auto px-4 pt-10 pb-20">
         {/* Section Title */}

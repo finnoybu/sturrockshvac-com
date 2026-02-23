@@ -1,51 +1,10 @@
 import type { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sturrockshvac.com"),
-
-  title: {
-    default: "Sturrocks HVAC Solutions",
-    template: "%s | Sturrocks HVAC Solutions",
-  },
-
-  description:
-    "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
-
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://sturrockshvac.com",
-    siteName: "Sturrocks HVAC Solutions",
-    title: "Sturrocks HVAC Solutions",
-    description:
-      "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Sturrocks HVAC Solutions",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Sturrocks HVAC Solutions",
-    description:
-      "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
-    images: ["/og-image.jpg"],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
-  icons: {
-    icon: "/favicon.ico",
-  },
+  // your existing metadata block here
 };
 
 export default function RootLayout({
@@ -55,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

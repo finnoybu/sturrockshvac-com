@@ -16,7 +16,6 @@ export const dynamic = "force-static";
 export default function Home() {
   return (
     <>
-      <Header />
       <HeroSection />
       <ServicesGrid />
       <WhySturrocks />
