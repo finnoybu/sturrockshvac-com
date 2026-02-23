@@ -5,7 +5,7 @@ import { services } from "@/lib/content";
 export const metadata: Metadata = {
   title: "HVAC Services",
   description:
-    "Explore HVAC repair, installation, maintenance, heat pump, furnace, and air conditioning services from Sturrocks HVAC Solutions in Virginia and Maryland.",
+    "Explore HVAC repair, installation, maintenance, heat pump, furnace, and air conditioning services from Sturrock's HVAC Solutions in Virginia and Maryland.",
 };
 
 export default function ServicesDirectory() {

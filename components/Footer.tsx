@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { companyInfo, serviceAreas } from "@/lib/content";
+import { brand, companyInfo, serviceAreas } from "@/lib/content";
 
 export default function Footer() {
   return (
@@ -232,7 +232,9 @@ export default function Footer() {
 
         {/* Centered Copyright */}
         <div className="text-center">
-          © {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
+          ©© {new Date().getFullYear()} {brand.legalName}
+          Licensed in VA (#{brand.licenses.VA.number}) & MD (#
+          {brand.licenses.MD.number})
           <br />
           <span className="opacity-80">
             Site designed & developed by Kenneth Tannenbaum

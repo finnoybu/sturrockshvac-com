@@ -1,82 +1,115 @@
 <p align="center">
-  <img src="assets/logos/large_logo.png" alt="Sturrocks HVAC Solutions Logo" width="300">
+  <img src="public/og-image.jpg" alt="Sturrock's HVAC Solutions Preview" width="800">
 </p>
 
 <p align="center">
   <strong>Official Website Codebase</strong><br>
-  Pre-Launch Build
+  Production Deployment – v1.2.0
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-pre--launch-blue" />
-  <img src="https://img.shields.io/badge/version-v0.1.0-lightgrey" />
+  <img src="https://img.shields.io/badge/runtime-cloudflare--workers-orange" />
+  <img src="https://img.shields.io/badge/framework-nextjs--16-black" />
+  <img src="https://img.shields.io/badge/version-v1.2.0-blue" />
+  <img src="https://img.shields.io/badge/status-production-green" />
   <img src="https://img.shields.io/badge/license-private-red" />
 </p>
 
----
+------------------------------------------------------------------------
 
-# Sturrocks HVAC Solutions Website
+# Sturrock's HVAC Solutions Website
 
-Marketing website for **Sturrocks HVAC Solutions LLC**, serving Northern Virginia and Maryland.
+Production marketing website for **Sturrock's HVAC Solutions**,
+serving Northern Virginia and Maryland.
 
-This repository contains the pre-launch build of the company website, including dynamic service workflows and structured lead capture logic.
+This repository contains the live application deployed on Cloudflare
+Workers using OpenNext.
 
----
+------------------------------------------------------------------------
 
-## 🚀 Features
+## 🌐 Live Site
 
-- Dynamic service modals
-- Service-specific CTA logic
-- URL-driven service preselection
-- Two-level service qualification form
-- Mobile-first layout
-- Structured contact capture
-- Phone-first conversion strategy
+https://sturrockshvac.com
 
----
+Canonical host: - `sturrockshvac.com` - `www` permanently redirects to
+apex
 
-## 🛠 Tech Stack
+------------------------------------------------------------------------
 
-- HTML5
-- Custom CSS
-- Vanilla JavaScript
-- Font Awesome icons
-- Formspree (contact handling)
+## 🏗 Architecture
 
----
+### Runtime
+
+-   Next.js 16.1.6 (App Router)
+-   OpenNext (`@opennextjs/cloudflare`)
+-   Cloudflare Workers (Edge runtime)
+
+### Infrastructure
+
+-   Pure Workers deployment (no Pages)
+-   Edge-level canonical redirect (www → apex)
+-   Automatic HTTP → HTTPS
+-   HSTS enabled (6 months + subdomains)
+-   Image optimization via `_next/image`
+
+### Environment
+
+-   WSL2 (canonical development environment)
+-   Wrangler CLI deployment
+
+------------------------------------------------------------------------
+
+## 🚀 Deployment Workflow
+
+``` bash
+npm run build
+npm run cf:build
+npx wrangler deploy
+```
+
+No static export.\
+No Cloudflare Pages.\
+Single runtime: Workers.
+
+------------------------------------------------------------------------
+
+## ⚙ Features
+
+-   Mobile-first responsive layout
+-   Optimized hero images (WebP conversion)
+-   Structured service directory
+-   Dynamic routing (App Router)
+-   Edge caching via Cloudflare
+-   SEO-safe canonical host configuration
+
+------------------------------------------------------------------------
 
 ## 📍 Service Area
 
-- Fairfax County, VA  
-- Loudoun County, VA  
-- Frederick County, MD  
+-   Fairfax County, VA\
+-   Loudoun County, VA\
+-   Frederick County, MD
 
----
+------------------------------------------------------------------------
 
-## 📌 Current Status
+## 📊 Performance
 
-**Pre-launch development (private repository)**  
-Not yet deployed publicly.
+Lighthouse (post-migration):
 
----
+-   Performance: 93+
+-   Accessibility: 96
+-   Best Practices: 100
+-   SEO: 100
 
-## 🗺 Roadmap
-
-- [x] Dynamic modal system
-- [x] Dynamic CTA routing
-- [x] Structured contact form
-- [ ] Emergency service emphasis
-- [ ] SEO optimization
-- [ ] Performance tuning
-- [ ] Analytics integration
-- [ ] Production deployment
-
----
+------------------------------------------------------------------------
 
 ## 🔒 Repository Policy
 
-This repository is private and contains proprietary business assets including branding and marketing materials.
+This repository is private and contains proprietary branding, marketing,
+and operational materials.
 
----
+Unauthorized use or distribution is prohibited.
 
-© 2012–2026 Sturrocks HVAC Solutions LLC
+------------------------------------------------------------------------
+
+© 2012--2026 Sturrock's HVAC-Solutions

@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-This repository contains the official website for Sturrocks HVAC Solutions LLC.
+This repository contains the official website for Sturrock's HVAC Solutions.
 
 ## Branch Strategy
 
@@ -44,5 +44,5 @@ No direct pushes to `main`.
 All changes should be tested locally before merging.
 
 ---
-© Sturrocks HVAC Solutions LLC
+© Sturrock's HVAC Solutions
 

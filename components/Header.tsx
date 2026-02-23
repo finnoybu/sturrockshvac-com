@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PhoneCTA from "@/components/PhoneCTA";
+import { brand } from "@/lib/content";
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
         <Link href="/" className="flex items-center">
           <img
             src="/logo.png"
-            alt="Sturrocks HVAC Solutions Logo"
+            alt={`${brand.marketingName} Logo`}
             className="h-14 sm:h-20 md:h-24 w-auto"
           />
         </Link>
