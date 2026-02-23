@@ -1,22 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useContactModal } from "./ContactModalProvider";
 import PrimaryCTA from "./PrimaryCTA";
-import ContactModal from "./ContactModal";
 
-export default function ContactCTA({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ContactCTA({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const { openModal } = useContactModal();
 
-  return (
-    <>
-      <PrimaryCTA onClick={() => setIsOpen(true)}>
-        {children}
-      </PrimaryCTA>
-
-      <ContactModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
-    </>
-  );
+  return <PrimaryCTA onClick={openModal}>{children}</PrimaryCTA>;
 }

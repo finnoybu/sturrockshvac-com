@@ -1,8 +1,13 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { services } from "@/lib/content";
-import Header from "@/components/Header";
 import Link from "next/link";
+
+export async function generateStaticParams() {
+  return services.map((service) => ({
+    slug: service.slug,
+  }));
+}
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -31,10 +36,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     /[.!?]$/,
     "",
   );
+
   const description = `${summary}. Serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD.`;
 
   return {
-    title: service.title, // layout template handles brand
+    title: service.title,
     description,
   };
 }
@@ -46,25 +52,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
 
-  const service: Service | undefined = services.find((s) => s.slug === slug);
+  const service: Service | undefined = services.find(
+    (s) => s.slug === slug,
+  );
 
   if (!service) return notFound();
 
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
-
       <main className="max-w-6xl mx-auto px-6 pt-10 pb-16">
+
         {/* Back to Services */}
         <div className="mb-6">
           <Link
             href="/services"
             className="
-      text-sm
-      text-gray-500
-      hover:text-accent-500
-      active:text-accent-600
-      transition-colors
-    "
+              text-sm
+              text-gray-500
+              hover:text-accent-500
+              active:text-accent-600
+              transition-colors
+            "
           >
             ← Back to Services
           </Link>
@@ -77,7 +85,9 @@ export default async function ServicePage({ params }: Props) {
 
         {/* Summary */}
         {service.summary && (
-          <p className="text-xl text-gray-700 mb-6">{service.summary}</p>
+          <p className="text-xl text-gray-700 mb-6">
+            {service.summary}
+          </p>
         )}
 
         {/* Description */}
@@ -151,6 +161,7 @@ export default async function ServicePage({ params }: Props) {
             Request Service
           </Link>
         </div>
+
       </main>
     </div>
   );

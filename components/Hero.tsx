@@ -1,33 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import TrustBar from "./TrustBar";
 import ContactCTA from "@/components/ContactCTA";
-
-const heroImages = [
-  "/hero/spring_hero_2560x1320.png",
-  "/hero/sturrock_summer_hero_2560x1320.png",
-  "/hero/fall_hero_2560x1320.png",
-  "/hero/winter_hero_2560x1320.png",
-];
+import { getCurrentSeason } from "@/lib/season";
 
 export default function HeroSection() {
-  const [index, setIndex] = useState(0);
+  const season = getCurrentSeason();
 
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setIndex((prev) => (prev + 1) % heroImages.length);
-    }, 10000);
+  const heroImageMap: Record<string, string> = {
+    spring: "/hero/spring_hero_2560x1320.png",
+    summer: "/hero/sturrock_summer_hero_2560x1320.png",
+    fall: "/hero/fall_hero_2560x1320.png",
+    winter: "/hero/winter_hero_2560x1320.png",
+  };
 
-    return () => window.clearInterval(id);
-  }, []);
+  const heroImage = heroImageMap[season];
 
   return (
     <section className="relative">
       <div className="relative w-full h-135 md:h-155 lg:h-160 xl:h-175 2xl:h-[85vh] overflow-hidden">
         <Image
-          src={heroImages[index]}
+          src={heroImage}
           alt="Seasonal home exterior"
           fill
           priority

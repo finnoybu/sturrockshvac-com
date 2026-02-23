@@ -1,20 +1,40 @@
-export function getSeasonalHero(): string {
+export type Season = "spring" | "summer" | "fall" | "winter";
+
+export function getCurrentSeason(): Season {
   const now = new Date();
-  const month = now.getMonth() + 1;
+  const month = now.getMonth(); // 0–11
   const day = now.getDate();
 
-  // Switch ~45 days early for Northern Virginia
-  if ((month === 1 && day >= 15) || month === 2 || month === 3 || (month === 4 && day < 15)) {
+  // Spring: Feb 15 – May 14
+  if (
+    (month === 1 && day >= 15) || // Feb 15+
+    month === 2 || // March
+    month === 3 || // April
+    (month === 4 && day <= 14) // May 1–14
+  ) {
     return "spring";
   }
 
-  if ((month === 4 && day >= 15) || month === 5 || month === 6 || (month === 7 && day < 15)) {
+  // Summer: May 15 – Aug 14
+  if (
+    (month === 4 && day >= 15) || // May 15+
+    month === 5 || // June
+    month === 6 || // July
+    (month === 7 && day <= 14) // Aug 1–14
+  ) {
     return "summer";
   }
 
-  if ((month === 7 && day >= 15) || month === 8 || month === 9 || (month === 10 && day < 15)) {
+  // Fall: Aug 15 – Nov 14
+  if (
+    (month === 7 && day >= 15) || // Aug 15+
+    month === 8 || // September
+    month === 9 || // October
+    (month === 10 && day <= 14) // Nov 1–14
+  ) {
     return "fall";
   }
 
+  // Winter: Nov 15 – Feb 14
   return "winter";
 }
