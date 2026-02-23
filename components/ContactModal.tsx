@@ -38,7 +38,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   }, [onClose]);
 
 return (
-  <div className="fixed inset-0 z-[9999]">
+  <div className="fixed inset-0 z-9999">
 
     {/* Overlay Shield (blocks all interaction) */}
     <div
@@ -47,14 +47,14 @@ return (
     />
 
     {/* Centered Modal */}
-    <div className="relative z-[10000] flex items-center justify-center min-h-screen px-4">
+    <div className="relative z-10000 flex items-center justify-center min-h-screen px-4">
       <div
-        className="bg-white rounded-2xl shadow-2xl max-w-sm w-full min-h-[700px] overflow-hidden"
+        className="bg-white rounded-2xl shadow-2xl max-w-sm w-full min-h-175 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
 
         {/* Navy Header Bar */}
-        <div className="bg-gradient-to-b from-primary-900 to-primary-800 py-8 flex justify-center">
+        <div className="bg-linear-to-b from-primary-900 to-primary-800 py-8 flex justify-center">
           <img
             src="/logo.png"
             alt="Sturrocks HVAC Solutions"
