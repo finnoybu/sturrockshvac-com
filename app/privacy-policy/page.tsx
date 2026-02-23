@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Privacy Policy | Sturrocks HVAC Solutions",
+  title: "Privacy Policy",
   description:
-    "Read how Sturrocks HVAC Solutions collects, uses, and protects information for website visitors and service requests in Virginia and Maryland.",
+    "Learn how Sturrocks HVAC Solutions collects, uses, and protects personal information for customers in Virginia and Maryland.",
 };
 
 export default function PrivacyPolicy() {

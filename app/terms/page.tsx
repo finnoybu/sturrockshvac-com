@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Terms & Conditions | Sturrocks HVAC Solutions",
+  title: "Terms & Conditions",
   description:
-    "Review the terms and conditions for using the Sturrocks HVAC Solutions website and requesting HVAC services for residents and businesses in Virginia and Maryland.",
+    "Review the Terms and Conditions governing use of Sturrocks HVAC Solutions website and HVAC services in Virginia and Maryland.",
 };
 
 export default function Terms() {

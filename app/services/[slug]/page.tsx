@@ -8,32 +8,33 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-type Service = typeof services[number];
+type Service = (typeof services)[number];
 
 /* =============================
    Metadata (SEO)
 ============================= */
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
   const service = services.find((s) => s.slug === slug);
 
   if (!service) {
     return {
-      title: "Service Not Found | Sturrocks HVAC Solutions",
+      title: "Service Not Found",
       description:
-        "The service you requested is not available. Explore HVAC repair, installation, and maintenance across Fairfax and Loudoun, VA and Montgomery and Frederick, MD.",
+        "The service you requested is not available. Explore HVAC repair, installation, and maintenance across Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD.",
     };
   }
 
-  const summary = (service.summary ?? `${service.title} HVAC service`).replace(/[.!?]$/, "");
-  const description = `${summary} Serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD.`;
+  const summary = (service.summary ?? `${service.title} HVAC service`).replace(
+    /[.!?]$/,
+    "",
+  );
+  const description = `${summary}. Serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD.`;
 
   return {
-    title: `${service.title} | Sturrocks HVAC Solutions`,
+    title: service.title, // layout template handles brand
     description,
   };
 }
@@ -45,9 +46,7 @@ export async function generateMetadata(
 export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
 
-  const service: Service | undefined = services.find(
-    (s) => s.slug === slug
-  );
+  const service: Service | undefined = services.find((s) => s.slug === slug);
 
   if (!service) return notFound();
 
@@ -55,7 +54,22 @@ export default async function ServicePage({ params }: Props) {
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 py-16">
+      <main className="max-w-6xl mx-auto px-6 pt-10 pb-16">
+        {/* Back to Services */}
+        <div className="mb-6">
+          <Link
+            href="/services"
+            className="
+      text-sm
+      text-gray-500
+      hover:text-accent-500
+      active:text-accent-600
+      transition-colors
+    "
+          >
+            ← Back to Services
+          </Link>
+        </div>
 
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-serif text-primary-900 mb-6">
@@ -64,9 +78,7 @@ export default async function ServicePage({ params }: Props) {
 
         {/* Summary */}
         {service.summary && (
-          <p className="text-xl text-gray-700 mb-6">
-            {service.summary}
-          </p>
+          <p className="text-xl text-gray-700 mb-6">{service.summary}</p>
         )}
 
         {/* Description */}
@@ -76,14 +88,11 @@ export default async function ServicePage({ params }: Props) {
 
         {/* Offer + Issues Grid */}
         <div className="grid md:grid-cols-2 gap-12 mb-12">
-
-          {/* What We Offer */}
           {service.subservices?.length > 0 && (
             <section>
               <h2 className="text-3xl font-serif text-primary-900 mb-4">
                 What We Offer
               </h2>
-
               <ul className="space-y-2 text-gray-700">
                 {service.subservices.map((sub) => (
                   <li key={sub.key}>• {sub.name}</li>
@@ -92,13 +101,11 @@ export default async function ServicePage({ params }: Props) {
             </section>
           )}
 
-          {/* Common Issues */}
           {service.commonRequests?.length > 0 && (
             <section>
               <h2 className="text-3xl font-serif text-primary-900 mb-4">
                 Common Issues We Address
               </h2>
-
               <ul className="space-y-2 text-gray-700">
                 {service.commonRequests.map((item) => (
                   <li key={item}>• {item}</li>
@@ -106,7 +113,6 @@ export default async function ServicePage({ params }: Props) {
               </ul>
             </section>
           )}
-
         </div>
 
         {/* Our Approach */}
@@ -123,7 +129,8 @@ export default async function ServicePage({ params }: Props) {
 
         {/* Service Area Reinforcement */}
         <p className="text-sm text-gray-500 text-center mb-8">
-          Serving Loudoun & Fairfax counties in Virginia and Montgomery & Frederick counties in Maryland.
+          Serving Loudoun & Fairfax Counties in Virginia and Montgomery &
+          Frederick Counties in Maryland.
         </p>
 
         {/* CTA */}
@@ -145,7 +152,6 @@ export default async function ServicePage({ params }: Props) {
             Request Service
           </Link>
         </div>
-
       </main>
     </div>
   );

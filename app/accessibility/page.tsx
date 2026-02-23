@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Accessibility Statement | Sturrocks HVAC Solutions",
+  title: "Accessibility Statement",
   description:
-    "Accessibility statement for Sturrocks HVAC Solutions, outlining our commitment to inclusive web access for customers in Virginia and Maryland.",
+    "Accessibility Statement for Sturrocks HVAC Solutions website and digital services.",
 };
 
 export default function Accessibility() {

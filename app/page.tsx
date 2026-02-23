@@ -6,9 +6,9 @@ import BrandLogoStrip from "@/components/BrandLogoStrip";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata = {
-  title: "HVAC Repair & Installation | Sturrocks HVAC Solutions",
+  title: "Heating & Cooling Services in VA & MD",
   description:
-    "Sturrocks HVAC Solutions provides heating and cooling repair, installation, and maintenance in Fairfax and Loudoun, VA and Montgomery and Frederick, MD.",
+    "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
 };
 
 export const dynamic = "force-static";
