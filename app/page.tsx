@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import HeroSection from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import WhySturrocks from "@/components/WhySturrocks";
@@ -8,7 +7,10 @@ import FinalCTA from "@/components/FinalCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Heating & Cooling Services in VA & MD",
+  title: {
+    absolute:
+      "Heating & Cooling Services in VA & MD | Sturrocks HVAC Solutions",
+  },
   description:
     "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
 };

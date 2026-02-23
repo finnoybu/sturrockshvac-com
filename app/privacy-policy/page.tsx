@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Learn how Sturrocks HVAC Solutions collects, uses, and protects personal information for customers in Virginia and Maryland.",
@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         <p><strong>Effective Date:</strong> January 1, 2026</p>
 
         <p className="mt-6">
-          Sturrock HVAC Solutions ("Company," "we," "our," or "us") is committed
+          Sturrocks HVAC Solutions ("Company," "we," "our," or "us") is committed
           to protecting your privacy. This Privacy Policy describes how we
           collect, use, disclose, and safeguard information when you visit our
           website or request HVAC services in Virginia and Maryland.
@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
           5. SMS Communications (If Enabled in the Future)
         </h2>
         <p className="mt-3">
-          Sturrock HVAC Solutions does not currently use SMS marketing.
+          Sturrocks HVAC Solutions does not currently use SMS marketing.
         </p>
         <p className="mt-3">
           If SMS communications are implemented in the future:
@@ -158,7 +158,7 @@ export default function PrivacyPolicy() {
 
         <h2 className="mt-10 text-xl font-semibold">12. Contact Information</h2>
         <p className="mt-3">
-          Sturrock HVAC Solutions<br />
+          Sturrocks HVAC Solutions<br />
           Phone: (571) 258-7983<br />
           Email: andy@hvac-solutions.com
         </p>

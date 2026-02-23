@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+
 
 export const metadata = {
   title: "Terms & Conditions",
@@ -41,7 +41,7 @@ export default function Terms() {
         <p className="mt-3">
           Submitting a service request does not create a service contract.
           Service appointments are confirmed only after direct communication
-          and acceptance by Sturrock HVAC Solutions.
+          and acceptance by Sturrocks HVAC Solutions.
         </p>
         <p className="mt-3">
           We reserve the right to decline service requests at our discretion.
@@ -56,7 +56,7 @@ export default function Terms() {
 
         <h2 className="mt-10 text-xl font-semibold">5. Limitation of Liability</h2>
         <p className="mt-3">
-          To the fullest extent permitted by law, Sturrock HVAC Solutions shall
+          To the fullest extent permitted by law, Sturrocks HVAC Solutions shall
           not be liable for:
         </p>
         <ul className="list-disc ml-6 mt-3 space-y-1">
@@ -72,13 +72,13 @@ export default function Terms() {
         <h2 className="mt-10 text-xl font-semibold">6. Intellectual Property</h2>
         <p className="mt-3">
           All website content, including text, graphics, logos, and layout, is
-          the property of Sturrock HVAC Solutions and may not be reproduced
+          the property of Sturrocks HVAC Solutions and may not be reproduced
           without written consent.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">7. Indemnification</h2>
         <p className="mt-3">
-          You agree to indemnify and hold harmless Sturrock HVAC Solutions from
+          You agree to indemnify and hold harmless Sturrocks HVAC Solutions from
           claims arising from misuse of the website.
         </p>
 
@@ -91,7 +91,7 @@ export default function Terms() {
         </p>
         <p className="mt-3">
           Any disputes shall be resolved in courts located within Virginia or
-          Maryland, as determined by Sturrock HVAC Solutions.
+          Maryland, as determined by Sturrocks HVAC Solutions.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold">9. Modifications</h2>
@@ -102,7 +102,7 @@ export default function Terms() {
 
         <h2 className="mt-10 text-xl font-semibold">10. Contact</h2>
         <p className="mt-3">
-          Sturrock HVAC Solutions<br />
+          Sturrocks HVAC Solutions<br />
           Phone: (571) 258-7983<br />
           Email: andy@hvac-solutions.com
         </p>

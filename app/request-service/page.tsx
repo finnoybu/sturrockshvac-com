@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/Header";
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { services } from "@/lib/content";

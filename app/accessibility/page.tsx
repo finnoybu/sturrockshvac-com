@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Accessibility Statement",
   description:
     "Accessibility Statement for Sturrocks HVAC Solutions website and digital services.",
@@ -17,7 +17,7 @@ export default function Accessibility() {
         <p><strong>Effective Date:</strong> January 1, 2026</p>
 
         <p className="mt-6">
-          Sturrock HVAC Solutions is committed to ensuring digital
+          Sturrocks HVAC Solutions is committed to ensuring digital
           accessibility for all individuals, including those with
           disabilities. We strive to provide a website experience that
           is inclusive and user-friendly for everyone.
@@ -76,7 +76,7 @@ export default function Accessibility() {
         </p>
 
         <p className="mt-6 text-sm text-gray-600">
-          Sturrock HVAC Solutions is committed to serving all customers
+          Sturrocks HVAC Solutions is committed to serving all customers
           equally and without discrimination.
         </p>
       </main>

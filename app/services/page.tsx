@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
 import Link from "next/link";
 import { services } from "@/lib/content";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "HVAC Services",
   description:
     "Explore HVAC repair, installation, maintenance, heat pump, furnace, and air conditioning services from Sturrocks HVAC Solutions in Virginia and Maryland.",
@@ -12,7 +11,6 @@ export const metadata = {
 export default function ServicesDirectory() {
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
-
       <main className="container mx-auto px-4 pt-10 pb-20">
         {/* Section Title */}
         <div className="flex items-center justify-center gap-3 mb-6">

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Sturrocks HVAC Solutions – Professional Heating & Cooling Services",
+      "Sturrocks HVAC Solutions - Professional Heating & Cooling Services",
     template: "%s | Sturrocks HVAC Solutions",
   },
 
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "https://sturrockshvac.com",
     siteName: "Sturrocks HVAC Solutions",
     title:
-      "Sturrocks HVAC Solutions – Professional Heating & Cooling Services",
+      "Sturrocks HVAC Solutions - Professional Heating & Cooling Services",
     description:
       "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Sturrocks HVAC Solutions – Professional Heating & Cooling Services",
+      "Sturrocks HVAC Solutions - Professional Heating & Cooling Services",
     description:
       "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
     images: ["/og-image.jpg"],

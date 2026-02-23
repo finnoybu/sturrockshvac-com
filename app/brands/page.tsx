@@ -1,12 +1,10 @@
-import Header from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
 import { brands } from "@/lib/content";
+import type { Metadata } from "next";
 
-export const dynamic = "force-static";
-
-export const metadata = {
-  title: "Brands We Service | Sturrocks HVAC Solutions",
+export const metadata: Metadata = {
+  title: "Brands We Service",
   description:
     "See the HVAC brands we service and recommend for new installations and replacements throughout Fairfax and Loudoun, VA and Montgomery and Frederick, MD.",
 };
