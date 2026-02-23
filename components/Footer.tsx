@@ -225,7 +225,8 @@ export default function Footer() {
           </a>
 
           <span className="text-[11px] opacity-60 tracking-wide">
-            Build {process.env.NEXT_PUBLIC_BUILD_ID}
+            Build #{process.env.NEXT_PUBLIC_BUILD_ID} (
+            {process.env.NEXT_PUBLIC_BUILD_TIMESTAMP})
           </span>
         </div>
 

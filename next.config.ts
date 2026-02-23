@@ -1,4 +1,13 @@
-const nextConfig = {
+import type { NextConfig } from "next";
+import { execSync } from "child_process";
+
+const commitHash = execSync("git rev-parse --short HEAD")
+  .toString()
+  .trim();
+
+const buildTimestamp = new Date().toISOString();
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   poweredByHeader: false,
@@ -6,7 +15,8 @@ const nextConfig = {
     unoptimized: true,
   },
   env: {
-    NEXT_PUBLIC_BUILD_ID: new Date().toISOString(),
+    NEXT_PUBLIC_BUILD_ID: commitHash,
+    NEXT_PUBLIC_BUILD_TIMESTAMP: buildTimestamp,
   },
 };
 
