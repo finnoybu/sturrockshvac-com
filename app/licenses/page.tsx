@@ -29,13 +29,13 @@ export default function LicensesPage() {
 
               {license.issued && (
                 <p className="text-primary-800">
-                  <strong>Issued:</strong>{" "}
+                  <strong>Issued:</strong>
                   {new Date(license.issued).toLocaleDateString()}
                 </p>
               )}
 
               <p className="text-primary-800">
-                <strong>Expiration:</strong>{" "}
+                <strong>Expiration:</strong>
                 {new Date(license.expires).toLocaleDateString()}
               </p>
 
@@ -75,7 +75,7 @@ export default function LicensesPage() {
           </p>
 
           <p>
-            Official public records for Virginia licenses are maintained by the{" "}
+            Official public records for Virginia licenses are maintained by the
             <a
               href="https://www.dpor.virginia.gov"
               target="_blank"
@@ -91,7 +91,7 @@ export default function LicensesPage() {
 
           <p>
             Official public records for Maryland HVACR licenses are maintained
-            by the{" "}
+            by the
             <a
               href="https://www.labor.maryland.gov"
               target="_blank"

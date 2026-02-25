@@ -27,7 +27,6 @@ export default function ContactModalProvider({
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  // Proper scroll lock
   useEffect(() => {
     if (isOpen) {
       const scrollY = window.scrollY;
@@ -47,9 +46,12 @@ export default function ContactModalProvider({
   }, [isOpen]);
 
   return (
-    <ContactModalContext.Provider value={{ openModal }}>
-      {children}
+    <>
+      <ContactModalContext.Provider value={{ openModal }}>
+        {children}
+      </ContactModalContext.Provider>
+
       <ContactModal isOpen={isOpen} onClose={closeModal} />
-    </ContactModalContext.Provider>
+    </>
   );
 }
