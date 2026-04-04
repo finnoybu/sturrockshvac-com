@@ -38,9 +38,9 @@ export const companyInfo = {
 
 export const serviceAreas = {
   short:
-    "Loudoun/Fairfax Counties (VA) and Montgomery/Frederick Counties (MD)",
+    "Loudoun/Fairfax Counties (VA) and Frederick County (MD)",
   full:
-    "Loudoun County and Fairfax County in Virginia, as well as Montgomery County and Frederick County in Maryland",
+    "Loudoun County and Fairfax County in Virginia, as well as Frederick County in Maryland",
 };
 
 // =============================
@@ -235,6 +235,6 @@ export const brands: Brand[] = [
 export const finalCTA = {
   title: "Ready to Get Started?",
   subtitle:
-    "Call us today for fast, reliable HVAC service across Loudoun, Fairfax, Montgomery, and Frederick counties.",
+    "Call us today for fast, reliable HVAC service across Loudoun, Fairfax, and Frederick counties.",
   buttonText: "Request Service",
 };

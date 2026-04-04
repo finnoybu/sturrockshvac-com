@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Brands We Service",
   description:
-    "See the HVAC brands we service and recommend for new installations and replacements throughout Fairfax and Loudoun, VA and Montgomery and Frederick, MD.",
+    "See the HVAC brands we service and recommend for new installations and replacements throughout Fairfax and Loudoun, VA and Frederick, MD.",
 };
 
 export default function BrandsPage() {

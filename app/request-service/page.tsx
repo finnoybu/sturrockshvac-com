@@ -151,7 +151,7 @@ export default function RequestServicePage() {
             </a>
 
             <p className="text-sm text-gray-500 mt-4">
-              Serving Loudoun, Fairfax, Montgomery, and Frederick counties.
+              Serving Loudoun, Fairfax, and Frederick counties.
             </p>
 
             <div className="mt-12">
