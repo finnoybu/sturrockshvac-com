@@ -10,7 +10,7 @@ type Service = (typeof services)[number];
 
 
 // Use the routed custom domain for the Worker
-const WORKER_ENDPOINT = "https://sturrockshvac.com/";
+const WORKER_ENDPOINT = "https://sturrockshvac.com/api/request-service";
 
 export default function RequestServicePage() {
 
