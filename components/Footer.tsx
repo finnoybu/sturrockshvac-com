@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { memo } from "react";
 import { brand, companyInfo, serviceAreas } from "@/lib/content";
 import FooterPhoneLink from "@/components/FooterPhoneLink";
@@ -238,10 +239,13 @@ const FooterBottom = memo(function FooterBottom() {
             className="block hover:opacity-80 transition-opacity"
             aria-label="Finnoybu - Site designed and developed by Ken Tannenbaum"
           >
-            <img
+            <Image
               src="/images/finnoybu-gray.svg"
               alt="Finnoybu Logo"
+              width={100}
+              height={40}
               className="h-10 w-auto"
+              unoptimized
             />
           </a>
         </div>

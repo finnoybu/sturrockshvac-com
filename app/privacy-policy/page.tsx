@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         <p><strong>Effective Date:</strong> January 1, 2026</p>
 
         <p className="mt-6">
-          Sturrock's HVAC-Solutions ("Company," "we," "our," or "us") is committed
+          Sturrock&apos;s HVAC-Solutions (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed
           to protecting your privacy. This Privacy Policy describes how we
           collect, use, disclose, and safeguard information when you visit our
           website or request HVAC services in Virginia and Maryland.
@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
           5. SMS Communications (If Enabled in the Future)
         </h2>
         <p className="mt-3">
-          Sturrock's HVAC-Solutions does not currently use SMS marketing.
+          Sturrock&apos;s HVAC-Solutions does not currently use SMS marketing.
         </p>
         <p className="mt-3">
           If SMS communications are implemented in the future:
@@ -143,7 +143,7 @@ export default function PrivacyPolicy() {
           Requests may be submitted using the contact information below.
         </p>
 
-        <h2 className="mt-10 text-xl font-semibold">10. Children's Privacy</h2>
+        <h2 className="mt-10 text-xl font-semibold">10. Children&apos;s Privacy</h2>
         <p className="mt-3">
           Our services are not directed to children under 13, and we do not
           knowingly collect personal information from children.
@@ -158,7 +158,7 @@ export default function PrivacyPolicy() {
 
         <h2 className="mt-10 text-xl font-semibold">12. Contact Information</h2>
         <p className="mt-3">
-          Sturrock's HVAC-Solutions<br />
+          Sturrock&apos;s HVAC-Solutions<br />
           Phone: (571) 258-7983<br />
           Email: andy@hvac-solutions.com
         </p>

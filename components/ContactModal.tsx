@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { brand, companyInfo } from "@/lib/content";
 import PrimaryCTA from "./PrimaryCTA";
 
@@ -10,8 +11,6 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
-  if (!isOpen) return null;
-
   const handleCopy = async () => {
     const fullContact = [
       `${brand.marketingName}`,
@@ -37,6 +36,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
+  if (!isOpen) return null;
+
 return (
   <div className="fixed inset-0 z-9999">
 
@@ -55,9 +56,11 @@ return (
 
         {/* Navy Header Bar */}
         <div className="bg-linear-to-b from-primary-900 to-primary-800 py-8 flex justify-center">
-          <img
+          <Image
             src="/logo.png"
             alt={`${brand.marketingName} Logo`}
+            width={140}
+            height={56}
             className="h-14 w-auto"
           />
         </div>

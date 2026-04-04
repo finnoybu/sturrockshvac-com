@@ -2,6 +2,8 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { services } from "@/lib/content";
 
 type Service = (typeof services)[number];
@@ -156,24 +158,33 @@ export default function RequestServicePage() {
 
             <div className="mt-12">
               <div className="border border-primary-200 rounded-lg overflow-hidden">
-                <img
+                <Image
                   src="/images/service-map.svg"
                   alt="Service area map"
+                  width={800}
+                  height={600}
                   className="w-full"
+                  unoptimized
                 />
               </div>
             </div>
 
             <div className="mt-8 flex justify-center items-center gap-10">
-              <img
+              <Image
                 src="/images/nate.svg"
                 alt="NATE Certified"
+                width={128}
+                height={128}
                 className="h-24 md:h-32 w-auto opacity-90"
+                unoptimized
               />
-              <img
+              <Image
                 src="/images/energy-star.svg"
                 alt="ENERGY STAR Partner"
+                width={128}
+                height={128}
                 className="h-24 md:h-32 w-auto opacity-90"
+                unoptimized
               />
             </div>
           </div>
@@ -195,12 +206,12 @@ export default function RequestServicePage() {
                 <p className="text-sm text-gray-500 mb-6">
                   Redirecting to home in {countdown} seconds…
                 </p>
-                <a
+                <Link
                   href="/"
                   className="inline-block bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-md shadow-md transition-colors"
                 >
                   Return to Home
-                </a>
+                </Link>
               </div>
             ) : (
               <form className="space-y-6" onSubmit={handleSubmit}>
