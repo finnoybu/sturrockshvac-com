@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import PhoneCTA from "@/components/PhoneCTA";
 import { brand } from "@/lib/content";
 
@@ -11,9 +12,11 @@ export default function Header() {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <img
+          <Image
             src="/logo.png"
             alt={`${brand.marketingName} Logo`}
+            width={200}
+            height={96}
             className="h-14 sm:h-20 md:h-24 w-auto"
           />
         </Link>

@@ -22,7 +22,7 @@ export default function NotFound() {
           <p className="text-md md:text-lg text-gray-700 mb-8 leading-relaxed">
             Looks like something might be missing.
             <br />
-            We'll get on it as soon as possible.
+            We&apos;ll get on it as soon as possible.
           </p>
 
           {/* Image */}

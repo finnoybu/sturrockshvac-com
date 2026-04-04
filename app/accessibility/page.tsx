@@ -17,7 +17,7 @@ export default function Accessibility() {
         <p><strong>Effective Date:</strong> January 1, 2026</p>
 
         <p className="mt-6">
-          Sturrock's HVAC-Solutions is committed to ensuring digital
+          Sturrock&apos;s HVAC-Solutions is committed to ensuring digital
           accessibility for all individuals, including those with
           disabilities. We strive to provide a website experience that
           is inclusive and user-friendly for everyone.
@@ -76,7 +76,7 @@ export default function Accessibility() {
         </p>
 
         <p className="mt-6 text-sm text-gray-600">
-          Sturrock's HVAC-Solutions is committed to serving all customers
+          Sturrock&apos;s HVAC-Solutions is committed to serving all customers
           equally and without discrimination.
         </p>
       </main>

@@ -10,7 +10,7 @@ const WINDOW_MS = 10 * 60 * 1000;     // 10 minutes
 
 const ipStore = new Map();
 
-export default {
+const workerHandler = {
   async fetch(request, env) {
     const origin = request.headers.get("origin");
 
@@ -162,3 +162,5 @@ ${details}
     }
   },
 };
+
+export default workerHandler;
