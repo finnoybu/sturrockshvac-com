@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: "Service Not Found",
       description:
-        "The service you requested is not available. Explore HVAC repair, installation, and maintenance across Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD.",
+        "The service you requested is not available. Explore HVAC repair, installation, and maintenance across Fairfax and Loudoun Counties, VA and Frederick County, MD.",
     };
   }
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "",
   );
 
-  const description = `${summary}. Serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD.`;
+  const description = `${summary}. Serving Fairfax and Loudoun Counties, VA and Frederick County, MD.`;
 
   return {
     title: service.title,
@@ -119,8 +119,7 @@ export default async function ServicePage({ params }: Props) {
         </section>
 
         <p className="text-sm text-gray-500 text-center mb-8">
-          Serving Loudoun & Fairfax Counties in Virginia and Montgomery &
-          Frederick Counties in Maryland.
+          Serving Loudoun & Fairfax Counties in Virginia and Frederick County in Maryland.
         </p>
 
         <div className="text-center">

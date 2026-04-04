@@ -164,8 +164,7 @@ export default function PrivacyPolicy() {
         </p>
 
         <p className="mt-4 text-sm text-gray-600">
-          Serving Fairfax & Loudoun Counties (VA) and Montgomery & Frederick
-          Counties (MD)
+          Serving Fairfax & Loudoun Counties (VA) and Frederick County (MD)
         </p>
       </main>
     </>

@@ -24,8 +24,8 @@ export default function ServicesDirectory() {
         {/* Intro Paragraph */}
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-14">
           We provide residential and commercial HVAC services throughout Loudoun
-          and Fairfax counties in Virginia, as well as Montgomery and Frederick
-          counties in Maryland. From seasonal maintenance to full system
+          and Fairfax counties in Virginia, as well as Frederick
+          County in Maryland. From seasonal maintenance to full system
           replacement, our team delivers reliable comfort solutions built for
           long-term performance.
         </p>

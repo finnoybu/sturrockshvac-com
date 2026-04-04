@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
+    "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Frederick County, MD. 24/7 emergency service available.",
 
   openGraph: {
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: brand.marketingName,
     title: `${brand.marketingName} - Professional Heating & Cooling Services`,
     description:
-      "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
+      "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Frederick County, MD. 24/7 emergency service available.",
     images: [
       {
         url: "/og-image.jpg",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${brand.marketingName} - Professional Heating & Cooling Services`,
     description:
-      "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
+      "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Frederick County, MD. 24/7 emergency service available.",
     images: ["/og-image.jpg"],
   },
 

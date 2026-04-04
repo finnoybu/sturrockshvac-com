@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Heating & Cooling Services in VA & MD | Sturrock's HVAC Solutions",
   },
   description:
-    "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Montgomery and Frederick Counties, MD. 24/7 emergency service available.",
+    "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Frederick County, MD. 24/7 emergency service available.",
 };
 
 export default function Home() {
