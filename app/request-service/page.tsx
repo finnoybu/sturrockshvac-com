@@ -8,9 +8,11 @@ import { services } from "@/lib/content";
 
 type Service = (typeof services)[number];
 
-const WORKER_ENDPOINT = "https://sturrocks-hvac.kenneth-tannenbaum.workers.dev";
+const WORKER_ENDPOINT = "";
 
 export default function RequestServicePage() {
+  const WORKER_ENDPOINT = "https://sturrockshvac-com.kenneth-tannenbaum.workers.dev";
+
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get("service");
 
