@@ -12,6 +12,7 @@ const ipStore = new Map();
 
 const workerHandler = {
   async fetch(request, env) {
+    console.log("[Worker] Received request", { method: request.method, url: request.url });
     const origin = request.headers.get("origin");
 
     const allowedOrigins = [
@@ -36,6 +37,7 @@ const workerHandler = {
     }
 
     try {
+      console.log("[Worker] Headers", Object.fromEntries(request.headers.entries()));
       // -------------------------
       // RATE LIMITING
       // -------------------------
@@ -71,7 +73,17 @@ const workerHandler = {
       // -------------------------
       // PARSE BODY
       // -------------------------
-      const data = await request.json();
+      let data;
+      try {
+        data = await request.json();
+        console.log("[Worker] Parsed body", data);
+      } catch (err) {
+        console.error("[Worker] Failed to parse JSON body", err);
+        return new Response(JSON.stringify({ error: "Invalid JSON body." }), {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
 
       if (data.honeypot) {
         return new Response(JSON.stringify({ ok: true }), {
@@ -107,7 +119,9 @@ const workerHandler = {
       // -------------------------
       // SEND EMAIL
       // -------------------------
-      const resendResponse = await fetch("https://api.resend.com/emails", {
+      let resendResponse;
+      try {
+        resendResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,11 +142,21 @@ Details:
 ${details}
           `,
         }),
-      });
+        });
+      } catch (err) {
+        console.error("[Worker] Failed to call Resend API", err);
+        return new Response(JSON.stringify({ error: "Failed to call Resend API." }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      console.log("[Worker] Resend API response status", resendResponse.status);
 
       if (!resendResponse.ok) {
+        const errorText = await resendResponse.text();
+        console.error("[Worker] Resend API error response", errorText);
         return new Response(
-          JSON.stringify({ error: "Email delivery failed." }),
+          JSON.stringify({ error: "Email delivery failed.", details: errorText }),
           {
             status: 500,
             headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -151,9 +175,10 @@ ${details}
         });
       }
 
-    } catch {
+    } catch (err) {
+      console.error("[Worker] Uncaught error", err);
       return new Response(
-        JSON.stringify({ error: "Server error." }),
+        JSON.stringify({ error: "Server error.", details: String(err) }),
         {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
