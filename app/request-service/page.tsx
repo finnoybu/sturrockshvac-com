@@ -8,10 +8,11 @@ import { services } from "@/lib/content";
 
 type Service = (typeof services)[number];
 
-const WORKER_ENDPOINT = "";
+
+// Use the routed custom domain for the Worker
+const WORKER_ENDPOINT = "https://sturrockshvac.com/";
 
 export default function RequestServicePage() {
-  const WORKER_ENDPOINT = "https://sturrockshvac-com.kenneth-tannenbaum.workers.dev";
 
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get("service");
