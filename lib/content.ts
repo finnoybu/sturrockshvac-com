@@ -30,6 +30,36 @@ export const companyInfo = {
   email: "andy@hvac-solutions.com",
   tagline: brand.tagline,
   licenses: brand.licenses,
+
+  address: {
+    street: "11592 Harpers Ferry Rd",
+    locality: "Hillsboro",
+    region: "VA",
+    postalCode: "20132",
+    country: "US",
+  },
+
+  geo: {
+    latitude: 39.197,
+    longitude: -77.7369,
+  },
+
+  businessHours: [
+    { day: "Monday",    opens: "08:00", closes: "17:00" },
+    { day: "Tuesday",   opens: "08:00", closes: "17:00" },
+    { day: "Wednesday", opens: "08:00", closes: "17:00" },
+    { day: "Thursday",  opens: "08:00", closes: "17:00" },
+    { day: "Friday",    opens: "08:00", closes: "17:00" },
+  ] as const,
+
+  emergencyService: "24/7 emergency service available",
+
+  socialProfiles: {
+    yelp: "https://www.yelp.com/biz/sturrocks-hvac-solutions-lovettsville",
+    nextdoor: "",
+    facebook: "",
+    google: "",
+  },
 };
 
 // =============================
@@ -41,6 +71,37 @@ export const serviceAreas = {
     "Loudoun/Fairfax Counties (VA) and Frederick County (MD)",
   full:
     "Loudoun County and Fairfax County in Virginia, as well as Frederick County in Maryland",
+
+  cities: [
+    // Loudoun County, VA
+    { name: "Hillsboro",        county: "Loudoun",   state: "VA" },
+    { name: "Lovettsville",     county: "Loudoun",   state: "VA" },
+    { name: "Purcellville",     county: "Loudoun",   state: "VA" },
+    { name: "Leesburg",         county: "Loudoun",   state: "VA" },
+    { name: "Ashburn",          county: "Loudoun",   state: "VA" },
+    { name: "Hamilton",         county: "Loudoun",   state: "VA" },
+    { name: "Round Hill",       county: "Loudoun",   state: "VA" },
+    { name: "Waterford",        county: "Loudoun",   state: "VA" },
+    { name: "Middleburg",       county: "Loudoun",   state: "VA" },
+    { name: "Sterling",         county: "Loudoun",   state: "VA" },
+    { name: "Bluemont",         county: "Loudoun",   state: "VA" },
+
+    // Fairfax County, VA
+    { name: "Herndon",          county: "Fairfax",   state: "VA" },
+    { name: "Reston",           county: "Fairfax",   state: "VA" },
+    { name: "Great Falls",      county: "Fairfax",   state: "VA" },
+    { name: "Vienna",           county: "Fairfax",   state: "VA" },
+    { name: "Chantilly",        county: "Fairfax",   state: "VA" },
+    { name: "Oakton",           county: "Fairfax",   state: "VA" },
+
+    // Frederick County, MD
+    { name: "Frederick",        county: "Frederick", state: "MD" },
+    { name: "Brunswick",        county: "Frederick", state: "MD" },
+    { name: "Point of Rocks",   county: "Frederick", state: "MD" },
+    { name: "Middletown",       county: "Frederick", state: "MD" },
+    { name: "Jefferson",        county: "Frederick", state: "MD" },
+    { name: "Knoxville",        county: "Frederick", state: "MD" },
+  ] as const,
 };
 
 // =============================

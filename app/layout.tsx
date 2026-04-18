@@ -3,8 +3,10 @@ import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModalProvider from "@/components/ContactModalProvider";
-import { brand, companyInfo } from "@/lib/content";
+import { brand, companyInfo, serviceAreas } from "@/lib/content";
 import "./globals.css";
+
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${brand.domain}`),
@@ -63,6 +65,23 @@ export default function RootLayout({
           <Footer />
         </ContactModalProvider>
 
+        {gaMeasurementId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}');
+              `}
+            </Script>
+          </>
+        )}
+
         {/* =============================
             Structured Data: Business
         ============================== */}
@@ -79,20 +98,63 @@ export default function RootLayout({
               url: `https://${brand.domain}`,
               telephone: companyInfo.phoneE164,
               priceRange: "$$",
+              description:
+                "HVAC repair, installation, and maintenance serving Loudoun and Fairfax Counties in Virginia and Frederick County in Maryland. 24/7 emergency service.",
+              image: `https://${brand.domain}/og-image.jpg`,
+              logo: `https://${brand.domain}/logo.svg`,
 
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "11592 Harpers Ferry Rd",
-                addressLocality: "Hillsboro",
-                addressRegion: "VA",
-                postalCode: "20132",
-                addressCountry: "US",
+                streetAddress: companyInfo.address.street,
+                addressLocality: companyInfo.address.locality,
+                addressRegion: companyInfo.address.region,
+                postalCode: companyInfo.address.postalCode,
+                addressCountry: companyInfo.address.country,
               },
 
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: companyInfo.geo.latitude,
+                longitude: companyInfo.geo.longitude,
+              },
+
+              openingHoursSpecification: companyInfo.businessHours.map((h) => ({
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: `https://schema.org/${h.day}`,
+                opens: h.opens,
+                closes: h.closes,
+              })),
+
               areaServed: [
-                { "@type": "AdministrativeArea", name: "Virginia" },
-                { "@type": "AdministrativeArea", name: "Maryland" },
+                { "@type": "AdministrativeArea", name: "Loudoun County, VA" },
+                { "@type": "AdministrativeArea", name: "Fairfax County, VA" },
+                { "@type": "AdministrativeArea", name: "Frederick County, MD" },
+                ...serviceAreas.cities.map((c) => ({
+                  "@type": "City",
+                  name: `${c.name}, ${c.state}`,
+                })),
               ],
+
+              sameAs: Object.values(companyInfo.socialProfiles).filter(Boolean),
+
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "HVAC Services",
+                itemListElement: [
+                  "Air Conditioning Repair",
+                  "Air Conditioning Installation",
+                  "Furnace Repair",
+                  "Furnace Installation",
+                  "Heat Pump Services",
+                  "Ductwork & Venting",
+                  "Thermostat Installation",
+                  "Preventative Maintenance",
+                  "Commercial HVAC",
+                ].map((name) => ({
+                  "@type": "Offer",
+                  itemOffered: { "@type": "Service", name },
+                })),
+              },
 
               identifier: [
                 {
