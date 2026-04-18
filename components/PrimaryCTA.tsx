@@ -17,6 +17,7 @@ export default function PrimaryCTA({
 
   const baseClasses = `
     inline-block
+    bg-accent-500 hover:bg-accent-600
     text-white
     text-sm sm:text-base md:text-lg
     px-4 sm:px-5 md:px-6
@@ -27,13 +28,8 @@ export default function PrimaryCTA({
     whitespace-nowrap
   `;
 
-  const defaultTheme = `
-    bg-accent-500 hover:bg-accent-600
-  `;
-
   const finalClasses = `
     ${baseClasses}
-    ${className ? "" : defaultTheme}
     ${className}
   `;
 

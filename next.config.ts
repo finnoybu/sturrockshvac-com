@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 import { execSync } from "child_process";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+initOpenNextCloudflareForDev();
 
 const commitHash = execSync("git rev-parse --short HEAD")
   .toString()
