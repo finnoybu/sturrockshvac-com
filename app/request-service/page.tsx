@@ -9,8 +9,7 @@ import { services } from "@/lib/content";
 type Service = (typeof services)[number];
 
 
-// Use the routed custom domain for the Worker
-const WORKER_ENDPOINT = "https://sturrockshvac.com/api/request-service";
+const FORM_ENDPOINT = "/api/request-service";
 
 export default function RequestServicePage() {
 
@@ -88,7 +87,7 @@ export default function RequestServicePage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(WORKER_ENDPOINT, {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
