@@ -1,5 +1,15 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { licenses } from "@/lib/licenses";
+
+export const metadata: Metadata = {
+  title: "Professional Licenses",
+  description:
+    "Virginia DPOR and Maryland HVACR professional license information for Sturrock's HVAC Solutions. Licensed, insured, and NATE-certified.",
+  alternates: {
+    canonical: "/licenses",
+  },
+};
 
 export default function LicensesPage() {
   return (

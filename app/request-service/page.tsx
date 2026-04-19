@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { services } from "@/lib/content";
+import { services, companyInfo } from "@/lib/content";
 
 type Service = (typeof services)[number];
 
@@ -162,7 +162,7 @@ export default function RequestServicePage() {
               <div className="border border-primary-200 rounded-lg overflow-hidden">
                 <Image
                   src="/images/service-map.svg"
-                  alt="Service area map"
+                  alt="Map of Sturrock's HVAC service area covering Loudoun County and Fairfax County in Virginia, plus Frederick County in Maryland"
                   width={800}
                   height={600}
                   className="w-full"
@@ -174,7 +174,7 @@ export default function RequestServicePage() {
             <div className="mt-8 flex justify-center items-center gap-10">
               <Image
                 src="/images/nate.svg"
-                alt="NATE Certified"
+                alt="North American Technician Excellence (NATE) certified HVAC technicians"
                 width={128}
                 height={128}
                 className="h-24 md:h-32 w-auto opacity-90"
@@ -182,12 +182,88 @@ export default function RequestServicePage() {
               />
               <Image
                 src="/images/energy-star.svg"
-                alt="ENERGY STAR Partner"
+                alt="ENERGY STAR Partner badge — specialists in high-efficiency HVAC installations"
                 width={128}
                 height={128}
                 className="h-24 md:h-32 w-auto opacity-90"
                 unoptimized
               />
+            </div>
+
+            {/* Business hours */}
+            <div className="mt-10 text-left">
+              <h3 className="text-sm uppercase tracking-wider font-semibold text-primary-700 mb-3 text-center">
+                Business Hours
+              </h3>
+              <dl className="text-sm text-gray-700 space-y-1 max-w-xs mx-auto">
+                <div className="flex justify-between">
+                  <dt>Monday&ndash;Friday</dt>
+                  <dd>8:00 AM &ndash; 5:00 PM</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Saturday</dt>
+                  <dd>Closed</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Sunday</dt>
+                  <dd>Closed</dd>
+                </div>
+                <div className="flex justify-between pt-2 mt-2 border-t border-primary-200">
+                  <dt className="font-semibold text-accent-600">Emergency</dt>
+                  <dd className="font-semibold text-accent-600">
+                    24/7 &mdash; any hour
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            {/* Address + Google Map embed */}
+            <div className="mt-10">
+              <address className="not-italic text-sm text-gray-700 text-center mb-4">
+                {companyInfo.address.street}
+                <br />
+                {companyInfo.address.locality}, {companyInfo.address.region}{" "}
+                {companyInfo.address.postalCode}
+              </address>
+              <div className="border border-primary-200 rounded-lg overflow-hidden">
+                {(() => {
+                  const { latitude, longitude } = companyInfo.geo;
+                  // Small bounding box around the pin so the map shows useful
+                  // local context (~3 mile radius). OpenStreetMap embed —
+                  // free, no API key, works reliably.
+                  const delta = 0.04;
+                  const bbox = [
+                    longitude - delta,
+                    latitude - delta,
+                    longitude + delta,
+                    latitude + delta,
+                  ].join(",");
+                  return (
+                    <iframe
+                      title="Map of Sturrock's HVAC Solutions location in Hillsboro, VA"
+                      src={`https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${latitude},${longitude}`}
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="w-full"
+                    />
+                  );
+                })()}
+              </div>
+              <p className="text-center text-xs text-gray-500 mt-2">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    `${companyInfo.address.street}, ${companyInfo.address.locality}, ${companyInfo.address.region} ${companyInfo.address.postalCode}`,
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-accent-600 transition-colors"
+                >
+                  Open in Google Maps &rarr;
+                </a>
+              </p>
             </div>
           </div>
 
@@ -227,11 +303,14 @@ export default function RequestServicePage() {
 
                 {/* Name */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-name" className="block font-semibold text-primary-900 mb-2">
                     Full Name *
                   </label>
                   <input
+                    id="rs-name"
                     type="text"
+                    required
+                    aria-required="true"
                     placeholder="Please enter your full name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -241,11 +320,14 @@ export default function RequestServicePage() {
 
                 {/* Phone */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-phone" className="block font-semibold text-primary-900 mb-2">
                     Phone Number *
                   </label>
                   <input
+                    id="rs-phone"
                     type="tel"
+                    required
+                    aria-required="true"
                     placeholder="Please enter your phone number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -255,10 +337,11 @@ export default function RequestServicePage() {
 
                 {/* Email */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-email" className="block font-semibold text-primary-900 mb-2">
                     Email (optional)
                   </label>
                   <input
+                    id="rs-email"
                     type="email"
                     placeholder="Please enter your email address"
                     value={email}
@@ -269,10 +352,13 @@ export default function RequestServicePage() {
 
                 {/* Service */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-service" className="block font-semibold text-primary-900 mb-2">
                     Service Needed *
                   </label>
                   <select
+                    id="rs-service"
+                    required
+                    aria-required="true"
                     value={selectedService}
                     onChange={(e) => {
                       setSelectedService(e.target.value);
@@ -291,10 +377,13 @@ export default function RequestServicePage() {
 
                 {/* Service Type */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-service-type" className="block font-semibold text-primary-900 mb-2">
                     Type of Service Needed *
                   </label>
                   <select
+                    id="rs-service-type"
+                    required
+                    aria-required="true"
                     value={selectedServiceType}
                     onChange={(e) => setSelectedServiceType(e.target.value)}
                     disabled={
@@ -318,11 +407,16 @@ export default function RequestServicePage() {
 
                 {/* Details */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-details" className="block font-semibold text-primary-900 mb-2">
                     Details About Your Request *
                   </label>
                   <textarea
+                    id="rs-details"
                     rows={4}
+                    required
+                    aria-required="true"
+                    aria-describedby={errorMessage ? "rs-error" : undefined}
+                    aria-invalid={errorMessage ? true : undefined}
                     placeholder="Please provide additional details"
                     value={details}
                     onChange={(e) => setDetails(e.target.value)}
@@ -331,12 +425,19 @@ export default function RequestServicePage() {
                 </div>
 
                 {errorMessage && (
-                  <p className="text-red-600 text-sm">{errorMessage}</p>
+                  <p
+                    id="rs-error"
+                    role="alert"
+                    className="text-red-600 text-sm border-l-4 border-red-600 bg-red-50 px-3 py-2"
+                  >
+                    {errorMessage}
+                  </p>
                 )}
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  aria-busy={isSubmitting}
                   className={`w-full px-8 py-3 rounded-md font-semibold ${
                     isSubmitting
                       ? "bg-gray-400 text-white"

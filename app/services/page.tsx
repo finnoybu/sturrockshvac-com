@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "HVAC Services",
   description:
     "Explore HVAC repair, installation, maintenance, heat pump, furnace, and air conditioning services from Sturrock's HVAC Solutions in Virginia and Maryland.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesDirectory() {

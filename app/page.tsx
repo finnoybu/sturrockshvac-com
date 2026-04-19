@@ -1,6 +1,7 @@
 import HeroSection from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import WhySturrocks from "@/components/WhySturrocks";
+import Testimonials from "@/components/Testimonials";
 import BrandLogoStrip from "@/components/BrandLogoStrip";
 import FinalCTA from "@/components/FinalCTA";
 
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
   },
   description:
     "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Frederick County, MD. 24/7 emergency service available.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {
@@ -21,6 +25,7 @@ export default function Home() {
       <HeroSection />
       <ServicesGrid />
       <WhySturrocks />
+      <Testimonials />
       <BrandLogoStrip />
       <FinalCTA />
     </>

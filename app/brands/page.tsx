@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Brands We Service",
   description:
     "See the HVAC brands we service and recommend for new installations and replacements throughout Fairfax and Loudoun, VA and Frederick, MD.",
+  alternates: {
+    canonical: "/brands",
+  },
 };
 
 export default function BrandsPage() {
