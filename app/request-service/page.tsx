@@ -219,9 +219,6 @@ export default function RequestServicePage() {
 
             {/* Address + Google Map embed */}
             <div className="mt-10">
-              <h3 className="text-sm uppercase tracking-wider font-semibold text-primary-700 mb-3 text-center">
-                Visit or Mail Us
-              </h3>
               <address className="not-italic text-sm text-gray-700 text-center mb-4">
                 {companyInfo.address.street}
                 <br />
@@ -229,19 +226,44 @@ export default function RequestServicePage() {
                 {companyInfo.address.postalCode}
               </address>
               <div className="border border-primary-200 rounded-lg overflow-hidden">
-                <iframe
-                  title="Map of Sturrock's HVAC Solutions location in Hillsboro, VA"
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(
-                    `${companyInfo.address.street}, ${companyInfo.address.locality}, ${companyInfo.address.region} ${companyInfo.address.postalCode}`,
-                  )}&z=11&output=embed`}
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                />
+                {(() => {
+                  const { latitude, longitude } = companyInfo.geo;
+                  // Small bounding box around the pin so the map shows useful
+                  // local context (~3 mile radius). OpenStreetMap embed —
+                  // free, no API key, works reliably.
+                  const delta = 0.04;
+                  const bbox = [
+                    longitude - delta,
+                    latitude - delta,
+                    longitude + delta,
+                    latitude + delta,
+                  ].join(",");
+                  return (
+                    <iframe
+                      title="Map of Sturrock's HVAC Solutions location in Hillsboro, VA"
+                      src={`https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${latitude},${longitude}`}
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="w-full"
+                    />
+                  );
+                })()}
               </div>
+              <p className="text-center text-xs text-gray-500 mt-2">
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    `${companyInfo.address.street}, ${companyInfo.address.locality}, ${companyInfo.address.region} ${companyInfo.address.postalCode}`,
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-accent-600 transition-colors"
+                >
+                  Open in Google Maps &rarr;
+                </a>
+              </p>
             </div>
           </div>
 
