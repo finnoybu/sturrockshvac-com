@@ -281,11 +281,14 @@ export default function RequestServicePage() {
 
                 {/* Name */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-name" className="block font-semibold text-primary-900 mb-2">
                     Full Name *
                   </label>
                   <input
+                    id="rs-name"
                     type="text"
+                    required
+                    aria-required="true"
                     placeholder="Please enter your full name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -295,11 +298,14 @@ export default function RequestServicePage() {
 
                 {/* Phone */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-phone" className="block font-semibold text-primary-900 mb-2">
                     Phone Number *
                   </label>
                   <input
+                    id="rs-phone"
                     type="tel"
+                    required
+                    aria-required="true"
                     placeholder="Please enter your phone number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -309,10 +315,11 @@ export default function RequestServicePage() {
 
                 {/* Email */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-email" className="block font-semibold text-primary-900 mb-2">
                     Email (optional)
                   </label>
                   <input
+                    id="rs-email"
                     type="email"
                     placeholder="Please enter your email address"
                     value={email}
@@ -323,10 +330,13 @@ export default function RequestServicePage() {
 
                 {/* Service */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-service" className="block font-semibold text-primary-900 mb-2">
                     Service Needed *
                   </label>
                   <select
+                    id="rs-service"
+                    required
+                    aria-required="true"
                     value={selectedService}
                     onChange={(e) => {
                       setSelectedService(e.target.value);
@@ -345,10 +355,13 @@ export default function RequestServicePage() {
 
                 {/* Service Type */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-service-type" className="block font-semibold text-primary-900 mb-2">
                     Type of Service Needed *
                   </label>
                   <select
+                    id="rs-service-type"
+                    required
+                    aria-required="true"
                     value={selectedServiceType}
                     onChange={(e) => setSelectedServiceType(e.target.value)}
                     disabled={
@@ -372,11 +385,16 @@ export default function RequestServicePage() {
 
                 {/* Details */}
                 <div>
-                  <label className="block font-semibold text-primary-900 mb-2">
+                  <label htmlFor="rs-details" className="block font-semibold text-primary-900 mb-2">
                     Details About Your Request *
                   </label>
                   <textarea
+                    id="rs-details"
                     rows={4}
+                    required
+                    aria-required="true"
+                    aria-describedby={errorMessage ? "rs-error" : undefined}
+                    aria-invalid={errorMessage ? true : undefined}
                     placeholder="Please provide additional details"
                     value={details}
                     onChange={(e) => setDetails(e.target.value)}
@@ -385,12 +403,19 @@ export default function RequestServicePage() {
                 </div>
 
                 {errorMessage && (
-                  <p className="text-red-600 text-sm">{errorMessage}</p>
+                  <p
+                    id="rs-error"
+                    role="alert"
+                    className="text-red-600 text-sm border-l-4 border-red-600 bg-red-50 px-3 py-2"
+                  >
+                    {errorMessage}
+                  </p>
                 )}
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  aria-busy={isSubmitting}
                   className={`w-full px-8 py-3 rounded-md font-semibold ${
                     isSubmitting
                       ? "bg-gray-400 text-white"

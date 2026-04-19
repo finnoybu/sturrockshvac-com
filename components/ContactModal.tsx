@@ -39,12 +39,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   if (!isOpen) return null;
 
 return (
-  <div className="fixed inset-0 z-9999">
+  <div className="fixed inset-0 z-9999" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
 
     {/* Overlay Shield (blocks all interaction) */}
     <div
       className="absolute inset-0 bg-black/60 backdrop-blur-sm"
       onClick={onClose}
+      aria-hidden="true"
     />
 
     {/* Centered Modal */}
@@ -69,7 +70,7 @@ return (
         <div className="p-8 text-center">
 
           {/* Name */}
-          <h2 className="text-4xl font-serif text-primary-900 mb-1">
+          <h2 id="contact-modal-title" className="text-4xl font-serif text-primary-900 mb-1">
             Andy Sturrock
           </h2>
           <p className="text-lg text-gray-600 mb-6">
