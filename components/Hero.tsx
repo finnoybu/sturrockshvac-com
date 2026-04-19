@@ -22,7 +22,7 @@ export default function HeroSection() {
       <div className="relative w-full h-135 md:h-155 lg:h-160 xl:h-175 2xl:h-[85vh] overflow-hidden">
         <Image
           src={heroImage}
-          alt="Seasonal home exterior"
+          alt={`Home exterior in ${season} — Sturrock's HVAC Solutions serves Loudoun, Fairfax, and Frederick counties year-round`}
           fill
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1536px) 100vw, 1920px"

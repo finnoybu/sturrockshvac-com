@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Accessibility Statement",
   description:
     "Accessibility Statement for Sturrock's HVAC-Solutions website and digital services.",
+  alternates: {
+    canonical: "/accessibility",
+  },
 };
 
 export default function Accessibility() {

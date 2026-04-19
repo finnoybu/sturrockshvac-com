@@ -162,7 +162,7 @@ export default function RequestServicePage() {
               <div className="border border-primary-200 rounded-lg overflow-hidden">
                 <Image
                   src="/images/service-map.svg"
-                  alt="Service area map"
+                  alt="Map of Sturrock's HVAC service area covering Loudoun County and Fairfax County in Virginia, plus Frederick County in Maryland"
                   width={800}
                   height={600}
                   className="w-full"
@@ -174,7 +174,7 @@ export default function RequestServicePage() {
             <div className="mt-8 flex justify-center items-center gap-10">
               <Image
                 src="/images/nate.svg"
-                alt="NATE Certified"
+                alt="North American Technician Excellence (NATE) certified HVAC technicians"
                 width={128}
                 height={128}
                 className="h-24 md:h-32 w-auto opacity-90"
@@ -182,7 +182,7 @@ export default function RequestServicePage() {
               />
               <Image
                 src="/images/energy-star.svg"
-                alt="ENERGY STAR Partner"
+                alt="ENERGY STAR Partner badge — specialists in high-efficiency HVAC installations"
                 width={128}
                 height={128}
                 className="h-24 md:h-32 w-auto opacity-90"

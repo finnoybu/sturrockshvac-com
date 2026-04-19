@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   },
   description:
     "Professional HVAC repair, installation, and maintenance serving Fairfax and Loudoun Counties, VA and Frederick County, MD. 24/7 emergency service available.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {

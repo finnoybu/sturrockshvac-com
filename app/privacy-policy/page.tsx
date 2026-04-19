@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Learn how Sturrock's HVAC-Solutions collects, uses, and protects personal information for customers in Virginia and Maryland.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicy() {

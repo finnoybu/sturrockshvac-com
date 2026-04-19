@@ -1,9 +1,12 @@
+import type { Metadata } from "next";
 
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Terms & Conditions",
   description:
     "Review the Terms and Conditions governing use of Sturrock's HVAC-Solutions website and HVAC services in Virginia and Maryland.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function Terms() {
