@@ -43,7 +43,7 @@ export default function AboutPage() {
           <div className="mx-auto md:mx-0">
             <div className="w-64 aspect-4/5 rounded-xl border border-primary-200 shadow-sm overflow-hidden bg-primary-50">
               <Image
-                src="/images/andy.png"
+                src="/images/andrew_sturrock.png"
                 alt="Andy Sturrock, owner of Sturrock's HVAC Solutions"
                 width={458}
                 height={619}
