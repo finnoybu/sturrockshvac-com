@@ -1675,10 +1675,12 @@ const yelpSource = {
 
 const angiSource = {
   name: "Angi",
+  url: "https://www.angi.com/companylist/us/va/lovettsville/sturrock%27s-hvac-solutions-reviews-7828071.htm",
 } as const;
 
 const nextdoorSource = {
   name: "Nextdoor",
+  url: "https://nextdoor.com/pages/sturrocks-hvac-solutions-lovettsville-va/",
 } as const;
 
 export const testimonials: Testimonial[] = [
