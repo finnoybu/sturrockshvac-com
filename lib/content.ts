@@ -238,16 +238,27 @@ export const services = [
     slug: "commercial-hvac",
     title: "Commercial HVAC",
     summary:
-      "Heating and cooling solutions for commercial properties.",
+      "Reliable light commercial HVAC service for offices, retail, restaurants, and property managers.",
     description:
-      "Installation, maintenance, and repair services for light commercial HVAC systems.",
+      "We serve property managers, business owners, and facility managers across Loudoun, Fairfax, and Frederick counties with rooftop unit service, split-system maintenance, walk-in cooler and freezer repair, preventative maintenance contracts, and emergency response for commercial properties. Our NATE-certified technicians understand that for a business, HVAC downtime means lost revenue, unhappy staff, and unhappy customers — and we prioritize our commercial clients accordingly.",
     commonRequests: [
-      "Inconsistent office temperatures",
-      "Rooftop unit not cooling properly",
-      "Preventative maintenance scheduling",
-      "System performance concerns"
+      "Rooftop unit (RTU) not heating or cooling properly",
+      "Inconsistent temperatures across an office floor",
+      "Walk-in cooler or freezer temperature drift",
+      "After-hours or weekend emergency service",
+      "Preventative maintenance contract for multi-unit property",
+      "Restaurant makeup air or kitchen exhaust balance issues",
+      "Retail storefront comfort complaints from customers",
+      "Documentation and service reports for property managers",
     ],
-    subservices: [],
+    subservices: [
+      { key: "rooftop-units", name: "Rooftop Unit (RTU) Service" },
+      { key: "split-systems-commercial", name: "Commercial Split Systems" },
+      { key: "walk-in-refrigeration", name: "Walk-in Cooler & Freezer Service" },
+      { key: "commercial-pm", name: "Preventative Maintenance Contracts" },
+      { key: "emergency-response", name: "After-Hours Emergency Response" },
+      { key: "airflow-balancing-commercial", name: "Airflow Balancing for Commercial Spaces" },
+    ],
   },
 ];
 

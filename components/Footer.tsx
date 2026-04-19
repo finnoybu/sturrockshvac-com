@@ -1,7 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { memo } from "react";
-import { brand, companyInfo, serviceAreas } from "@/lib/content";
+import {
+  brand,
+  companyInfo,
+  cityLandingPages,
+  countyOverviews,
+  serviceAreas,
+} from "@/lib/content";
 import FooterPhoneLink from "@/components/FooterPhoneLink";
 
 /* ===== CONSTANTS ===== */
@@ -76,8 +82,90 @@ export default function Footer() {
         </nav>
       </div>
 
+      <ServiceAreasStrip />
       <FooterBottom />
     </footer>
+  );
+}
+
+function ServiceAreasStrip() {
+  // One column per county. Tier-1 city names link to their landing pages;
+  // county headers link to the county overview. This gives every footer
+  // a comprehensive "we service these places" signal for both users and
+  // search engines.
+  const counties = countyOverviews.map((county) => ({
+    ...county,
+    cities: cityLandingPages.filter(
+      (c) =>
+        c.stateSlug === county.stateSlug &&
+        c.countySlug === county.slug &&
+        !c.isIndependentCity,
+    ),
+  }));
+
+  const independentCities = cityLandingPages.filter((c) => c.isIndependentCity);
+
+  return (
+    <div className="border-t border-primary-700 bg-primary-900/60">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-10">
+        <h3 className="text-center text-sm uppercase tracking-wider font-semibold text-primary-200 mb-6">
+          We Service These Cities
+        </h3>
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-sm">
+          {counties.map((county) => (
+            <div key={county.slug}>
+              <h4 className="font-semibold text-white mb-3">
+                <Link
+                  href={`/service-areas/${county.stateSlug}/${county.slug}`}
+                  className="hover:text-accent-400 transition-colors"
+                >
+                  {county.name}, {county.state}
+                </Link>
+              </h4>
+              <ul className="space-y-1 text-primary-200">
+                {county.cities.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/service-areas/${c.stateSlug}/${c.countySlug}/${c.slug}`}
+                      className="hover:text-accent-400 transition-colors"
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {independentCities.length > 0 && (
+            <div>
+              <h4 className="font-semibold text-white mb-3">
+                Independent Cities
+              </h4>
+              <ul className="space-y-1 text-primary-200">
+                {independentCities.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/service-areas/${c.stateSlug}/${c.countySlug}`}
+                      className="hover:text-accent-400 transition-colors"
+                    >
+                      {c.name}, {c.state}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <p className="text-center text-xs text-primary-300 mt-6">
+          <Link
+            href="/service-areas"
+            className="underline hover:text-accent-400 transition-colors"
+          >
+            See all service areas &rarr;
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 }
 
