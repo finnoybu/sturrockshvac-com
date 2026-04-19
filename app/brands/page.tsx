@@ -13,7 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function BrandsPage() {
-  const sortedBrands = [...brands].sort((a, b) => a.name.localeCompare(b.name));
+  const sortedBrands = brands.toSorted((a, b) =>
+    a.name.localeCompare(b.name),
+  );
 
   return (
     <div className="min-h-screen bg-white border-t border-primary-200">
