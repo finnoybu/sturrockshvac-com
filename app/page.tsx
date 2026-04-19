@@ -1,6 +1,7 @@
 import HeroSection from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import WhySturrocks from "@/components/WhySturrocks";
+import Testimonials from "@/components/Testimonials";
 import BrandLogoStrip from "@/components/BrandLogoStrip";
 import FinalCTA from "@/components/FinalCTA";
 
@@ -24,6 +25,7 @@ export default function Home() {
       <HeroSection />
       <ServicesGrid />
       <WhySturrocks />
+      <Testimonials />
       <BrandLogoStrip />
       <FinalCTA />
     </>

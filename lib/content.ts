@@ -1640,6 +1640,31 @@ export const brands: Brand[] = [
 ];
 
 // =============================
+// TESTIMONIALS
+// =============================
+//
+// First-party customer testimonials. The homepage and JSON-LD emit these
+// only when the array is populated — adding fake reviews or sourcing them
+// from third parties without attribution violates Google's structured-data
+// guidelines and risks a manual penalty.
+//
+// To populate: add entries below with the customer's written permission.
+// At least 3-5 entries are recommended before display; fewer can look thin.
+
+export type Testimonial = {
+  author: string;          // e.g. "Jane D." — permission should cover name display
+  location: string;        // e.g. "Purcellville, VA"
+  datePublished: string;   // ISO date e.g. "2026-03-15"
+  rating: 1 | 2 | 3 | 4 | 5;
+  serviceType?: string;    // e.g. "AC Repair" — shown as a small label if present
+  body: string;            // the quote itself
+};
+
+export const testimonials: Testimonial[] = [
+  // Populate with real, permission-granted testimonials.
+];
+
+// =============================
 // FINAL CTA
 // =============================
 

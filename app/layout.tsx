@@ -3,7 +3,7 @@ import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactModalProvider from "@/components/ContactModalProvider";
-import { brand, companyInfo, serviceAreas } from "@/lib/content";
+import { brand, companyInfo, serviceAreas, testimonials } from "@/lib/content";
 import "./globals.css";
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
@@ -56,6 +56,38 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // AggregateRating + individual Reviews are emitted only when real
+  // testimonials are present. Adding these to the LocalBusiness schema
+  // without first-party review data violates Google's structured-data
+  // guidelines and risks a manual penalty.
+  const ratingFields =
+    testimonials.length > 0
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: (
+              testimonials.reduce((sum, t) => sum + t.rating, 0) /
+              testimonials.length
+            ).toFixed(1),
+            reviewCount: testimonials.length,
+            bestRating: 5,
+            worstRating: 1,
+          },
+          review: testimonials.map((t) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: t.author },
+            datePublished: t.datePublished,
+            reviewBody: t.body,
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: t.rating,
+              bestRating: 5,
+              worstRating: 1,
+            },
+          })),
+        }
+      : {};
+
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
@@ -168,6 +200,8 @@ export default function RootLayout({
                   value: brand.licenses.MD.number,
                 },
               ],
+
+              ...ratingFields,
             }),
           }}
         />

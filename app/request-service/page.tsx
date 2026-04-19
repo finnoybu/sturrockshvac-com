@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { services } from "@/lib/content";
+import { services, companyInfo } from "@/lib/content";
 
 type Service = (typeof services)[number];
 
@@ -188,6 +188,60 @@ export default function RequestServicePage() {
                 className="h-24 md:h-32 w-auto opacity-90"
                 unoptimized
               />
+            </div>
+
+            {/* Business hours */}
+            <div className="mt-10 text-left">
+              <h3 className="text-sm uppercase tracking-wider font-semibold text-primary-700 mb-3 text-center">
+                Business Hours
+              </h3>
+              <dl className="text-sm text-gray-700 space-y-1 max-w-xs mx-auto">
+                <div className="flex justify-between">
+                  <dt>Monday&ndash;Friday</dt>
+                  <dd>8:00 AM &ndash; 5:00 PM</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Saturday</dt>
+                  <dd>Closed</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Sunday</dt>
+                  <dd>Closed</dd>
+                </div>
+                <div className="flex justify-between pt-2 mt-2 border-t border-primary-200">
+                  <dt className="font-semibold text-accent-600">Emergency</dt>
+                  <dd className="font-semibold text-accent-600">
+                    24/7 &mdash; any hour
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            {/* Address + Google Map embed */}
+            <div className="mt-10">
+              <h3 className="text-sm uppercase tracking-wider font-semibold text-primary-700 mb-3 text-center">
+                Visit or Mail Us
+              </h3>
+              <address className="not-italic text-sm text-gray-700 text-center mb-4">
+                {companyInfo.address.street}
+                <br />
+                {companyInfo.address.locality}, {companyInfo.address.region}{" "}
+                {companyInfo.address.postalCode}
+              </address>
+              <div className="border border-primary-200 rounded-lg overflow-hidden">
+                <iframe
+                  title="Map of Sturrock's HVAC Solutions location in Hillsboro, VA"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(
+                    `${companyInfo.address.street}, ${companyInfo.address.locality}, ${companyInfo.address.region} ${companyInfo.address.postalCode}`,
+                  )}&z=11&output=embed`}
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                />
+              </div>
             </div>
           </div>
 
