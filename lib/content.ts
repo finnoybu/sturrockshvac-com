@@ -72,35 +72,32 @@ export const serviceAreas = {
   full:
     "Loudoun County and Fairfax County in Virginia, as well as Frederick County in Maryland",
 
+  // NOTE: this list must stay aligned with the Google Business Profile
+  // service areas. Google cross-references site + GBP; mismatched cities
+  // weaken the local ranking signal. Update both together.
   cities: [
     // Loudoun County, VA
-    { name: "Hillsboro",        county: "Loudoun",   state: "VA" },
-    { name: "Lovettsville",     county: "Loudoun",   state: "VA" },
-    { name: "Purcellville",     county: "Loudoun",   state: "VA" },
     { name: "Leesburg",         county: "Loudoun",   state: "VA" },
     { name: "Ashburn",          county: "Loudoun",   state: "VA" },
-    { name: "Hamilton",         county: "Loudoun",   state: "VA" },
-    { name: "Round Hill",       county: "Loudoun",   state: "VA" },
-    { name: "Waterford",        county: "Loudoun",   state: "VA" },
-    { name: "Middleburg",       county: "Loudoun",   state: "VA" },
     { name: "Sterling",         county: "Loudoun",   state: "VA" },
-    { name: "Bluemont",         county: "Loudoun",   state: "VA" },
+    { name: "Lovettsville",     county: "Loudoun",   state: "VA" },
+    { name: "Hillsboro",        county: "Loudoun",   state: "VA" },
+    { name: "Purcellville",     county: "Loudoun",   state: "VA" },
+    { name: "Round Hill",       county: "Loudoun",   state: "VA" },
+    { name: "Hamilton",         county: "Loudoun",   state: "VA" },
 
     // Fairfax County, VA
-    { name: "Herndon",          county: "Fairfax",   state: "VA" },
+    { name: "McLean",           county: "Fairfax",   state: "VA" },
     { name: "Reston",           county: "Fairfax",   state: "VA" },
-    { name: "Great Falls",      county: "Fairfax",   state: "VA" },
-    { name: "Vienna",           county: "Fairfax",   state: "VA" },
+    { name: "Herndon",          county: "Fairfax",   state: "VA" },
     { name: "Chantilly",        county: "Fairfax",   state: "VA" },
-    { name: "Oakton",           county: "Fairfax",   state: "VA" },
+    { name: "Vienna",           county: "Fairfax",   state: "VA" },
 
     // Frederick County, MD
     { name: "Frederick",        county: "Frederick", state: "MD" },
     { name: "Brunswick",        county: "Frederick", state: "MD" },
     { name: "Point of Rocks",   county: "Frederick", state: "MD" },
     { name: "Middletown",       county: "Frederick", state: "MD" },
-    { name: "Jefferson",        county: "Frederick", state: "MD" },
-    { name: "Knoxville",        county: "Frederick", state: "MD" },
   ] as const,
 };
 
