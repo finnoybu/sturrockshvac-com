@@ -1,7 +1,13 @@
+import Link from "next/link";
 import { testimonials } from "@/lib/content";
 
-// Renders the testimonials section on the homepage. Returns null when the
-// testimonials array is empty so we never display a thin/empty section.
+// Homepage testimonials section. Shows the 3 most-recent reviews (array is
+// kept in reverse-chronological order in lib/content.ts) with a link to
+// the dedicated /testimonials page for all reviews.
+// Returns null when the testimonials array is empty so we never display a
+// thin/empty section.
+
+const HOMEPAGE_LIMIT = 3;
 
 function StarRow({ count }: { count: number }) {
   return (
@@ -29,6 +35,9 @@ function StarRow({ count }: { count: number }) {
 export default function Testimonials() {
   if (testimonials.length === 0) return null;
 
+  const featured = testimonials.slice(0, HOMEPAGE_LIMIT);
+  const hasMore = testimonials.length > HOMEPAGE_LIMIT;
+
   return (
     <section className="bg-primary-50 border-t border-primary-200 py-16">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -46,7 +55,7 @@ export default function Testimonials() {
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
+          {featured.map((t, i) => (
             <article
               key={i}
               className="bg-white border border-primary-200 rounded-xl p-6 shadow-[0_6px_18px_rgba(0,0,0,0.05)] flex flex-col"
@@ -95,6 +104,17 @@ export default function Testimonials() {
             </article>
           ))}
         </div>
+
+        {hasMore && (
+          <div className="text-center mt-10">
+            <Link
+              href="/testimonials"
+              className="inline-block text-accent-600 hover:text-accent-700 font-semibold transition-colors"
+            >
+              Read all {testimonials.length} reviews &rarr;
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

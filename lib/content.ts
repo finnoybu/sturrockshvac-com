@@ -1683,6 +1683,11 @@ const nextdoorSource = {
   url: "https://nextdoor.com/pages/sturrocks-hvac-solutions-lovettsville-va/",
 } as const;
 
+const yahooLocalSource = {
+  name: "Yahoo Local",
+  url: "https://local.yahoo.com/info-97804975-Sturrocks-HVAC-Solutions/",
+} as const;
+
 export const testimonials: Testimonial[] = [
   {
     author: "Holly A.",
@@ -1699,6 +1704,14 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     body: "I had another company come out for a winter check and told me I had to replace both my units for a ridiculous cost. I called Andy and he was out later in the week and all it took was a service call to get my units up and running. Highly recommend for all your heating and cooling needs!",
     source: yelpSource,
+  },
+  {
+    author: "Leanne P.",
+    location: "Virginia",
+    datePublished: "2024-08-20",
+    rating: 5,
+    body: "Quality work. Service requested and completed in a timely manner. Great customer service. Highly recommend.",
+    source: yahooLocalSource,
   },
   {
     author: "S. M.",
@@ -1739,6 +1752,14 @@ export const testimonials: Testimonial[] = [
     rating: 5,
     body: "After our outside heat pump stopped working Andy was out the next day after we called him and got us up and running again in less than 5 minutes. Having someone local who is an expert, honest and trustworthy is why he's earned our business forever.",
     source: yelpSource,
+  },
+  {
+    author: "Mary R.",
+    location: "Virginia",
+    datePublished: "2020-06-12",
+    rating: 5,
+    body: "Cannot recommend highly enough. In the last few years he has worked on both our furnace and air conditioners. Prompt, honest and reliable. Thrilled we found him!",
+    source: yahooLocalSource,
   },
   {
     author: "Bailey P.",
