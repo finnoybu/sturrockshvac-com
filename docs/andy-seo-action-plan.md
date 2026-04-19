@@ -171,11 +171,11 @@ trust. Let's make them all match.
 - [ ] Yelp
 - [ ] Nextdoor Business profile
 - [ ] Facebook Business page
-- [ ] BBB (Better Business Bureau)
 - [ ] Angi (formerly Angie's List)
 - [ ] HomeAdvisor
 - [ ] Bing Places
 - [ ] Apple Maps Business Connect
+- [ ] Yahoo Local
 
 Any listing with a different phone, suite number, or name variant needs
 updating.
@@ -186,8 +186,6 @@ updating.
 
 Each citation reinforces the NAP across the web. These are free:
 
-- [ ] BBB — basic listing is free (full accreditation is ~$500/yr but not
-      required)
 - [ ] Angi — free listing
 - [ ] HomeAdvisor — free listing
 - [ ] Facebook Business page (if not already set up)
