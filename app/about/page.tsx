@@ -7,7 +7,7 @@ import { brand, companyInfo } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About Andy",
   description:
-    "Andy Sturrock, the NATE-certified owner of Sturrock's HVAC Solutions, has been keeping Loudoun County homes comfortable for 15+ years. Licensed in VA and MD, A+ rated with the BBB, and based in Hillsboro.",
+    "Andy Sturrock, the NATE-certified owner of Sturrock's HVAC Solutions, has been keeping Loudoun County homes comfortable for 15+ years. Licensed in VA and MD, based in Hillsboro.",
   alternates: {
     canonical: "/about",
   },
@@ -89,11 +89,11 @@ export default function AboutPage() {
               fair price whether it&apos;s your first visit or your tenth.
             </p>
             <p>
-              The A+ rating with the Better Business Bureau and fifteen years
-              of repeat customers tell the rest of the story. In a business
-              where trust is everything, Andy has earned his by treating every
-              home like it&apos;s a neighbor&apos;s &mdash; because in western
-              Loudoun, it usually is.
+              Fifteen years of repeat customers and word-of-mouth referrals
+              tell the rest of the story. In a business where trust is
+              everything, Andy has earned his by treating every home like
+              it&apos;s a neighbor&apos;s &mdash; because in western Loudoun,
+              it usually is.
             </p>
           </div>
         </div>
@@ -119,9 +119,9 @@ export default function AboutPage() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider font-semibold text-accent-600 mb-1">
-                BBB Rating
+                NATE Certification
               </p>
-              <p className="font-semibold text-primary-900">A+ Accredited</p>
+              <p className="font-semibold text-primary-900">All Technicians</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider font-semibold text-accent-600 mb-1">
