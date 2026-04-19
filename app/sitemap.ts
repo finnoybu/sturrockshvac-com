@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { services, brand } from "@/lib/content";
+import { services, brand, cityLandingPages } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = `https://${brand.domain}`;
@@ -25,5 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }));
 
-  return [...staticEntries, ...serviceEntries];
+  const cityEntries = cityLandingPages.map((city) => ({
+    url: `${baseUrl}/service-areas/${city.stateSlug}/${city.countySlug}/${city.slug}`,
+    lastModified: now,
+  }));
+
+  return [...staticEntries, ...serviceEntries, ...cityEntries];
 }

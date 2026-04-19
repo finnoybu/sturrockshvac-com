@@ -252,8 +252,55 @@ export const services = [
 ];
 
 // =============================
-// BRANDS
+// CITY LANDING PAGES
 // =============================
+//
+// Per-city content for dedicated service-area landing pages. Populate
+// incrementally — only cities with a matching entry here get a landing
+// page rendered at /service-areas/<slug>. The broader service-area city
+// list above (serviceAreas.cities) stays the canonical source for the
+// LocalBusiness schema regardless of which pages exist.
+
+export type StateSlug = "virginia" | "maryland";
+export type CountySlug =
+  | "loudoun-county"
+  | "fairfax-county"
+  | "frederick-county"
+  | "fairfax-city"
+  | "falls-church";
+
+export type CityLandingPage = {
+  slug: string;
+  name: string;
+  state: "VA" | "MD";
+  stateSlug: StateSlug;
+  county: string; // display name, e.g. "Loudoun County"
+  countySlug: CountySlug;
+  tier: 1 | 2;
+  intro: string;
+  localContext: string;
+  distanceNote: string;
+  metaDescription: string;
+};
+
+export const cityLandingPages: CityLandingPage[] = [
+  {
+    slug: "lovettsville",
+    name: "Lovettsville",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Loudoun County",
+    countySlug: "loudoun-county",
+    tier: 1,
+    distanceNote: "Just 10 miles from our Hillsboro base",
+    metaDescription:
+      "HVAC repair, installation, and maintenance in Lovettsville, VA. NATE-certified technicians, 24/7 emergency service, and 14+ years serving northern Loudoun County.",
+    intro:
+      "Sturrock's HVAC Solutions is based just 10 miles south of Lovettsville in neighboring Hillsboro — which makes us one of the few HVAC contractors with a real local presence in far northern Loudoun County. For over 14 years, our NATE-certified technicians have been keeping homes and businesses in the Lovettsville area comfortable year-round, from emergency furnace repairs on a 10-degree January night to full AC system replacements ahead of summer heat.",
+    localContext:
+      "Lovettsville sits at the northern edge of Loudoun County, right on the Potomac across from Brunswick and Point of Rocks in Maryland. The mix of historic homes in the village core, working farms and equestrian properties along the surrounding roads, and newer subdivisions each bring their own HVAC needs. Older homes often need careful attention to aging ductwork and right-sized equipment for well-insulated vs. drafty construction; newer builds tend to benefit most from high-efficiency heat pumps and smart thermostat upgrades. Because we're licensed in both Virginia and Maryland, we can cross the Brunswick Bridge to service homes in Point of Rocks, Brunswick, and Jefferson without missing a beat.",
+  },
+];
 
 export type Brand = {
   name: string;
