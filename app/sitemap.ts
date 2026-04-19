@@ -26,7 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const cityEntries = cityLandingPages.map((city) => ({
-    url: `${baseUrl}/service-areas/${city.stateSlug}/${city.countySlug}/${city.slug}`,
+    url: city.isIndependentCity
+      ? `${baseUrl}/service-areas/${city.stateSlug}/${city.countySlug}`
+      : `${baseUrl}/service-areas/${city.stateSlug}/${city.countySlug}/${city.slug}`,
     lastModified: now,
   }));
 

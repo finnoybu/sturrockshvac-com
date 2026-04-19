@@ -9,30 +9,36 @@ import {
   services,
 } from "@/lib/content";
 
+// This route renders 2-segment service-area URLs:
+//   - Independent cities (City of Fairfax, City of Falls Church) that are
+//     peers to counties rather than nested under them.
+//   - Future: tier-3 county overview pages will also render here.
+
 export async function generateStaticParams() {
   return cityLandingPages
-    .filter((city) => !city.isIndependentCity)
+    .filter((city) => city.isIndependentCity)
     .map((city) => ({
       state: city.stateSlug,
       county: city.countySlug,
-      slug: city.slug,
     }));
 }
 
 interface Props {
-  params: Promise<{ state: string; county: string; slug: string }>;
+  params: Promise<{ state: string; county: string }>;
 }
 
-function findCity(state: string, county: string, slug: string) {
+function findIndependentCity(state: string, county: string) {
   return cityLandingPages.find(
     (c) =>
-      c.stateSlug === state && c.countySlug === county && c.slug === slug,
+      c.isIndependentCity === true &&
+      c.stateSlug === state &&
+      c.countySlug === county,
   );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { state, county, slug } = await params;
-  const city = findCity(state, county, slug);
+  const { state, county } = await params;
+  const city = findIndependentCity(state, county);
 
   if (!city) {
     return {
@@ -46,18 +52,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `HVAC Services in ${city.name}, ${city.state}`,
     description: city.metaDescription,
     alternates: {
-      canonical: `https://${brand.domain}/service-areas/${city.stateSlug}/${city.countySlug}/${city.slug}`,
+      canonical: `https://${brand.domain}/service-areas/${city.stateSlug}/${city.countySlug}`,
     },
   };
 }
 
-export default async function CityLandingPage({ params }: Props) {
-  const { state, county, slug } = await params;
-  const city = findCity(state, county, slug);
+export default async function IndependentCityOrCountyPage({ params }: Props) {
+  const { state, county } = await params;
+  const city = findIndependentCity(state, county);
 
   if (!city) return notFound();
 
-  const canonicalUrl = `https://${brand.domain}/service-areas/${city.stateSlug}/${city.countySlug}/${city.slug}`;
+  const canonicalUrl = `https://${brand.domain}/service-areas/${city.stateSlug}/${city.countySlug}`;
 
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
@@ -82,13 +88,6 @@ export default async function CityLandingPage({ params }: Props) {
             {city.state === "VA" ? "Virginia" : "Maryland"}
           </Link>
           <span className="mx-2">/</span>
-          <Link
-            href={`/service-areas/${city.stateSlug}/${city.countySlug}`}
-            className="hover:text-accent-500 transition-colors"
-          >
-            {city.county}
-          </Link>
-          <span className="mx-2">/</span>
           <span className="text-primary-900">{city.name}</span>
         </nav>
 
@@ -97,17 +96,14 @@ export default async function CityLandingPage({ params }: Props) {
           HVAC Services in {city.name}, {city.state}
         </h1>
 
-        {/* Distance tagline */}
         <p className="text-sm uppercase tracking-wider text-accent-600 font-semibold mb-6">
           {city.distanceNote}
         </p>
 
-        {/* Intro */}
         <p className="text-lg text-gray-700 leading-relaxed mb-10">
           {city.intro}
         </p>
 
-        {/* Primary CTA */}
         <div className="flex flex-col sm:flex-row gap-4 mb-14">
           <a
             href={`tel:${companyInfo.phoneE164}`}
@@ -123,7 +119,6 @@ export default async function CityLandingPage({ params }: Props) {
           </Link>
         </div>
 
-        {/* Services we provide */}
         <section className="mb-14">
           <h2 className="text-3xl font-serif text-primary-900 mb-4">
             HVAC Services We Provide in {city.name}
@@ -146,7 +141,6 @@ export default async function CityLandingPage({ params }: Props) {
           </ul>
         </section>
 
-        {/* Local context */}
         <section className="mb-14">
           <h2 className="text-3xl font-serif text-primary-900 mb-4">
             A Local Contractor for {city.name} Homeowners
@@ -154,7 +148,6 @@ export default async function CityLandingPage({ params }: Props) {
           <p className="text-gray-700 leading-relaxed">{city.localContext}</p>
         </section>
 
-        {/* Why Sturrock's */}
         <section className="mb-14">
           <h2 className="text-3xl font-serif text-primary-900 mb-4">
             Why {city.name} Homeowners Choose Sturrock&apos;s
@@ -197,7 +190,6 @@ export default async function CityLandingPage({ params }: Props) {
           </ul>
         </section>
 
-        {/* Closing CTA */}
         <section className="bg-primary-900 text-white rounded-xl px-8 py-10 text-center">
           <h2 className="text-3xl font-serif mb-3">
             Ready for Service in {city.name}?
@@ -222,9 +214,8 @@ export default async function CityLandingPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Structured Data: Service scoped to this city */}
         <Script
-          id={`city-service-schema-${city.slug}`}
+          id={`independent-city-schema-${city.slug}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
