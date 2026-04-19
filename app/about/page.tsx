@@ -40,16 +40,14 @@ export default function AboutPage() {
 
         {/* Photo + bio */}
         <div className="grid md:grid-cols-[280px_1fr] gap-10 mb-14 items-start">
-          {/* TODO: swap src for an actual headshot of Andy when available;
-              the company logo stands in for now so the layout is production-ready. */}
           <div className="mx-auto md:mx-0">
-            <div className="w-64 h-64 rounded-xl bg-white border border-primary-200 shadow-sm flex items-center justify-center p-6 overflow-hidden">
+            <div className="w-64 aspect-4/5 rounded-xl border border-primary-200 shadow-sm overflow-hidden bg-primary-50">
               <Image
-                src="/images/logo.png"
-                alt={`${brand.marketingName} logo (placeholder for owner headshot)`}
-                width={256}
-                height={256}
-                className="max-w-full max-h-full object-contain"
+                src="/images/andy.png"
+                alt="Andy Sturrock, owner of Sturrock's HVAC Solutions"
+                width={458}
+                height={619}
+                className="w-full h-full object-cover"
               />
             </div>
             <p className="text-xs text-gray-500 text-center mt-2 max-w-[256px]">
