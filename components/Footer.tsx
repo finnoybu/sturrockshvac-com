@@ -183,6 +183,12 @@ function QuickLinksSection() {
           <FooterLink href="/services">Services</FooterLink>
         </li>
         <li>
+          <FooterLink href="/service-areas">Service Areas</FooterLink>
+        </li>
+        <li>
+          <FooterLink href="/testimonials">Customer Reviews</FooterLink>
+        </li>
+        <li>
           <FooterLink href="/brands">Brands</FooterLink>
         </li>
         <li>
