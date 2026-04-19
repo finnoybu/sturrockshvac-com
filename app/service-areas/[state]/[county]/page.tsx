@@ -6,21 +6,27 @@ import {
   brand,
   companyInfo,
   cityLandingPages,
+  countyOverviews,
+  regionalLandingPages,
   services,
 } from "@/lib/content";
 
-// This route renders 2-segment service-area URLs:
-//   - Independent cities (City of Fairfax, City of Falls Church) that are
-//     peers to counties rather than nested under them.
-//   - Future: tier-3 county overview pages will also render here.
+// This route handles 2-segment service-area URLs. Two kinds of pages
+// share this URL shape:
+//   - Independent cities (peers to counties: Fairfax City, Falls Church)
+//   - Tier-3 county overview pages (Loudoun, Fairfax, Frederick)
 
 export async function generateStaticParams() {
-  return cityLandingPages
-    .filter((city) => city.isIndependentCity)
-    .map((city) => ({
-      state: city.stateSlug,
-      county: city.countySlug,
-    }));
+  const independentParams = cityLandingPages
+    .filter((c) => c.isIndependentCity)
+    .map((c) => ({ state: c.stateSlug, county: c.countySlug }));
+
+  const countyParams = countyOverviews.map((c) => ({
+    state: c.stateSlug,
+    county: c.slug,
+  }));
+
+  return [...independentParams, ...countyParams];
 }
 
 interface Props {
@@ -36,39 +42,68 @@ function findIndependentCity(state: string, county: string) {
   );
 }
 
+function findCountyOverview(state: string, county: string) {
+  return countyOverviews.find(
+    (c) => c.stateSlug === state && c.slug === county,
+  );
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state, county } = await params;
-  const city = findIndependentCity(state, county);
 
-  if (!city) {
+  const city = findIndependentCity(state, county);
+  if (city) {
     return {
-      title: "Service Area Not Found",
-      description:
-        "The service area page you requested is not available. Explore HVAC services from Sturrock's HVAC Solutions across Loudoun, Fairfax, and Frederick counties.",
+      title: `HVAC Services in ${city.name}, ${city.state}`,
+      description: city.metaDescription,
+      alternates: {
+        canonical: `https://${brand.domain}/service-areas/${city.stateSlug}/${city.countySlug}`,
+      },
+    };
+  }
+
+  const overview = findCountyOverview(state, county);
+  if (overview) {
+    return {
+      title: `HVAC Services in ${overview.name}, ${overview.state}`,
+      description: overview.metaDescription,
+      alternates: {
+        canonical: `https://${brand.domain}/service-areas/${overview.stateSlug}/${overview.slug}`,
+      },
     };
   }
 
   return {
-    title: `HVAC Services in ${city.name}, ${city.state}`,
-    description: city.metaDescription,
-    alternates: {
-      canonical: `https://${brand.domain}/service-areas/${city.stateSlug}/${city.countySlug}`,
-    },
+    title: "Service Area Not Found",
+    description:
+      "The service area page you requested is not available. Explore HVAC services from Sturrock's HVAC Solutions across Loudoun, Fairfax, and Frederick counties.",
   };
 }
 
-export default async function IndependentCityOrCountyPage({ params }: Props) {
+export default async function TwoSegmentPage({ params }: Props) {
   const { state, county } = await params;
+
   const city = findIndependentCity(state, county);
+  if (city) return <IndependentCityPage city={city} />;
 
-  if (!city) return notFound();
+  const overview = findCountyOverview(state, county);
+  if (overview) return <CountyOverviewPage overview={overview} />;
 
+  return notFound();
+}
+
+// ---------- Independent city ----------
+
+function IndependentCityPage({
+  city,
+}: {
+  city: (typeof cityLandingPages)[number];
+}) {
   const canonicalUrl = `https://${brand.domain}/service-areas/${city.stateSlug}/${city.countySlug}`;
 
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
       <main className="max-w-4xl mx-auto px-6 pt-10 pb-16">
-        {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-500">
           <Link href="/" className="hover:text-accent-500 transition-colors">
             Home
@@ -91,7 +126,6 @@ export default async function IndependentCityOrCountyPage({ params }: Props) {
           <span className="text-primary-900">{city.name}</span>
         </nav>
 
-        {/* H1 */}
         <h1 className="text-4xl md:text-5xl font-serif text-primary-900 mb-6">
           HVAC Services in {city.name}, {city.state}
         </h1>
@@ -233,6 +267,201 @@ export default async function IndependentCityOrCountyPage({ params }: Props) {
               areaServed: {
                 "@type": "City",
                 name: `${city.name}, ${city.state}`,
+              },
+            }),
+          }}
+        />
+      </main>
+    </div>
+  );
+}
+
+// ---------- County overview ----------
+
+function CountyOverviewPage({
+  overview,
+}: {
+  overview: (typeof countyOverviews)[number];
+}) {
+  const canonicalUrl = `https://${brand.domain}/service-areas/${overview.stateSlug}/${overview.slug}`;
+
+  const tier1Cities = cityLandingPages.filter(
+    (c) =>
+      c.stateSlug === overview.stateSlug &&
+      c.countySlug === overview.slug &&
+      !c.isIndependentCity,
+  );
+
+  const tier2Regions = regionalLandingPages.filter(
+    (r) =>
+      r.stateSlug === overview.stateSlug && r.countySlug === overview.slug,
+  );
+
+  return (
+    <div className="min-h-screen bg-primary-50 border-t border-primary-200">
+      <main className="max-w-4xl mx-auto px-6 pt-10 pb-16">
+        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-gray-500">
+          <Link href="/" className="hover:text-accent-500 transition-colors">
+            Home
+          </Link>
+          <span className="mx-2">/</span>
+          <Link
+            href="/service-areas"
+            className="hover:text-accent-500 transition-colors"
+          >
+            Service Areas
+          </Link>
+          <span className="mx-2">/</span>
+          <Link
+            href={`/service-areas/${overview.stateSlug}`}
+            className="hover:text-accent-500 transition-colors"
+          >
+            {overview.state === "VA" ? "Virginia" : "Maryland"}
+          </Link>
+          <span className="mx-2">/</span>
+          <span className="text-primary-900">{overview.name}</span>
+        </nav>
+
+        <h1 className="text-4xl md:text-5xl font-serif text-primary-900 mb-6">
+          HVAC Services in {overview.name}, {overview.state}
+        </h1>
+
+        <p className="text-lg text-gray-700 leading-relaxed mb-8">
+          {overview.intro}
+        </p>
+
+        <p className="text-gray-700 leading-relaxed mb-10">
+          {overview.overview}
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 mb-14">
+          <a
+            href={`tel:${companyInfo.phoneE164}`}
+            className="inline-block text-center bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-md shadow-md transition-colors font-semibold"
+          >
+            Call {companyInfo.phone}
+          </a>
+          <Link
+            href="/request-service"
+            className="inline-block text-center bg-white hover:bg-primary-100 border border-primary-300 text-primary-900 px-6 py-3 rounded-md transition-colors font-semibold"
+          >
+            Request Service Online
+          </Link>
+        </div>
+
+        {/* Tier-1 cities */}
+        {tier1Cities.length > 0 && (
+          <section className="mb-14">
+            <h2 className="text-3xl font-serif text-primary-900 mb-6">
+              Cities We Serve in {overview.name}
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {tier1Cities.map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/service-areas/${city.stateSlug}/${city.countySlug}/${city.slug}`}
+                  className="block bg-white border border-primary-200 rounded-lg px-5 py-4 hover:border-accent-500 hover:shadow-md transition-all"
+                >
+                  <h3 className="font-semibold text-primary-900 text-lg">
+                    {city.name}, {city.state}
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {city.distanceNote}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Tier-2 regions */}
+        {tier2Regions.length > 0 && (
+          <section className="mb-14">
+            <h2 className="text-3xl font-serif text-primary-900 mb-6">
+              Communities &amp; Regions
+            </h2>
+            <div className="space-y-4">
+              {tier2Regions.map((region) => (
+                <Link
+                  key={region.slug}
+                  href={`/service-areas/${region.stateSlug}/${region.countySlug}/${region.slug}`}
+                  className="block bg-white border border-primary-200 rounded-lg px-5 py-4 hover:border-accent-500 hover:shadow-md transition-all"
+                >
+                  <h3 className="font-semibold text-primary-900 text-lg">
+                    {region.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Includes: {region.places.map((p) => p.name).join(", ")}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Service list */}
+        <section className="mb-14">
+          <h2 className="text-3xl font-serif text-primary-900 mb-4">
+            HVAC Services We Provide Across {overview.name}
+          </h2>
+          <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-gray-700">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="text-primary-800 hover:text-accent-600 transition-colors"
+                >
+                  • {s.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Closing CTA */}
+        <section className="bg-primary-900 text-white rounded-xl px-8 py-10 text-center">
+          <h2 className="text-3xl font-serif mb-3">
+            Ready for Service?
+          </h2>
+          <p className="mb-6 text-primary-100">
+            Call us directly or request service online — we&apos;ll get back to
+            you fast.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href={`tel:${companyInfo.phoneE164}`}
+              className="inline-block bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-md shadow-md transition-colors font-semibold"
+            >
+              Call {companyInfo.phone}
+            </a>
+            <Link
+              href="/request-service"
+              className="inline-block bg-white hover:bg-primary-100 text-primary-900 px-6 py-3 rounded-md transition-colors font-semibold"
+            >
+              Request Service
+            </Link>
+          </div>
+        </section>
+
+        <Script
+          id={`county-overview-schema-${overview.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "@id": `${canonicalUrl}#service`,
+              name: `HVAC Services in ${overview.name}, ${overview.state}`,
+              description: overview.metaDescription,
+              serviceType: "HVAC",
+              url: canonicalUrl,
+              provider: {
+                "@type": "HVACBusiness",
+                "@id": `https://${brand.domain}#business`,
+              },
+              areaServed: {
+                "@type": "AdministrativeArea",
+                name: `${overview.name}, ${overview.state}`,
               },
             }),
           }}

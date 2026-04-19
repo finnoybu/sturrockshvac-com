@@ -735,6 +735,879 @@ export const cityLandingPages: CityLandingPage[] = [
   },
 ];
 
+// =============================
+// TIER 2: REGIONAL LANDING PAGES
+// =============================
+//
+// Each tier-2 page covers multiple smaller communities grouped by geography.
+// This lets us provide substantive, indexable content for every place without
+// creating 100+ near-duplicate pages that Google's Helpful Content system
+// would flag as scaled content abuse.
+
+export type RegionalPlace = {
+  slug: string;
+  name: string;
+  blurb: string;
+};
+
+export type RegionalLandingPage = {
+  slug: string;
+  name: string;
+  state: "VA" | "MD";
+  stateSlug: StateSlug;
+  county: string;
+  countySlug: CountySlug;
+  intro: string;
+  overview: string;
+  metaDescription: string;
+  places: RegionalPlace[];
+};
+
+export const regionalLandingPages: RegionalLandingPage[] = [
+  // =============================
+  // LOUDOUN COUNTY (2 pages)
+  // =============================
+  {
+    slug: "western-villages",
+    name: "Western Loudoun Villages",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Loudoun County",
+    countySlug: "loudoun-county",
+    metaDescription:
+      "HVAC service across western Loudoun County's small villages — Waterford, Bluemont, Lincoln, Lucketts, Paeonian Springs, Philomont, Saint Louis, Taylorstown, Unison.",
+    intro:
+      "Western Loudoun's small villages have a distinctive character — historic stone and clapboard homes, narrow farm roads, working orchards and vineyards, and some of the most architecturally significant properties in Northern Virginia. Sturrock's HVAC Solutions is based in Hillsboro at the heart of this region, which makes us the closest HVAC contractor for most of these communities.",
+    overview:
+      "Many of the homes in these villages predate modern HVAC design by a century or more. That means retrofitting work is less about swapping equipment and more about thoughtful system design — ductwork that threads through original construction without compromising historic fabric, equipment sized for actual envelopes rather than standard tables, and a willingness to take the time required to do things right. Because we live and work here, we approach these projects the way homeowners want: with patience and care for the property.",
+    places: [
+      {
+        slug: "waterford",
+        name: "Waterford",
+        blurb:
+          "Waterford is a National Historic Landmark — an 18th-century Quaker village preserved almost entirely intact. HVAC work here requires special care: equipment placement that doesn't disrupt historic sightlines, ductwork that threads through original construction, and sizing that accounts for envelopes built long before modern insulation standards. We have the experience to do it right.",
+      },
+      {
+        slug: "bluemont",
+        name: "Bluemont",
+        blurb:
+          "Bluemont sits at the base of the Blue Ridge at the western edge of Loudoun County — orchard country, winery country, with mountain elevation that can drop temperatures several degrees below the county average. We size heating systems for those real conditions. The mix of historic farmhouses and newer mountain-view builds each need specific attention.",
+      },
+      {
+        slug: "lincoln",
+        name: "Lincoln",
+        blurb:
+          "Lincoln is a small Quaker-heritage village just south of Purcellville with a tight-knit community and mostly older homes. HVAC work here usually means retrofit and replacement rather than new installations — and right-sizing equipment for actual building envelopes is more valuable than defaulting to typical suburban sizing assumptions.",
+      },
+      {
+        slug: "lucketts",
+        name: "Lucketts",
+        blurb:
+          "Lucketts sits in northern Loudoun between Leesburg and the Potomac — known for its antiques district and rural character. Housing ranges from historic farmhouses to newer homes on the surrounding land. Because it's closer to us in Hillsboro than it is to most HVAC contractors dispatched from the east, we can typically respond to Lucketts service calls faster than the alternatives.",
+      },
+      {
+        slug: "paeonian-springs",
+        name: "Paeonian Springs",
+        blurb:
+          "Paeonian Springs is a tiny rural community between Purcellville and Leesburg, mostly single-family homes on larger lots. Standard residential HVAC service applies here — repair, replacement, and preventative maintenance — and we handle it all.",
+      },
+      {
+        slug: "philomont",
+        name: "Philomont",
+        blurb:
+          "Philomont is a rural crossroads village in central Loudoun with a strong Quaker heritage and a scattered housing footprint across the surrounding farmland. We service it the same way we service any of our home county communities — promptly, properly, and with equipment sized for the actual home.",
+      },
+      {
+        slug: "saint-louis",
+        name: "Saint Louis",
+        blurb:
+          "Saint Louis is a small rural community in central Loudoun County. HVAC contractors dispatched from farther east often treat communities this size as an afterthought; we treat them the same as any other service call.",
+      },
+      {
+        slug: "taylorstown",
+        name: "Taylorstown",
+        blurb:
+          "Taylorstown is a small rural village in northern Loudoun not far from Lovettsville and our Hillsboro base. Historic homes mix with newer properties; HVAC work here usually means careful retrofits and right-sized replacement equipment.",
+      },
+      {
+        slug: "unison",
+        name: "Unison",
+        blurb:
+          "Unison is a small historic village southwest of Middleburg in the heart of horse country. Housing skews toward historic homes and estate properties — HVAC design here often means multi-zone systems that give homeowners real control across larger, older structures.",
+      },
+    ],
+  },
+  {
+    slug: "eastern-communities",
+    name: "Eastern Loudoun Communities",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Loudoun County",
+    countySlug: "loudoun-county",
+    metaDescription:
+      "HVAC service across eastern Loudoun's planned communities — Aldie, Arcola, Belmont, Broadlands, Cascades, Countryside, Lansdowne, One Loudoun, Moorefield, Sugarland Run, and more.",
+    intro:
+      "Eastern Loudoun County's residential landscape is dominated by planned communities and CDPs built largely since the 1990s — master-planned neighborhoods, golf-course communities, and townhome developments that collectively house the majority of Loudoun's population. Most homes here are reaching the age where first-generation HVAC equipment needs replacement, and Sturrock's HVAC Solutions has the experience to match the right equipment to each community's housing stock.",
+    overview:
+      "These communities were designed from the beginning around modern HVAC standards, which means they respond well to high-efficiency replacements, variable-speed equipment, and smart thermostat integration. Load calculations are particularly important here because homes built in the 1990s-2000s have specific envelope characteristics that don't match typical suburban assumptions — we see a lot of oversized-system issues from rule-of-thumb replacements done by contractors who didn't run the numbers. Right-sizing delivers real comfort improvement and lower long-term operating costs.",
+    places: [
+      {
+        slug: "aldie",
+        name: "Aldie",
+        blurb:
+          "Aldie is a historic crossroads village at the intersection of Route 50 and John Mosby Highway in southern Loudoun. Housing ranges from historic homes in the village itself to newer subdivisions on the surrounding roads. Standard residential HVAC service applies, with attention to the specific envelope characteristics of each home.",
+      },
+      {
+        slug: "arcola",
+        name: "Arcola",
+        blurb:
+          "Arcola is a fast-growing community in southeastern Loudoun near the Dulles airport corridor, with mostly newer construction. Homes here benefit from modern variable-speed equipment and are well-matched to smart thermostat integration.",
+      },
+      {
+        slug: "belmont",
+        name: "Belmont",
+        blurb:
+          "Belmont Country Club is an established planned community near Ashburn with larger single-family homes from the 1990s-2000s. Many are now at the replacement window for original HVAC equipment — high-efficiency heat pumps and zoned systems are particularly well-suited to the housing stock.",
+      },
+      {
+        slug: "broadlands",
+        name: "Broadlands",
+        blurb:
+          "Broadlands is one of the large master-planned communities between Ashburn and Brambleton, with housing built mostly in the late 1990s and 2000s. Most original HVAC equipment is now at end-of-life, and we see a steady pattern of replacement calls throughout the community.",
+      },
+      {
+        slug: "cascades",
+        name: "Cascades",
+        blurb:
+          "Cascades is a large CDP near the Potomac River in eastern Loudoun, with a mix of housing ages from 1980s-2000s. Older Cascades homes often need full-system replacement; newer sections benefit from maintenance and eventual first-generation replacement.",
+      },
+      {
+        slug: "countryside",
+        name: "Countryside",
+        blurb:
+          "Countryside is an established Sterling-adjacent CDP with 1970s-80s housing stock. Most homes are on their second or third HVAC system by now; we focus on right-sizing replacement equipment for actual envelopes rather than perpetuating original sizing assumptions.",
+      },
+      {
+        slug: "dulles-town-center",
+        name: "Dulles Town Center",
+        blurb:
+          "Dulles Town Center is the commercial and residential hub near the eastern Loudoun/Fairfax boundary, with light commercial properties and residential CDPs. We handle both rooftop and split-system work in the commercial corridor along with standard residential service.",
+      },
+      {
+        slug: "goose-creek-village",
+        name: "Goose Creek Village",
+        blurb:
+          "Goose Creek Village is a mixed-use community in eastern Loudoun with townhomes, apartments, and retail. Homes here are newer and generally in good condition — preventative maintenance and smart thermostat upgrades are the common service patterns.",
+      },
+      {
+        slug: "kincora",
+        name: "Kincora",
+        blurb:
+          "Kincora is a newer mixed-use development in eastern Loudoun. Residential components benefit from modern equipment standards; we handle both the residential and the light commercial HVAC needs in the area.",
+      },
+      {
+        slug: "lansdowne",
+        name: "Lansdowne",
+        blurb:
+          "Lansdowne is an established planned community near Leesburg along the Potomac, with larger single-family homes and a golf course. Most homes are now at the window where original HVAC is due for replacement; variable-speed equipment and zoned systems are particularly well-suited to the larger floor plans.",
+      },
+      {
+        slug: "loudoun-valley-estates",
+        name: "Loudoun Valley Estates",
+        blurb:
+          "Loudoun Valley Estates is a residential development in eastern Loudoun with mostly 1990s-2000s housing. HVAC replacement is the common service pattern as the original equipment reaches end-of-life.",
+      },
+      {
+        slug: "lowes-island",
+        name: "Lowes Island",
+        blurb:
+          "Lowes Island is an established Sterling-area community with homes from the 1980s-90s. Most homes are on their second HVAC system; we focus on load calculations to right-size replacement equipment rather than repeating original sizing errors.",
+      },
+      {
+        slug: "moorefield",
+        name: "Moorefield",
+        blurb:
+          "Moorefield is a planned community in eastern Loudoun with newer housing. Modern HVAC standards apply; preventative maintenance, smart thermostat integration, and first-generation replacements are the common needs.",
+      },
+      {
+        slug: "one-loudoun",
+        name: "One Loudoun",
+        blurb:
+          "One Loudoun is a mixed-use community in Ashburn with residential, retail, and office components. Residential HVAC here is newer and well-designed; the commercial corridor involves light commercial HVAC work that we handle regularly.",
+      },
+      {
+        slug: "sugarland-run",
+        name: "Sugarland Run",
+        blurb:
+          "Sugarland Run is a Sterling-adjacent established CDP with 1970s-80s housing. Many homes are on their third HVAC system; load calculations and ductwork assessment matter more here than in newer neighborhoods.",
+      },
+      {
+        slug: "university-center",
+        name: "University Center",
+        blurb:
+          "University Center is a mixed-use community in eastern Loudoun near Ashburn. Newer housing with modern HVAC standards applies; we handle residential service alongside light commercial work in the surrounding area.",
+      },
+    ],
+  },
+  // =============================
+  // FAIRFAX COUNTY (5 pages)
+  // =============================
+  {
+    slug: "southern-communities",
+    name: "Southern Fairfax Communities",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Fairfax County",
+    countySlug: "fairfax-county",
+    metaDescription:
+      "HVAC service across southern Fairfax County — Lorton, Mount Vernon, Fort Belvoir area, Fort Hunt, Mason Neck, Woodlawn, Kingstowne, and Richmond Highway communities.",
+    intro:
+      "Southern Fairfax County runs along the Richmond Highway corridor and the Potomac River south of the Beltway — a mix of historic homes near Mount Vernon, 1950s-80s suburban neighborhoods, and newer townhome developments near Fort Belvoir. The housing diversity produces a correspondingly diverse HVAC landscape, and Sturrock's HVAC Solutions has NATE-certified technicians experienced across the range.",
+    overview:
+      "Many of the homes in southern Fairfax date to the 1950s and '60s, which means the original HVAC systems have been replaced multiple times. Accumulated sizing errors across those replacement cycles are common, and ductwork that's been patched repeatedly often underperforms in ways homeowners have simply learned to live with. We approach these jobs by looking at the whole system — not just replacing what's broken, but identifying what needs to change for the home to actually work the way it should.",
+    places: [
+      {
+        slug: "lorton",
+        name: "Lorton",
+        blurb:
+          "Lorton sits in far southern Fairfax County with a mix of older neighborhoods and newer townhome developments. Housing ages are widely varied; we match equipment to the actual home rather than defaulting to generic sizing.",
+      },
+      {
+        slug: "mount-vernon",
+        name: "Mount Vernon",
+        blurb:
+          "Mount Vernon-area homes include some of the most historic properties in the region alongside established suburban neighborhoods. HVAC work here often involves careful retrofit planning and equipment sized for older envelopes.",
+      },
+      {
+        slug: "fort-belvoir",
+        name: "Fort Belvoir",
+        blurb:
+          "The Fort Belvoir area includes both military housing and surrounding residential neighborhoods. We handle residential HVAC service throughout the surrounding civilian neighborhoods with the same care and responsiveness we bring anywhere.",
+      },
+      {
+        slug: "fort-hunt",
+        name: "Fort Hunt",
+        blurb:
+          "Fort Hunt is an established neighborhood near Mount Vernon with mostly mid-century single-family homes. Original HVAC has long since been replaced; right-sizing and ductwork assessment are common focuses in our work here.",
+      },
+      {
+        slug: "mason-neck",
+        name: "Mason Neck",
+        blurb:
+          "Mason Neck is a peninsula community in southern Fairfax with larger lots and a mix of housing ages. Service here often means longer drive times between calls, so we batch work efficiently and focus on thorough service visits.",
+      },
+      {
+        slug: "woodlawn",
+        name: "Woodlawn",
+        blurb:
+          "Woodlawn is a historic community near Mount Vernon. Housing mixes historic properties with mid-century suburban neighborhoods; HVAC work varies accordingly.",
+      },
+      {
+        slug: "newington",
+        name: "Newington",
+        blurb:
+          "Newington is an established community in southern Fairfax near the Beltway. Housing is largely mid-century; many homes are now on their third HVAC cycle.",
+      },
+      {
+        slug: "newington-forest",
+        name: "Newington Forest",
+        blurb:
+          "Newington Forest is a residential neighborhood with 1980s-90s housing. Most homes are at or past the replacement window for original HVAC equipment.",
+      },
+      {
+        slug: "laurel-hill",
+        name: "Laurel Hill",
+        blurb:
+          "Laurel Hill is a newer planned community on the former Lorton Prison site. Housing is modern and responds well to high-efficiency equipment and smart thermostat integration.",
+      },
+      {
+        slug: "hayfield",
+        name: "Hayfield",
+        blurb:
+          "Hayfield is an established residential area in southern Fairfax. Housing is mostly 1970s-80s; load-calc-based replacement is typically more valuable than like-for-like swaps.",
+      },
+      {
+        slug: "groveton",
+        name: "Groveton",
+        blurb:
+          "Groveton is a community along the Richmond Highway corridor with mixed housing ages. Standard residential HVAC service applies, with attention to the specific envelope of each home.",
+      },
+      {
+        slug: "hybla-valley",
+        name: "Hybla Valley",
+        blurb:
+          "Hybla Valley is an established residential community in southern Fairfax with mid-century housing. Most homes have had multiple HVAC replacements; we focus on correcting accumulated sizing errors.",
+      },
+      {
+        slug: "belle-haven",
+        name: "Belle Haven",
+        blurb:
+          "Belle Haven is an affluent established neighborhood near the Potomac with larger homes and mature landscaping. Multi-zone systems often make sense here for whole-house comfort.",
+      },
+      {
+        slug: "huntington",
+        name: "Huntington",
+        blurb:
+          "Huntington is an established community near the Beltway in southern Fairfax. Housing is largely mid-century; many homes benefit from ductwork assessment alongside equipment replacement.",
+      },
+    ],
+  },
+  {
+    slug: "central-communities",
+    name: "Central Fairfax Communities",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Fairfax County",
+    countySlug: "fairfax-county",
+    metaDescription:
+      "HVAC service across central Fairfax County — Fairfax Station, Mantua, Kings Park, Oakton, Merrifield, Dunn Loring, and surrounding communities.",
+    intro:
+      "Central Fairfax County covers the area between the City of Fairfax, the Beltway, and the major commuter corridors — a region of mature suburban neighborhoods with substantial residential populations. Most of this area was built out between the 1960s and 1990s, which means original HVAC equipment has been replaced multiple times and accumulated sizing errors are common.",
+    overview:
+      "The housing diversity here — from 1960s ramblers to 1990s executive homes — means a one-size-fits-all approach doesn't work. We run load calculations on every significant job, assess ductwork condition rather than assuming, and match equipment to the actual building envelope. For homes that have been through multiple renovation cycles, the HVAC system often wasn't updated to match — identifying and correcting that is often where we deliver the most value.",
+    places: [
+      {
+        slug: "mantua",
+        name: "Mantua",
+        blurb:
+          "Mantua is an affluent established neighborhood near the City of Fairfax with mostly 1960s-70s housing. Homes often have had renovations layered on top of original construction — updating HVAC to match the renovated footprint is common work here.",
+      },
+      {
+        slug: "fairfax-station",
+        name: "Fairfax Station",
+        blurb:
+          "Fairfax Station is an upscale community in central Fairfax with larger homes on wooded lots, mostly from the 1980s-90s. Multi-zone systems are particularly well-suited to the larger floor plans and finished basements common in the area.",
+      },
+      {
+        slug: "george-mason",
+        name: "George Mason",
+        blurb:
+          "George Mason is an established community adjacent to the university of the same name. Housing is largely mid-century to 1980s; standard residential HVAC service applies.",
+      },
+      {
+        slug: "kings-park",
+        name: "Kings Park",
+        blurb:
+          "Kings Park is an established community in central Fairfax with mostly 1960s-70s housing. Most homes are on their third HVAC cycle; load-calc-based replacement is valuable here.",
+      },
+      {
+        slug: "kings-park-west",
+        name: "Kings Park West",
+        blurb:
+          "Kings Park West is a companion community to Kings Park with similar housing stock and HVAC considerations. Aging ductwork often needs attention alongside equipment replacement.",
+      },
+      {
+        slug: "woodburn",
+        name: "Woodburn",
+        blurb:
+          "Woodburn is an established residential community in central Fairfax. Housing is largely mid-century; routine residential HVAC service applies.",
+      },
+      {
+        slug: "long-branch",
+        name: "Long Branch",
+        blurb:
+          "Long Branch is an established community with mixed housing ages. We match equipment to each home's actual envelope rather than assuming standard sizing.",
+      },
+      {
+        slug: "ravensworth",
+        name: "Ravensworth",
+        blurb:
+          "Ravensworth is an established residential area. Mid-century housing stock means most homes are on their second or third HVAC system; accumulated sizing issues are common.",
+      },
+      {
+        slug: "wakefield",
+        name: "Wakefield",
+        blurb:
+          "Wakefield is an established community in central Fairfax. Housing ages vary; we approach each job with the specific building in mind.",
+      },
+      {
+        slug: "oakton",
+        name: "Oakton",
+        blurb:
+          "Oakton is an affluent established community with larger homes on wooded lots. Many homes are candidates for multi-zone systems and high-efficiency variable-speed equipment.",
+      },
+      {
+        slug: "merrifield",
+        name: "Merrifield",
+        blurb:
+          "Merrifield is a mixed-use community near the Beltway and the Merrifield Metro corridor. Residential HVAC work is standard; we also handle light commercial work in the growing retail and office footprint.",
+      },
+      {
+        slug: "dunn-loring",
+        name: "Dunn Loring",
+        blurb:
+          "Dunn Loring is an established community near the Metro corridor. Housing mixes mid-century homes with newer infill; HVAC approach varies accordingly.",
+      },
+    ],
+  },
+  {
+    slug: "seven-corners-area",
+    name: "Seven Corners & Annandale Area",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Fairfax County",
+    countySlug: "fairfax-county",
+    metaDescription:
+      "HVAC service across the Seven Corners, Annandale, and Route 7 corridor — Bailey's Crossroads, Lincolnia, Lake Barcroft, West Falls Church, Pimmit Hills, Idylwood.",
+    intro:
+      "The Seven Corners and Annandale area runs along the Route 7 and Leesburg Pike corridors inside the Beltway — a densely populated region with some of the oldest suburban housing in Fairfax County. Many homes here date to the 1940s-60s and have complex HVAC histories spanning multiple replacement cycles.",
+    overview:
+      "Older suburban housing means older ductwork, and older ductwork means real opportunities to improve comfort when equipment is replaced. Load calculations matter more in this area than almost anywhere else in our service footprint — the original equipment was sized for homes that have since been renovated, expanded, and re-insulated, and the current system often doesn't match the current building. We see dramatic comfort improvements when the HVAC is finally sized for the home as it actually exists.",
+    places: [
+      {
+        slug: "seven-corners",
+        name: "Seven Corners",
+        blurb:
+          "Seven Corners is a dense commercial and residential area at the intersection of multiple major routes. Housing is largely mid-century; we handle both residential and light commercial HVAC in the corridor.",
+      },
+      {
+        slug: "baileys-crossroads",
+        name: "Bailey's Crossroads",
+        blurb:
+          "Bailey's Crossroads is a dense mixed-use community along the Columbia Pike corridor. Residential HVAC here often involves older buildings and apartment-style considerations alongside standard single-family work.",
+      },
+      {
+        slug: "lincolnia",
+        name: "Lincolnia",
+        blurb:
+          "Lincolnia is an established residential community with mostly mid-century housing. Most homes are on their third HVAC cycle; ductwork assessment often matters more than equipment spec alone.",
+      },
+      {
+        slug: "annandale",
+        name: "Annandale",
+        blurb:
+          "Annandale is a large established community with 1950s-70s housing stock. Accumulated sizing errors across multiple replacement cycles are common here; we run load calculations to correct them.",
+      },
+      {
+        slug: "lake-barcroft",
+        name: "Lake Barcroft",
+        blurb:
+          "Lake Barcroft is an affluent lake community with larger mid-century homes. Multi-zone systems and high-efficiency equipment are typically good fits; we design around the actual building.",
+      },
+      {
+        slug: "pimmit-hills",
+        name: "Pimmit Hills",
+        blurb:
+          "Pimmit Hills is an established post-war community with compact 1950s homes. Right-sizing replacement equipment matters here — oversized systems short-cycle in small envelopes and wear out early.",
+      },
+      {
+        slug: "west-falls-church",
+        name: "West Falls Church",
+        blurb:
+          "West Falls Church is an established community near the City of Falls Church and Metro. Housing mixes mid-century and newer infill; HVAC approach varies accordingly.",
+      },
+      {
+        slug: "idylwood",
+        name: "Idylwood",
+        blurb:
+          "Idylwood is an established residential area with mostly mid-century housing. Mature tree canopy affects airflow considerations; we account for that in humidity management and equipment placement.",
+      },
+    ],
+  },
+  {
+    slug: "burke-springfield-area",
+    name: "Burke & Springfield Area",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Fairfax County",
+    countySlug: "fairfax-county",
+    metaDescription:
+      "HVAC service across the Burke and Springfield area of Fairfax County — Burke Centre, West Springfield, North Springfield, Franconia, Rose Hill, South Run, and more.",
+    intro:
+      "The Burke and Springfield area of southeastern Fairfax County represents one of the largest concentrations of 1970s-80s suburban housing in Northern Virginia. Most homes are now on their second or third HVAC system, and typical replacement patterns benefit significantly from load-calc-based right-sizing rather than like-for-like swaps.",
+    overview:
+      "Springfield and Burke-area homes were largely built in a concentrated window, which means they share similar housing characteristics and similar HVAC lifecycles. That familiarity lets us move efficiently through diagnostics and recommend solutions that actually fit the home. Because so many systems have been replaced two or three times, the cumulative sizing drift across those cycles often produces comfort issues the homeowner has learned to live with — we identify and correct them.",
+    places: [
+      {
+        slug: "burke-centre",
+        name: "Burke Centre",
+        blurb:
+          "Burke Centre is one of the largest planned communities in Fairfax County with consistent 1970s-80s housing stock. Similar homes and similar lifecycles make diagnostics efficient; replacement with correct sizing is the common recommendation.",
+      },
+      {
+        slug: "springfield",
+        name: "Springfield",
+        blurb:
+          "Springfield is a large unincorporated community with a mix of housing ages and types. Standard residential HVAC service applies; we run load calculations to match equipment to each home.",
+      },
+      {
+        slug: "west-springfield",
+        name: "West Springfield",
+        blurb:
+          "West Springfield is a companion community with similar 1970s-80s housing to Burke and Springfield. The same replacement-cycle patterns apply.",
+      },
+      {
+        slug: "north-springfield",
+        name: "North Springfield",
+        blurb:
+          "North Springfield is an established community with older housing stock. Many homes are on their third HVAC cycle; ductwork assessment matters alongside equipment replacement.",
+      },
+      {
+        slug: "franconia",
+        name: "Franconia",
+        blurb:
+          "Franconia is an established community in southeastern Fairfax with mostly 1970s-80s housing. Load-calc-based replacement delivers real comfort improvement here.",
+      },
+      {
+        slug: "rose-hill",
+        name: "Rose Hill",
+        blurb:
+          "Rose Hill is a residential community with established housing stock. Standard residential HVAC work applies, with focus on right-sizing replacement equipment.",
+      },
+      {
+        slug: "south-run",
+        name: "South Run",
+        blurb:
+          "South Run is a residential community in southern Fairfax with mostly 1980s housing. Most homes are at the window where original HVAC is due for replacement.",
+      },
+      {
+        slug: "crosspointe",
+        name: "Crosspointe",
+        blurb:
+          "Crosspointe is an established residential community with 1980s housing. Similar replacement patterns apply — most homes benefit from proper load calculations at the replacement stage.",
+      },
+    ],
+  },
+  {
+    slug: "northern-communities",
+    name: "Northern & Western Fairfax Communities",
+    state: "VA",
+    stateSlug: "virginia",
+    county: "Fairfax County",
+    countySlug: "fairfax-county",
+    metaDescription:
+      "HVAC service across northern and western Fairfax County — Clifton, Wolf Trap, Floris, Fair Lakes, Fair Oaks, Greenbriar, Franklin Farm, Sully Square, and more.",
+    intro:
+      "Northern and western Fairfax County covers the Dulles corridor, the Great Falls orbit, and the residential communities strung along Routes 7, 28, and 50. The housing mix ranges from the tiny incorporated town of Clifton to large newer developments near Dulles; HVAC approaches vary accordingly.",
+    overview:
+      "This part of Fairfax includes some of the newer residential development in the county, which means more homes with modern building envelopes that respond well to high-efficiency variable-speed equipment. It also includes older estate-style properties in the Clifton and Great Falls areas that require thoughtful zoned systems. Our approach adapts to the home — load calculations, ductwork assessment, and equipment selection designed for what's actually there.",
+    places: [
+      {
+        slug: "clifton",
+        name: "Clifton",
+        blurb:
+          "Clifton is a tiny incorporated town in southwestern Fairfax — fewer than 300 residents, a historic village core, and surrounding larger-lot properties. HVAC work here often involves historic home considerations and multi-zone design for the larger surrounding properties.",
+      },
+      {
+        slug: "wolf-trap",
+        name: "Wolf Trap",
+        blurb:
+          "Wolf Trap is an established community known for its national park. Larger homes on wooded lots benefit from multi-zone systems; we design accordingly.",
+      },
+      {
+        slug: "floris",
+        name: "Floris",
+        blurb:
+          "Floris is a small community in western Fairfax near the Dulles corridor. Standard residential HVAC service applies.",
+      },
+      {
+        slug: "mcnair",
+        name: "McNair",
+        blurb:
+          "McNair is a newer community near Dulles with mostly 2000s-era housing. Modern HVAC standards apply; we handle installations and first-generation replacements.",
+      },
+      {
+        slug: "fair-lakes",
+        name: "Fair Lakes",
+        blurb:
+          "Fair Lakes is a mixed-use community with residential and commercial components. We handle residential HVAC alongside light commercial work in the surrounding office and retail footprint.",
+      },
+      {
+        slug: "fair-oaks",
+        name: "Fair Oaks",
+        blurb:
+          "Fair Oaks is an established community in central-western Fairfax with 1980s-90s housing. Most homes are at the replacement window for original equipment.",
+      },
+      {
+        slug: "greenbriar",
+        name: "Greenbriar",
+        blurb:
+          "Greenbriar is an established residential community in western Fairfax. Housing is largely mid- to late-century; standard residential HVAC work applies.",
+      },
+      {
+        slug: "franklin-farm",
+        name: "Franklin Farm",
+        blurb:
+          "Franklin Farm is a residential community with 1980s-90s housing. Similar replacement-cycle patterns to other same-era communities apply.",
+      },
+      {
+        slug: "navy",
+        name: "Navy",
+        blurb:
+          "Navy is a small community in western Fairfax. Standard residential HVAC service applies.",
+      },
+      {
+        slug: "sully-square",
+        name: "Sully Square",
+        blurb:
+          "Sully Square is a residential community in western Fairfax. We service it with the same responsiveness we bring to larger nearby communities.",
+      },
+      {
+        slug: "union-mill",
+        name: "Union Mill",
+        blurb:
+          "Union Mill is an established residential community near Centreville. Most homes are on their first or second HVAC replacement cycle.",
+      },
+      {
+        slug: "hutchison",
+        name: "Hutchison",
+        blurb:
+          "Hutchison is a small community in western Fairfax. Standard residential HVAC service applies.",
+      },
+      {
+        slug: "difficult-run",
+        name: "Difficult Run",
+        blurb:
+          "Difficult Run is a residential community near Great Falls. Larger properties benefit from multi-zone systems for whole-house comfort.",
+      },
+      {
+        slug: "dranesville",
+        name: "Dranesville",
+        blurb:
+          "Dranesville is a community in northern Fairfax. Housing is mixed; we match equipment to the specific home.",
+      },
+      {
+        slug: "great-falls-crossing",
+        name: "Great Falls Crossing",
+        blurb:
+          "Great Falls Crossing is a residential community adjacent to Great Falls. Larger homes on established lots typically benefit from zoned HVAC design.",
+      },
+      {
+        slug: "bull-run",
+        name: "Bull Run",
+        blurb:
+          "Bull Run is a community in western Fairfax near the Manassas battlefield area. Mixed housing ages; standard residential HVAC service applies.",
+      },
+    ],
+  },
+  // =============================
+  // FREDERICK COUNTY, MD (2 pages)
+  // =============================
+  {
+    slug: "central-communities",
+    name: "Central Frederick Communities",
+    state: "MD",
+    stateSlug: "maryland",
+    county: "Frederick County",
+    countySlug: "frederick-county",
+    metaDescription:
+      "HVAC service across central Frederick County, MD — Adamstown, Ballenger Creek, Braddock Heights, Buckeystown, Green Valley, Jefferson, Knoxville, Linganore, Urbana.",
+    intro:
+      "Central Frederick County includes the CDPs and unincorporated communities surrounding the city of Frederick itself — a mix of newer suburban development, historic rural villages, and growing residential areas along the major commuter corridors. Sturrock's HVAC Solutions is Maryland-licensed (HVACR #85109) and serves the full central Frederick footprint.",
+    overview:
+      "Frederick's proximity to our Hillsboro base — and our Maryland license — makes this area a natural extension of our core service territory. We bring the same approach across the Potomac as we do in Loudoun: proper load calculations, thorough ductwork assessment, and equipment sized for the home as it actually exists.",
+    places: [
+      {
+        slug: "adamstown",
+        name: "Adamstown",
+        blurb:
+          "Adamstown is a historic railroad community in southern Frederick County near the Potomac. Housing mixes historic properties with newer homes on surrounding land.",
+      },
+      {
+        slug: "ballenger-creek",
+        name: "Ballenger Creek",
+        blurb:
+          "Ballenger Creek is a large CDP south of Frederick with mostly newer residential development. Modern HVAC standards apply; first-generation replacements are becoming common as equipment ages.",
+      },
+      {
+        slug: "bartonsville",
+        name: "Bartonsville",
+        blurb:
+          "Bartonsville is a small community in central Frederick County. Standard residential HVAC service applies.",
+      },
+      {
+        slug: "braddock-heights",
+        name: "Braddock Heights",
+        blurb:
+          "Braddock Heights is a community on the ridge between the Middletown Valley and Frederick. Elevation affects weather patterns slightly; we factor that in for heating system sizing.",
+      },
+      {
+        slug: "buckeystown",
+        name: "Buckeystown",
+        blurb:
+          "Buckeystown is a historic village south of Frederick with preserved historic homes and newer properties on surrounding land. Historic-home HVAC work often requires careful retrofit planning.",
+      },
+      {
+        slug: "clover-hill",
+        name: "Clover Hill",
+        blurb:
+          "Clover Hill is a residential community with newer housing. Standard modern HVAC approaches apply.",
+      },
+      {
+        slug: "green-valley",
+        name: "Green Valley",
+        blurb:
+          "Green Valley is a community in southern Frederick County with mostly residential housing. We service it alongside adjacent communities, combining visits efficiently when possible.",
+      },
+      {
+        slug: "jefferson",
+        name: "Jefferson",
+        blurb:
+          "Jefferson is a small community in southwestern Frederick County, not far across the Potomac from our Loudoun service area. Easy proximity means fast response times.",
+      },
+      {
+        slug: "knoxville",
+        name: "Knoxville",
+        blurb:
+          "Knoxville is a small community in southern Frederick County near the Potomac. Rural and semi-rural housing; standard residential HVAC service applies.",
+      },
+      {
+        slug: "linganore",
+        name: "Linganore",
+        blurb:
+          "Linganore is a residential community in eastern Frederick County, including the Lake Linganore development. Newer housing responds well to high-efficiency replacement equipment.",
+      },
+      {
+        slug: "monrovia",
+        name: "Monrovia",
+        blurb:
+          "Monrovia is a small community in eastern Frederick County. Standard residential HVAC service applies.",
+      },
+      {
+        slug: "spring-ridge",
+        name: "Spring Ridge",
+        blurb:
+          "Spring Ridge is a residential community east of Frederick with mostly newer housing. Modern HVAC approaches apply.",
+      },
+      {
+        slug: "urbana",
+        name: "Urbana",
+        blurb:
+          "Urbana is a large and growing community in southern Frederick County with mostly 2000s-era housing. Most homes are approaching the window for first-generation HVAC replacement.",
+      },
+    ],
+  },
+  {
+    slug: "northern-towns",
+    name: "Northern Frederick Towns",
+    state: "MD",
+    stateSlug: "maryland",
+    county: "Frederick County",
+    countySlug: "frederick-county",
+    metaDescription:
+      "HVAC service across the incorporated towns of northern Frederick County — Thurmont, Emmitsburg, Walkersville, Myersville, New Market, Mount Airy, Burkittsville, Woodsboro, Sabillasville.",
+    intro:
+      "The northern half of Frederick County is dotted with small incorporated towns — Thurmont, Emmitsburg, Walkersville, Myersville, and others — each with its own historic character and community identity. Sturrock's HVAC Solutions is Maryland-licensed and serves these communities, though driving distances are longer than our core Virginia territory.",
+    overview:
+      "Most of these towns have long histories and correspondingly older housing stock, which means HVAC work often involves retrofit planning, careful ductwork threading through original construction, and equipment sizing based on actual building envelopes. For homeowners in these communities who have been passed over by HVAC contractors focused on denser areas, we bring the same attention and thoroughness we'd apply in any Loudoun village.",
+    places: [
+      {
+        slug: "burkittsville",
+        name: "Burkittsville",
+        blurb:
+          "Burkittsville is a tiny incorporated town in southern Frederick County with preserved historic character. HVAC work here is almost entirely retrofit and careful replacement work in older homes.",
+      },
+      {
+        slug: "emmitsburg",
+        name: "Emmitsburg",
+        blurb:
+          "Emmitsburg is a small town in far northern Frederick County near the Pennsylvania border. Older housing stock and rural character define the HVAC work in this area.",
+      },
+      {
+        slug: "mount-airy",
+        name: "Mount Airy",
+        blurb:
+          "Mount Airy straddles the Frederick and Carroll County line with a mix of historic town-center homes and newer developments. Housing diversity means HVAC approach varies per home.",
+      },
+      {
+        slug: "myersville",
+        name: "Myersville",
+        blurb:
+          "Myersville is a small town in western Frederick County. Historic and newer housing mix; standard residential HVAC work applies with attention to each home's specific envelope.",
+      },
+      {
+        slug: "new-market",
+        name: "New Market",
+        blurb:
+          "New Market is a historic small town in eastern Frederick County. Retrofit work in older homes and standard service in the surrounding newer developments are both common.",
+      },
+      {
+        slug: "rosemont",
+        name: "Rosemont",
+        blurb:
+          "Rosemont is a tiny incorporated village in southern Frederick County. We service it alongside adjacent Brunswick and Point of Rocks work when possible.",
+      },
+      {
+        slug: "sabillasville",
+        name: "Sabillasville",
+        blurb:
+          "Sabillasville is a small community in far northern Frederick County near the Catoctin Mountains. Rural housing and longer drive distances; we combine visits when possible.",
+      },
+      {
+        slug: "thurmont",
+        name: "Thurmont",
+        blurb:
+          "Thurmont is one of the larger towns in northern Frederick County, near Catoctin Mountain. Mix of historic town homes and newer development on surrounding land; standard residential HVAC service applies.",
+      },
+      {
+        slug: "walkersville",
+        name: "Walkersville",
+        blurb:
+          "Walkersville is a town in central-northern Frederick County with a mix of housing ages. Most homes are candidates for standard residential HVAC service with attention to specific envelopes.",
+      },
+      {
+        slug: "woodsboro",
+        name: "Woodsboro",
+        blurb:
+          "Woodsboro is a small town in central-northern Frederick County. Historic housing predominates; retrofit and replacement work is typical.",
+      },
+    ],
+  },
+];
+
+// =============================
+// TIER 3: COUNTY OVERVIEW PAGES
+// =============================
+
+export type CountyOverview = {
+  slug: CountySlug;
+  name: string;
+  state: "VA" | "MD";
+  stateSlug: StateSlug;
+  intro: string;
+  overview: string;
+  metaDescription: string;
+};
+
+export const countyOverviews: CountyOverview[] = [
+  {
+    slug: "loudoun-county",
+    name: "Loudoun County",
+    state: "VA",
+    stateSlug: "virginia",
+    metaDescription:
+      "HVAC services across all of Loudoun County, VA — from Leesburg and Ashburn to Lovettsville, Purcellville, Middleburg, and every town and village in between. NATE-certified, licensed, and local.",
+    intro:
+      "Loudoun County is our home. Sturrock's HVAC Solutions is based in Hillsboro — one of the county's smallest incorporated towns, tucked against the Blue Ridge — and we have been serving Loudoun homeowners and businesses for over 14 years. From the county seat in Leesburg to the smallest rural village, we bring NATE-certified expertise, proper load calculations, and a local contractor's commitment to doing things right.",
+    overview:
+      "Loudoun's housing stock is one of the most varied in Northern Virginia — historic 18th- and 19th-century homes in villages like Waterford and Middleburg, post-war neighborhoods in Sterling, massive master-planned communities in Ashburn and Brambleton, and everything in between. A one-size-fits-all approach to HVAC doesn't work here. We take the time to understand each home — its construction era, its insulation characteristics, its ductwork condition, and its actual heating and cooling loads — and we recommend solutions that fit. Because we live in the county, we can respond faster to service calls in the western towns than contractors dispatched from east-county hubs, and we have the Maryland license (HVACR #85109) to cross the Potomac for jobs in Brunswick, Point of Rocks, and Frederick County when clients ask us to.",
+  },
+  {
+    slug: "fairfax-county",
+    name: "Fairfax County",
+    state: "VA",
+    stateSlug: "virginia",
+    metaDescription:
+      "HVAC services across Fairfax County, VA — Herndon, Vienna, Reston, McLean, Tysons, Burke, Annandale, and every community in between. NATE-certified technicians, licensed and insured.",
+    intro:
+      "Fairfax County is one of the most populous counties in Virginia — a vast residential landscape spanning mid-century neighborhoods, 1970s-80s suburban communities, modern master-planned developments, and increasingly urban centers like Tysons and Merrifield. Sturrock's HVAC Solutions serves the full range with NATE-certified technicians and over 14 years of experience.",
+    overview:
+      "The housing diversity in Fairfax means HVAC approaches vary dramatically across communities. Mid-century homes in Mantua, Annandale, and Pimmit Hills often need ductwork remediation alongside equipment replacement — decades of patched systems and accumulated sizing drift can leave comfort issues homeowners have simply learned to live with. Newer homes in planned communities like Laurel Hill and McNair respond well to modern high-efficiency equipment and smart thermostat integration. Larger homes in Great Falls and McLean often benefit from multi-zone systems designed for the actual building. We adapt to what each home needs rather than defaulting to a single approach.",
+  },
+  {
+    slug: "frederick-county",
+    name: "Frederick County",
+    state: "MD",
+    stateSlug: "maryland",
+    metaDescription:
+      "HVAC services across Frederick County, MD — Frederick, Brunswick, Middletown, Point of Rocks, Urbana, Thurmont, and surrounding communities. Maryland-licensed, NATE-certified, and local.",
+    intro:
+      "Frederick County, Maryland sits just across the Potomac from our Hillsboro base — which, combined with our Maryland HVACR license (#85109), makes it a natural extension of our core service footprint. Sturrock's HVAC Solutions serves the full county from the city of Frederick itself to the small towns and villages along the Catoctin and South Mountain ridges.",
+    overview:
+      "Frederick County housing spans nearly every imaginable era — colonial-era homes in historic town cores like Brunswick and New Market, mid-century suburban neighborhoods surrounding the city of Frederick, and modern master-planned communities in Urbana and Ballenger Creek. The weather patterns matter too: the county sits at slightly higher elevations than the Loudoun Valley, and winter temperatures can run noticeably colder. We size heating systems for those actual conditions. Because we're Maryland-licensed and close enough to respond quickly, we provide service quality and response times that out-of-area contractors often can't match in this region.",
+  },
+];
+
 export type Brand = {
   name: string;
   file: string;
