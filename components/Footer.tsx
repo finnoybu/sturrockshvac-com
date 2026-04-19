@@ -277,6 +277,9 @@ function QuickLinksSection() {
           <FooterLink href="/testimonials">Customer Reviews</FooterLink>
         </li>
         <li>
+          <FooterLink href="/about">About Andy</FooterLink>
+        </li>
+        <li>
           <FooterLink href="/brands">Brands</FooterLink>
         </li>
         <li>
