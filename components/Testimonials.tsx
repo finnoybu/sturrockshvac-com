@@ -49,7 +49,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <article
               key={i}
-              className="bg-white border border-primary-200 rounded-xl p-6 shadow-[0_6px_18px_rgba(0,0,0,0.05)]"
+              className="bg-white border border-primary-200 rounded-xl p-6 shadow-[0_6px_18px_rgba(0,0,0,0.05)] flex flex-col"
             >
               <StarRow count={t.rating} />
               {t.serviceType && (
@@ -57,12 +57,40 @@ export default function Testimonials() {
                   {t.serviceType}
                 </p>
               )}
-              <blockquote className="mt-3 text-gray-700 leading-relaxed italic">
+              <blockquote className="mt-3 text-gray-700 leading-relaxed italic grow">
                 &ldquo;{t.body}&rdquo;
               </blockquote>
               <footer className="mt-4 text-sm text-primary-900">
                 <p className="font-semibold">{t.author}</p>
                 <p className="text-gray-500">{t.location}</p>
+                {t.source && (
+                  <p className="text-xs text-gray-400 mt-1">
+                    via{" "}
+                    {t.source.url ? (
+                      <a
+                        href={t.source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-accent-600 transition-colors"
+                      >
+                        {t.source.name}
+                      </a>
+                    ) : (
+                      t.source.name
+                    )}
+                    {t.datePublished && (
+                      <>
+                        {" "}&middot;{" "}
+                        <time dateTime={t.datePublished}>
+                          {new Date(t.datePublished).toLocaleDateString(
+                            "en-US",
+                            { year: "numeric", month: "short" },
+                          )}
+                        </time>
+                      </>
+                    )}
+                  </p>
+                )}
               </footer>
             </article>
           ))}

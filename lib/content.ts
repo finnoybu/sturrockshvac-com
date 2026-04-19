@@ -1658,10 +1658,191 @@ export type Testimonial = {
   rating: 1 | 2 | 3 | 4 | 5;
   serviceType?: string;    // e.g. "AC Repair" — shown as a small label if present
   body: string;            // the quote itself
+  source?: {
+    name: string;          // "Yelp", "Google", "Nextdoor", etc.
+    url?: string;          // optional link to the original review
+  };
 };
 
+// Existing public reviews from Yelp, Angi, and Nextdoor, republished here
+// as social proof. Kept verbatim (minor typo fixes only) with each
+// reviewer's platform-displayed name and location, attributed to the
+// source platform with a link where available.
+const yelpSource = {
+  name: "Yelp",
+  url: "https://www.yelp.com/biz/sturrocks-hvac-solutions-lovettsville",
+} as const;
+
+const angiSource = {
+  name: "Angi",
+} as const;
+
+const nextdoorSource = {
+  name: "Nextdoor",
+} as const;
+
 export const testimonials: Testimonial[] = [
-  // Populate with real, permission-granted testimonials.
+  {
+    author: "Holly A.",
+    location: "Hamilton, VA",
+    datePublished: "2025-06-09",
+    rating: 5,
+    body: "We have had the pleasure of Andy servicing multiple units in our house for over 15 years. He has always been prompt, efficient, trustworthy and fairly priced. I wouldn't trust anyone else to service or repair our systems.",
+    source: yelpSource,
+  },
+  {
+    author: "Brad M.",
+    location: "Arlington, VA",
+    datePublished: "2024-10-10",
+    rating: 5,
+    body: "I had another company come out for a winter check and told me I had to replace both my units for a ridiculous cost. I called Andy and he was out later in the week and all it took was a service call to get my units up and running. Highly recommend for all your heating and cooling needs!",
+    source: yelpSource,
+  },
+  {
+    author: "S. M.",
+    location: "Frederick, MD",
+    datePublished: "2023-12-18",
+    rating: 5,
+    body: "Andy Sturrock — Sturrock's HVAC. Very honest, dependable and fair priced.",
+    source: nextdoorSource,
+  },
+  {
+    author: "Shaun S.",
+    location: "Virginia",
+    datePublished: "2022-01-27",
+    rating: 5,
+    body: "I have been using Sturrock's for years and have been very happy. Andy is very responsive, helpful, knows his stuff, and honest. He isn't going to tell you that you need something to make a buck. In fact he has steered me away from things I asked about as he said they weren't worth it or didn't really work well. I like how he gives back to the community by sponsoring town events. It's refreshing when you find someone good. I am constantly recommending him to people. Do not hesitate to contact Sturrock HVAC.",
+    source: yelpSource,
+  },
+  {
+    author: "Russ S.",
+    location: "Virginia",
+    datePublished: "2021-11-18",
+    rating: 5,
+    body: "Don't let it even be a question. I would give 6 out of 5 stars if I could. The best of the best. Amazing personal customer service. I would never use anyone else ever after this awesome experience.",
+    source: yelpSource,
+  },
+  {
+    author: "Jack R.",
+    location: "Lovettsville, VA",
+    datePublished: "2021-09-19",
+    rating: 5,
+    body: "Andy always does great work. Very timely and responsive. Reasonable prices. Never feel like he is trying to take advantage of a bad situation. Trust him implicitly.",
+    source: yelpSource,
+  },
+  {
+    author: "Zoe T.",
+    location: "Arlington, VA",
+    datePublished: "2020-09-01",
+    rating: 5,
+    body: "After our outside heat pump stopped working Andy was out the next day after we called him and got us up and running again in less than 5 minutes. Having someone local who is an expert, honest and trustworthy is why he's earned our business forever.",
+    source: yelpSource,
+  },
+  {
+    author: "Bailey P.",
+    location: "Mount Hope, KS",
+    datePublished: "2020-01-20",
+    rating: 5,
+    body: "Excellent service. Andy was prompt and efficient. He quickly diagnosed and fixed our blown fuse, and even installed our new thermostat. Highly recommend and will definitely be using him for all future HVAC needs!",
+    source: yelpSource,
+  },
+  {
+    author: "Patricia S.",
+    location: "Virginia",
+    datePublished: "2019-02-15",
+    rating: 5,
+    body: "Andy's prices for all types of work are consistently significantly lower than others. He is honest, professional, and knowledgeable. A breath of fresh air in today's marketplace. Highly recommend.",
+    source: angiSource,
+  },
+  {
+    author: "Ryan K.",
+    location: "Davie, FL",
+    datePublished: "2019-01-19",
+    rating: 5,
+    body: "Andy did a fabulous job installing three Trane units in my home. Andy is a fair, friendly and extremely professional. I love supporting local businesses and Sturrock's HVAC is a shining example of an outstanding Lovettsville business!",
+    source: yelpSource,
+  },
+  {
+    author: "Mary G.",
+    location: "Ashburn, VA",
+    datePublished: "2018-10-15",
+    rating: 5,
+    serviceType: "Water Heater Replacement",
+    body: "I like to pick a contractor based on either referral or gut instinct after speaking with the company. Andy satisfied both criteria: referred by good friends, and from his feedback on the situation with our home appliance warranty company, I could tell we should use him and stop wasting time with the awful customer service we were already getting. Our water heater had exploded all over a partially finished basement and ruined drywall, carpet, and more — and our warranty company's poor customer service and the terrible, unresponsive contractor they were demanding had us headed for a meltdown. Andy was honest, and delivered exactly the customer service and quality we were hoping for. I can't say enough good things about picking his company to do the work.",
+    source: angiSource,
+  },
+  {
+    author: "Mick G.",
+    location: "Purcellville, VA",
+    datePublished: "2018-09-26",
+    rating: 5,
+    body: "After combing through all the recommendations on Facebook, we chose to contact Sturrock's HVAC as the feedback seemed to be the best. They were correct. Andy responded quickly during a busy heatwave and had our HVAC back up and running in no time. We had a different issue recently on our upstairs system and he had the problem identified within minutes and provided us with varying cost solutions — all competitively priced. I've owned homes for 30 years and have never experienced such responsive, friendly, cost-competitive and accurate HVAC expertise. 5 stars without question!",
+    source: yelpSource,
+  },
+  {
+    author: "Mattias C.",
+    location: "Hamilton, VA",
+    datePublished: "2017-07-07",
+    rating: 5,
+    body: "Absolutely great! Called him out of the blue after I heard a strange noise in my air conditioner this morning and blew out my fuses. He came by in a couple of hours (mind you: I'm not a regular customer). He was prompt, diligent, and solved the problem in no time (a snake in my compressor). And when I got the bill, I was shocked about how good the price was. I've never had that kind of service from one of the \"big boys\" even with their \"gold\" contracts and the price is unmatched. Definitely make this place your first, second, and last call!",
+    source: yelpSource,
+  },
+  {
+    author: "Keith L.",
+    location: "Virginia",
+    datePublished: "2016-10-20",
+    rating: 5,
+    body: "He is very responsive and he has high ratings. We've known him for probably 15 years and knew where he worked before he started his own company. He was great when he worked for them. So, this was not the first time we used him. We have a couple of rental properties and we've been using him for a while.",
+    source: angiSource,
+  },
+  {
+    author: "Keith L.",
+    location: "Virginia",
+    datePublished: "2016-10-15",
+    rating: 5,
+    body: "They charged nothing. It was just a small leak in one of the plastic PVC lines where the trap is from the unit, and it was just dripping a little bit. It was very minor, but he came back out and put some RTV sealant on it to stop it from leaking.",
+    source: angiSource,
+  },
+  {
+    author: "David K.",
+    location: "Sanibel, FL",
+    datePublished: "2016-04-19",
+    rating: 5,
+    body: "Andy is a phenomenal vendor. His work is excellent. He's personable. His rates are more than fair. He's a Lovettsville local. Call him first.",
+    source: yelpSource,
+  },
+  {
+    author: "Aerohokie92",
+    location: "Purcellville, VA",
+    datePublished: "2016-01-16",
+    rating: 5,
+    body: "Andy was the only contractor who listened to me explain my problems, understood exactly what I was telling him and then provided a bid that gave us a complete solution. His proposal was fair and reasonable and we went with him. Really glad we did as our problems are completely solved and we are incredibly happy with the results. Would highly recommend him if you are looking for a great HVAC provider.",
+    source: yelpSource,
+  },
+  {
+    author: "Elen R.",
+    location: "Leesburg, VA",
+    datePublished: "2015-05-05",
+    rating: 5,
+    body: "Andy is so great. My neighbor recommended him to me 5 years ago after I was taken by 3 other HVAC companies. He knew exactly what was wrong. Got both my units working. Prices were low in comparison to the other big commercial companies. Andy is great at explaining the problems we have with our current units and he was able to keep them running 3 years longer than expected. I feel like he is one of the few honest repair specialists in the area. I highly recommend using him to anyone.",
+    source: yelpSource,
+  },
+  {
+    author: "Brenda G.",
+    location: "Virginia",
+    datePublished: "2013-05-15",
+    rating: 5,
+    body: "He is very informative and did not try to up-sell me. Gave me options for my issue. Was great at following up with additional questions. I would highly recommend him.",
+    source: angiSource,
+  },
+  {
+    author: "Shane G.",
+    location: "Chantilly, VA",
+    datePublished: "2012-10-03",
+    rating: 5,
+    body: "I live in Ashburn, VA and have used Sturrock's HVAC Solutions service twice in the past few months. In both cases the service was excellent and prompt. Andy took the time to explain our options when our A/C went out over the tail end of the summer and saved me hundreds on my heating system repair. This is important as the prior company we used was not able to assist us with our A/C and quoted us almost twice the amount Andy had repaired our system for. I'm very comfortable recommending him to my friends and neighbors in the area.",
+    source: yelpSource,
+  },
 ];
 
 // =============================
