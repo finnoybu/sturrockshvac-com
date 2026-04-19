@@ -5,8 +5,7 @@ type WhyItem = {
   text: string;
 };
 
-export default function WhySturrocks() {
-const items = [
+const WHY_ITEMS: readonly WhyItem[] = [
   {
     title: "State Licensed & Insured",
     text: "Fully compliant and professionally certified service.",
@@ -45,8 +44,9 @@ const items = [
   },
 ];
 
-  const topThree = items.slice(0, 3);
-  const topSix = items.slice(0, 6);
+export default function WhySturrocks() {
+  const topThree = WHY_ITEMS.slice(0, 3);
+  const topSix = WHY_ITEMS.slice(0, 6);
 
   return (
     <section className="bg-neutral-50 border-t border-white pt-10 pb-14 md:pt-12 md:pb-20">
@@ -78,7 +78,7 @@ const items = [
 
         {/* Large (9) */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-          {items.map((item, index) => (
+          {WHY_ITEMS.map((item, index) => (
             <WhyCard key={index} item={item} />
           ))}
         </div>

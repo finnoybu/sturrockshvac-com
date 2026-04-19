@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faSnowflake,
   faFireFlameCurved,
@@ -13,7 +14,9 @@ import {
 
 import { services } from "@/lib/content";
 
-const iconMap: Record<string, any> = {
+type Service = (typeof services)[number];
+
+const iconMap: Record<string, IconDefinition> = {
   "air-conditioning": faSnowflake,
   heating: faFireFlameCurved,
   "heat-pumps": faArrowsRotate,
@@ -68,7 +71,7 @@ export default function ServicesGrid() {
   );
 }
 
-function ServiceTile({ service }: any) {
+function ServiceTile({ service }: { service: Service }) {
   const Icon = iconMap[service.slug];
   const [pressed, setPressed] = useState(false);
 
