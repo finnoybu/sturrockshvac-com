@@ -1,4 +1,5 @@
 import { serviceAreas } from "@/lib/content";
+import SectionTitle from "./SectionTitle";
 
 type WhyItem = {
   title: string;
@@ -52,15 +53,10 @@ export default function WhySturrocks() {
     <section className="bg-neutral-50 border-t border-white pt-10 pb-14 md:pt-12 md:pb-20">
       <div className="container mx-auto px-4">
 
-        {/* Title — match Services spacing */}
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl italic font-serif text-primary-900 whitespace-nowrap">
-            <span className="md:hidden">Why Sturrocks</span>
-            <span className="hidden md:inline">Why Choose Sturrocks HVAC</span>
-          </h2>
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
-        </div>
+        <SectionTitle>
+          <span className="md:hidden">Why Sturrocks</span>
+          <span className="hidden md:inline">Why Choose Sturrocks HVAC</span>
+        </SectionTitle>
 
         {/* Mobile (3) */}
         <div className="grid grid-cols-1 gap-4 md:hidden">

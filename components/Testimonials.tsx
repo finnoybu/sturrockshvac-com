@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { testimonials } from "@/lib/content";
+import SectionTitle from "./SectionTitle";
 
 // Homepage testimonials section. Shows the 3 most-recent reviews (array is
 // kept in reverse-chronological order in lib/content.ts) with a link to
@@ -41,13 +42,12 @@ export default function Testimonials() {
   return (
     <section className="bg-primary-50 border-t border-primary-200 py-16">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="h-0.5 w-16 md:w-32 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
-          <h2 className="text-3xl md:text-4xl italic font-serif text-primary-900 whitespace-nowrap">
-            What Our Customers Say
-          </h2>
-          <div className="h-0.5 w-16 md:w-32 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
-        </div>
+        <SectionTitle
+          size="md"
+          wrapperClassName="flex items-center justify-center gap-3 mb-4"
+        >
+          What Our Customers Say
+        </SectionTitle>
 
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
           Real feedback from homeowners and businesses across Loudoun, Fairfax,

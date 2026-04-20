@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { brands, type Brand } from "@/lib/content";
+import SectionTitle from "./SectionTitle";
 
 export default function BrandLogoStrip() {
   const primaryBrands: Brand[] = brands.filter(
@@ -11,15 +12,10 @@ export default function BrandLogoStrip() {
     <section className="bg-white border-t border-primary-200 pt-10 pb-14 md:pt-12 md:pb-20">
       <div className="container mx-auto px-4">
 
-        {/* Section Title */}
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl italic font-serif text-primary-900 whitespace-nowrap">
-            <span className="md:hidden">Trusted Brands</span>
-            <span className="hidden md:inline">Trusted Brands We Service</span>
-          </h2>
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
-        </div>
+        <SectionTitle>
+          <span className="md:hidden">Trusted Brands</span>
+          <span className="hidden md:inline">Trusted Brands We Service</span>
+        </SectionTitle>
 
         {/* Subtitle */}
         <p className="text-center text-gray-600 max-w-xl mx-auto mb-10">

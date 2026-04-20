@@ -11,18 +11,58 @@ interface RequestPayload {
   honeypot?: string;
 }
 
-function badRequest(message: string) {
-  return NextResponse.json({ error: message }, { status: 400 });
+// Allowed origins for cross-origin requests to this endpoint.
+// Same-origin requests typically have no Origin header and pass without
+// a check. Cross-origin requests must come from one of these.
+const ALLOWED_ORIGINS = new Set<string>([
+  "https://sturrockshvac.com",
+  "https://www.sturrockshvac.com",
+  // Local dev — keep until/unless the deploy story changes.
+  "http://localhost:3000",
+  "http://localhost:3001",
+]);
+
+function isAllowedOrigin(origin: string | null): boolean {
+  if (!origin) return true; // same-origin
+  return ALLOWED_ORIGINS.has(origin);
 }
 
-function serverError(message: string, details?: unknown) {
+function corsHeadersFor(origin: string | null): Record<string, string> {
+  // Echo back the requesting origin only when it's on our allow-list.
+  // Never reflect an arbitrary Origin (would defeat the purpose).
+  if (origin && ALLOWED_ORIGINS.has(origin)) {
+    return {
+      "Access-Control-Allow-Origin": origin,
+      Vary: "Origin",
+    };
+  }
+  return {};
+}
+
+function badRequest(message: string, origin: string | null = null) {
+  return NextResponse.json(
+    { error: message },
+    { status: 400, headers: corsHeadersFor(origin) },
+  );
+}
+
+function serverError(
+  message: string,
+  details?: unknown,
+  origin: string | null = null,
+) {
   return NextResponse.json(
     { error: message, ...(details !== undefined ? { details } : {}) },
-    { status: 500 },
+    { status: 500, headers: corsHeadersFor(origin) },
   );
 }
 
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+  if (!isAllowedOrigin(origin)) {
+    return new NextResponse(null, { status: 403 });
+  }
+
   const { env } = getCloudflareContext();
 
   const RESEND_API_KEY = (env as Record<string, string | undefined>).RESEND_API_KEY;
@@ -112,9 +152,20 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true });
 }
 
-export async function OPTIONS() {
+export async function OPTIONS(request: Request) {
+  const origin = request.headers.get("origin");
+  if (!isAllowedOrigin(origin)) {
+    return new Response(null, { status: 403 });
+  }
+
   return new Response(null, {
     status: 204,
-    headers: { Allow: "POST, OPTIONS" },
+    headers: {
+      Allow: "POST, OPTIONS",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Max-Age": "86400",
+      ...corsHeadersFor(origin),
+    },
   });
 }

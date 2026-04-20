@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { services } from "@/lib/content";
+import SectionTitle from "./SectionTitle";
 
 type Service = (typeof services)[number];
 
@@ -33,14 +34,9 @@ export default function ServicesGrid() {
     <section className="bg-primary-50 border-t border-primary-200 pt-8 pb-14 md:pt-10 md:pb-20">
       <div className="container mx-auto px-4">
 
-        {/* Section Title */}
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl italic font-serif text-primary-900 leading-tight whitespace-nowrap">
-            Our Services
-          </h2>
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
-        </div>
+        <SectionTitle className="text-3xl md:text-4xl 2xl:text-5xl italic font-serif text-primary-900 leading-tight whitespace-nowrap">
+          Our Services
+        </SectionTitle>
 
         {/* Mobile */}
         <div className="grid grid-cols-1 gap-4 md:hidden">

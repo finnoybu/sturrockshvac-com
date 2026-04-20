@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { brand, companyInfo } from "@/lib/content";
+import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "About Andy",
@@ -25,13 +26,13 @@ export default function AboutPage() {
           <span className="text-primary-900">About Andy</span>
         </nav>
 
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="h-0.5 w-16 md:w-32 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
-          <h1 className="text-3xl md:text-4xl italic font-serif text-primary-900 whitespace-nowrap">
-            About Andy
-          </h1>
-          <div className="h-0.5 w-16 md:w-32 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
-        </div>
+        <SectionTitle
+          as="h1"
+          size="md"
+          wrapperClassName="flex items-center justify-center gap-3 mb-4"
+        >
+          About Andy
+        </SectionTitle>
 
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
           The technician, the owner, and the neighbor behind Sturrock&apos;s
