@@ -1,5 +1,9 @@
 "use client";
 
+// Initialize FontAwesome before any icons render. Prevents the layout
+// shift caused by FA's default runtime CSS injection (see #25).
+import "@/lib/fontawesome";
+
 import Link from "next/link";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
