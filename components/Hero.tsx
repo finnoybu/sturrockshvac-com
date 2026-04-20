@@ -1,4 +1,8 @@
-"use client";
+// Server Component: lets the hero image ship in the initial SSR HTML
+// so the browser preloads it immediately (via Next.js Image's priority
+// attribute, which emits fetchpriority="high"). When this was a Client
+// Component the image wasn't in the server HTML, so the browser couldn't
+// establish it as the LCP candidate until after hydration.
 
 import Image from "next/image";
 import TrustBar from "./TrustBar";
