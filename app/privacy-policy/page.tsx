@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       <main className="container mx-auto px-4 py-16 max-w-4xl">
         <h1 className="text-3xl font-serif mb-8">Privacy Policy</h1>
 
-        <p><strong>Effective Date:</strong> April 19, 2026</p>
+        <p><strong>Effective Date:</strong> April 20, 2026</p>
 
         <p className="mt-6">
           Sturrock&apos;s HVAC-Solutions (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed
@@ -99,10 +99,8 @@ export default function PrivacyPolicy() {
             transmitted through Resend to our business inbox.
           </li>
           <li>
-            <strong>Google LLC</strong> &mdash; Google Analytics 4 (website
-            usage analytics) and Google Maps Embed (the location map on the
-            Request Service page). See Section 6 for details and opt-out
-            options.
+            <strong>Google LLC</strong> &mdash; Google Maps Embed (the location
+            map on the Request Service page). See Section 6 for details.
           </li>
           <li>
             <strong>Legal or regulatory authorities</strong> when required by
@@ -136,29 +134,15 @@ export default function PrivacyPolicy() {
 
         <h2 className="mt-10 text-xl font-semibold">6. Cookies & Analytics</h2>
 
-        <h3 className="mt-6 font-semibold">A. Google Analytics 4</h3>
+        <h3 className="mt-6 font-semibold">A. Cloudflare Web Analytics</h3>
         <p className="mt-3">
-          When enabled, this website uses Google Analytics 4 (&quot;GA4&quot;),
-          a service provided by Google LLC, to understand how visitors use the
-          site. GA4 sets cookies (such as <code>_ga</code> and
-          <code>_ga_*</code>) in your browser and collects information
-          including IP address (truncated for IP anonymization where
-          supported), device and browser information, pages visited, session
-          duration, and referring URLs. We use this information only in
-          aggregate to improve the site.
-        </p>
-        <p className="mt-3">
-          You may opt out of Google Analytics by installing the{" "}
-          <a
-            href="https://tools.google.com/dlpage/gaoptout"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            Google Analytics Opt-out Browser Add-on
-          </a>{" "}
-          or by using your browser&apos;s &quot;Do Not Track&quot; settings or
-          private/incognito mode.
+          This website uses Cloudflare Web Analytics, a privacy-first
+          analytics service provided by Cloudflare, Inc., to understand
+          overall traffic patterns (pageviews, referring sites, aggregate
+          geographic region, device type). Cloudflare Web Analytics does not
+          use cookies, does not fingerprint visitors, does not track you
+          across sites, and does not use any personal data. All information
+          is aggregated and anonymous.
         </p>
 
         <h3 className="mt-6 font-semibold">B. Google Maps</h3>

@@ -6,8 +6,6 @@ import ContactModalProvider from "@/components/ContactModalProvider";
 import { brand, companyInfo, serviceAreas, testimonials } from "@/lib/content";
 import "./globals.css";
 
-const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${brand.domain}`),
 
@@ -102,23 +100,6 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
         </ContactModalProvider>
-
-        {gaMeasurementId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaMeasurementId}');
-              `}
-            </Script>
-          </>
-        )}
 
         {/* =============================
             Structured Data: Business
