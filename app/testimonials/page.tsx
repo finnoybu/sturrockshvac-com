@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { brand, companyInfo, testimonials } from "@/lib/content";
+import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "Customer Reviews",
@@ -64,13 +65,7 @@ export default function TestimonialsPage() {
           <span className="text-primary-900">Customer Reviews</span>
         </nav>
 
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-0.5 w-16 md:w-32 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
-          <h1 className="text-3xl md:text-4xl italic font-serif text-primary-900 whitespace-nowrap">
-            Customer Reviews
-          </h1>
-          <div className="h-0.5 w-16 md:w-32 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
-        </div>
+        <SectionTitle as="h1" size="md">Customer Reviews</SectionTitle>
 
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
           Real reviews from homeowners and businesses we&apos;ve served across

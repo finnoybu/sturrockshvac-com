@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { services } from "@/lib/content";
+import SectionTitle from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
   title: "HVAC Services",
@@ -15,14 +16,7 @@ export default function ServicesDirectory() {
   return (
     <div className="min-h-screen bg-primary-50 border-t border-primary-200">
       <main className="container mx-auto px-4 pt-10 pb-20">
-        {/* Section Title */}
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-r from-transparent via-primary-300 to-primary-300" />
-          <h1 className="text-3xl md:text-4xl 2xl:text-5xl italic font-serif text-primary-900 whitespace-nowrap">
-            Our Services
-          </h1>
-          <div className="h-0.5 w-20 md:w-40 2xl:w-60 bg-linear-to-l from-transparent via-primary-300 to-primary-300" />
-        </div>
+        <SectionTitle as="h1">Our Services</SectionTitle>
 
         {/* Intro Paragraph */}
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-14">
