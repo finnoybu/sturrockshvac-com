@@ -216,13 +216,15 @@ Harder but valuable for long-term ranking:
 
 Once the GBP is verified and we have some traffic data flowing:
 
-1. **Google Analytics 4**: Ken will wire this into the site once we have a
-   measurement ID from Andy's Google account.
+1. **Cloudflare Web Analytics**: Free, privacy-first (no cookies, no
+   banner), enabled in the Cloudflare dashboard. Gives pageviews,
+   referrers, top pages, and rough geographic breakdowns.
 2. **Google Search Console**: Free, from Google. Shows which search queries
-   the site appears for and where we rank. We'll submit the sitemap
-   (<https://sturrockshvac.com/sitemap.xml>) once the site is live.
-3. **Conversion events**: phone clicks, form submissions, emergency calls —
-   so we can actually tell what's working.
+   the site appears for and where we rank. Sitemap is already submitted at
+   <https://sturrockshvac.com/sitemap.xml>.
+3. **Conversion events** (phone clicks, form submissions) are not currently
+   tracked. If we later want that data, we'd add a paid tool like Plausible
+   or re-introduce GA4.
 
 ---
 
