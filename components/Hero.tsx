@@ -1,8 +1,14 @@
-// Server Component: lets the hero image ship in the initial SSR HTML
-// so the browser preloads it immediately (via Next.js Image's priority
-// attribute, which emits fetchpriority="high"). When this was a Client
-// Component the image wasn't in the server HTML, so the browser couldn't
-// establish it as the LCP candidate until after hydration.
+"use client";
+
+// Kept as a Client Component on purpose: running Hero as a Server
+// Component (PR #28) caused Cloudflare Workers Error 1102 on Lighthouse
+// runs. Next.js Image with `fill` + `sizes` generates a multi-size
+// srcset; each size triggers an image-optimization request through our
+// Worker's IMAGES binding, which counts as a subrequest. Lighthouse
+// parallelizing those across mobile + desktop + throttled audits blew
+// through the 50-subrequest Free-tier limit. Client-side rendering
+// serializes the image request differently and keeps us under budget.
+// Revisit only if we upgrade to Workers Paid ($5/mo, 1,000 subrequests).
 
 import Image from "next/image";
 import TrustBar from "./TrustBar";
