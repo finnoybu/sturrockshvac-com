@@ -8,6 +8,7 @@ import {
   countyOverviews,
   regionalLandingPages,
 } from "@/lib/content";
+import { buildBreadcrumbList } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Service Areas",
@@ -184,6 +185,19 @@ export default function ServiceAreasIndex() {
             </Link>
           </div>
         </section>
+
+        <Script
+          id="breadcrumb-schema-service-areas-index"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildBreadcrumbList([
+                { name: "Home", path: "/" },
+                { name: "Service Areas", path: "/service-areas" },
+              ]),
+            ),
+          }}
+        />
 
         <Script
           id="service-areas-index-schema"

@@ -56,7 +56,7 @@ export const companyInfo = {
 
   socialProfiles: {
     yelp: "https://www.yelp.com/biz/sturrocks-hvac-solutions-lovettsville",
-    nextdoor: "",
+    nextdoor: "https://nextdoor.com/pages/sturrocks-hvac-solutions-lovettsville-va/",
     facebook: "",
     google: "",
   },

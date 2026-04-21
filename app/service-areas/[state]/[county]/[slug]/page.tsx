@@ -9,6 +9,7 @@ import {
   regionalLandingPages,
   services,
 } from "@/lib/content";
+import { buildBreadcrumbList } from "@/lib/schema";
 
 // This route handles 3-segment URLs for both tier-1 cities and tier-2
 // regional pages under a county, e.g.:
@@ -259,6 +260,31 @@ function CityPage({
         </section>
 
         <Script
+          id={`breadcrumb-schema-city-${city.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildBreadcrumbList([
+                { name: "Home", path: "/" },
+                { name: "Service Areas", path: "/service-areas" },
+                {
+                  name: city.state === "VA" ? "Virginia" : "Maryland",
+                  path: `/service-areas/${city.stateSlug}`,
+                },
+                {
+                  name: city.county,
+                  path: `/service-areas/${city.stateSlug}/${city.countySlug}`,
+                },
+                {
+                  name: city.name,
+                  path: `/service-areas/${city.stateSlug}/${city.countySlug}/${city.slug}`,
+                },
+              ]),
+            ),
+          }}
+        />
+
+        <Script
           id={`city-service-schema-${city.slug}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -414,6 +440,31 @@ function RegionalPage({
             </Link>
           </div>
         </section>
+
+        <Script
+          id={`breadcrumb-schema-region-${region.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildBreadcrumbList([
+                { name: "Home", path: "/" },
+                { name: "Service Areas", path: "/service-areas" },
+                {
+                  name: region.state === "VA" ? "Virginia" : "Maryland",
+                  path: `/service-areas/${region.stateSlug}`,
+                },
+                {
+                  name: region.county,
+                  path: `/service-areas/${region.stateSlug}/${region.countySlug}`,
+                },
+                {
+                  name: region.name,
+                  path: `/service-areas/${region.stateSlug}/${region.countySlug}/${region.slug}`,
+                },
+              ]),
+            ),
+          }}
+        />
 
         <Script
           id={`regional-service-schema-${region.slug}`}

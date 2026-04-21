@@ -9,6 +9,7 @@ import {
   countyOverviews,
   regionalLandingPages,
 } from "@/lib/content";
+import { buildBreadcrumbList } from "@/lib/schema";
 
 // State-level overview page at /service-areas/virginia or /service-areas/maryland.
 
@@ -200,6 +201,20 @@ export default async function StatePage({ params }: Props) {
             </Link>
           </div>
         </section>
+
+        <Script
+          id={`breadcrumb-schema-state-${data.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildBreadcrumbList([
+                { name: "Home", path: "/" },
+                { name: "Service Areas", path: "/service-areas" },
+                { name: data.name, path: `/service-areas/${data.slug}` },
+              ]),
+            ),
+          }}
+        />
 
         <Script
           id={`state-overview-schema-${data.slug}`}
