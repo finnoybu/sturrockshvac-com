@@ -87,12 +87,20 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     "Sturrock's HVAC <no-reply@sturrockshvac.com>";
 
   if (!RESEND_API_KEY) {
-    console.error("[request-service] RESEND_API_KEY is not configured");
-    return serverError("Email service not configured.", origin);
+    const envKeys = Object.keys(env || {}).sort().join(",");
+    console.error("[request-service] RESEND_API_KEY missing. Env keys seen:", envKeys);
+    return serverError(
+      `Email service not configured. [debug: env keys visible = ${envKeys || "(none)"}]`,
+      origin,
+    );
   }
   if (!FORM_DESTINATION_EMAIL) {
-    console.error("[request-service] FORM_DESTINATION_EMAIL is not configured");
-    return serverError("Email destination not configured.", origin);
+    const envKeys = Object.keys(env || {}).sort().join(",");
+    console.error("[request-service] FORM_DESTINATION_EMAIL missing. Env keys seen:", envKeys);
+    return serverError(
+      `Email destination not configured. [debug: env keys visible = ${envKeys || "(none)"}]`,
+      origin,
+    );
   }
 
   let data: RequestPayload;
