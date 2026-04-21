@@ -72,6 +72,24 @@ function serverError(message: string, origin: string | null): Response {
   return jsonResponse({ error: message }, 500, origin);
 }
 
+// Read an env var tolerating whitespace in the key name. Cloudflare
+// Pages' UI has been observed to preserve invisible trailing whitespace
+// on the key, which means `env.FOO` returns undefined even though a
+// variable named "FOO " (with space) exists. Search by trimmed match.
+function getEnv(
+  env: Record<string, unknown>,
+  name: string,
+): string | undefined {
+  const exact = env[name];
+  if (typeof exact === "string" && exact.length > 0) return exact;
+  for (const [key, value] of Object.entries(env)) {
+    if (key.trim() === name && typeof value === "string" && value.length > 0) {
+      return value;
+    }
+  }
+  return undefined;
+}
+
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   const { request, env } = context;
   const origin = request.headers.get("origin");
@@ -80,10 +98,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     return new Response(null, { status: 403 });
   }
 
-  const RESEND_API_KEY = env.RESEND_API_KEY;
-  const FORM_DESTINATION_EMAIL = env.FORM_DESTINATION_EMAIL;
+  const envRecord = env as unknown as Record<string, unknown>;
+  const RESEND_API_KEY = getEnv(envRecord, "RESEND_API_KEY");
+  const FORM_DESTINATION_EMAIL = getEnv(envRecord, "FORM_DESTINATION_EMAIL");
   const FORM_FROM_ADDRESS =
-    env.FORM_FROM_ADDRESS ||
+    getEnv(envRecord, "FORM_FROM_ADDRESS") ||
     "Sturrock's HVAC <no-reply@sturrockshvac.com>";
 
   if (!RESEND_API_KEY) {
