@@ -1,5 +1,14 @@
-import { NextResponse } from "next/server";
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+// Cloudflare Pages Function — handles POST /api/request-service.
+//
+// Direct port of the previous Next.js API route handler. Pages Functions
+// receive a context object instead of a Request directly; bindings live
+// on `context.env` rather than via getCloudflareContext().
+
+interface Env {
+  RESEND_API_KEY?: string;
+  FORM_DESTINATION_EMAIL?: string;
+  FORM_FROM_ADDRESS?: string;
+}
 
 interface RequestPayload {
   name?: string;
@@ -11,26 +20,27 @@ interface RequestPayload {
   honeypot?: string;
 }
 
-// Allowed origins for cross-origin requests to this endpoint.
-// Same-origin requests typically have no Origin header and pass without
-// a check. Cross-origin requests must come from one of these.
 const ALLOWED_ORIGINS = new Set<string>([
   "https://sturrockshvac.com",
   "https://www.sturrockshvac.com",
-  // Local dev — keep until/unless the deploy story changes.
+  // Allow Cloudflare Pages preview deployments (subdomain.pages.dev).
+  // Wildcards aren't supported by `Set.has`, so preview-origin matching
+  // happens in isAllowedOrigin() below.
   "http://localhost:3000",
   "http://localhost:3001",
+  "http://localhost:8788", // wrangler pages dev default port
 ]);
 
 function isAllowedOrigin(origin: string | null): boolean {
   if (!origin) return true; // same-origin
-  return ALLOWED_ORIGINS.has(origin);
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  // Pages preview URLs: <hash>.sturrockshvac-com.pages.dev (or similar).
+  if (/^https:\/\/[a-z0-9-]+\.pages\.dev$/.test(origin)) return true;
+  return false;
 }
 
 function corsHeadersFor(origin: string | null): Record<string, string> {
-  // Echo back the requesting origin only when it's on our allow-list.
-  // Never reflect an arbitrary Origin (would defeat the purpose).
-  if (origin && ALLOWED_ORIGINS.has(origin)) {
+  if (origin && isAllowedOrigin(origin)) {
     return {
       "Access-Control-Allow-Origin": origin,
       Vary: "Origin",
@@ -39,56 +49,60 @@ function corsHeadersFor(origin: string | null): Record<string, string> {
   return {};
 }
 
-function badRequest(message: string, origin: string | null = null) {
-  return NextResponse.json(
-    { error: message },
-    { status: 400, headers: corsHeadersFor(origin) },
-  );
+function jsonResponse(
+  body: unknown,
+  status: number,
+  origin: string | null,
+): Response {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+      ...corsHeadersFor(origin),
+    },
+  });
 }
 
-function serverError(
-  message: string,
-  details?: unknown,
-  origin: string | null = null,
-) {
-  return NextResponse.json(
-    { error: message, ...(details !== undefined ? { details } : {}) },
-    { status: 500, headers: corsHeadersFor(origin) },
-  );
+function badRequest(message: string, origin: string | null): Response {
+  return jsonResponse({ error: message }, 400, origin);
 }
 
-export async function POST(request: Request) {
+function serverError(message: string, origin: string | null): Response {
+  return jsonResponse({ error: message }, 500, origin);
+}
+
+export const onRequestPost: PagesFunction<Env> = async (context) => {
+  const { request, env } = context;
   const origin = request.headers.get("origin");
+
   if (!isAllowedOrigin(origin)) {
-    return new NextResponse(null, { status: 403 });
+    return new Response(null, { status: 403 });
   }
 
-  const { env } = getCloudflareContext();
-
-  const RESEND_API_KEY = (env as Record<string, string | undefined>).RESEND_API_KEY;
-  const FORM_DESTINATION_EMAIL = (env as Record<string, string | undefined>).FORM_DESTINATION_EMAIL;
+  const RESEND_API_KEY = env.RESEND_API_KEY;
+  const FORM_DESTINATION_EMAIL = env.FORM_DESTINATION_EMAIL;
   const FORM_FROM_ADDRESS =
-    (env as Record<string, string | undefined>).FORM_FROM_ADDRESS ||
+    env.FORM_FROM_ADDRESS ||
     "Sturrock's HVAC <no-reply@sturrockshvac.com>";
 
   if (!RESEND_API_KEY) {
     console.error("[request-service] RESEND_API_KEY is not configured");
-    return serverError("Email service not configured.");
+    return serverError("Email service not configured.", origin);
   }
   if (!FORM_DESTINATION_EMAIL) {
     console.error("[request-service] FORM_DESTINATION_EMAIL is not configured");
-    return serverError("Email destination not configured.");
+    return serverError("Email destination not configured.", origin);
   }
 
   let data: RequestPayload;
   try {
     data = (await request.json()) as RequestPayload;
   } catch {
-    return badRequest("Invalid JSON body.");
+    return badRequest("Invalid JSON body.", origin);
   }
 
   if (data.honeypot) {
-    return NextResponse.json({ ok: true });
+    return jsonResponse({ ok: true }, 200, origin);
   }
 
   const name = (data.name || "").trim();
@@ -98,11 +112,15 @@ export async function POST(request: Request) {
   const serviceType = (data.serviceType || "").trim();
   const details = (data.details || "").trim();
 
-  if (!name || name.length < 2 || name.length > 100) return badRequest("Invalid name.");
-  if (!phone || !/^\+?[0-9\s\-().]{10,}$/.test(phone)) return badRequest("Invalid phone number.");
-  if (email && !/^\S+@\S+\.\S+$/.test(email)) return badRequest("Invalid email address.");
-  if (!service) return badRequest("Service required.");
-  if (!details || details.length < 10 || details.length > 1000) return badRequest("Invalid details.");
+  if (!name || name.length < 2 || name.length > 100)
+    return badRequest("Invalid name.", origin);
+  if (!phone || !/^\+?[0-9\s\-().]{10,}$/.test(phone))
+    return badRequest("Invalid phone number.", origin);
+  if (email && !/^\S+@\S+\.\S+$/.test(email))
+    return badRequest("Invalid email address.", origin);
+  if (!service) return badRequest("Service required.", origin);
+  if (!details || details.length < 10 || details.length > 1000)
+    return badRequest("Invalid details.", origin);
 
   const subjectLabel = serviceType ? `${service} / ${serviceType}` : service;
   const textBody = [
@@ -134,7 +152,7 @@ export async function POST(request: Request) {
     });
   } catch (err) {
     console.error("[request-service] Resend fetch threw", err);
-    return serverError("Failed to call email service.");
+    return serverError("Failed to call email service.", origin);
   }
 
   if (!resendResponse.ok) {
@@ -143,17 +161,19 @@ export async function POST(request: Request) {
       status: resendResponse.status,
       body: errorText,
     });
-    return serverError("Email delivery failed.");
+    return serverError("Email delivery failed.", origin);
   }
 
-  const result = (await resendResponse.json().catch(() => ({}))) as { id?: string };
+  const result = (await resendResponse.json().catch(() => ({}))) as {
+    id?: string;
+  };
   console.log("[request-service] Sent", { messageId: result.id });
 
-  return NextResponse.json({ ok: true });
-}
+  return jsonResponse({ ok: true }, 200, origin);
+};
 
-export async function OPTIONS(request: Request) {
-  const origin = request.headers.get("origin");
+export const onRequestOptions: PagesFunction<Env> = async (context) => {
+  const origin = context.request.headers.get("origin");
   if (!isAllowedOrigin(origin)) {
     return new Response(null, { status: 403 });
   }
@@ -168,4 +188,4 @@ export async function OPTIONS(request: Request) {
       ...corsHeadersFor(origin),
     },
   });
-}
+};
