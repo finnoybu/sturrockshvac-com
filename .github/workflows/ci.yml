@@ -1,0 +1,37 @@
+name: CI
+
+# Quality gate for PRs and pushes to main. Cloudflare Pages handles the
+# actual build and deploy via its GitHub integration, so this workflow
+# only runs lint and build to catch issues before Pages tries to build.
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Lint & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
