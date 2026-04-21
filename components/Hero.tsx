@@ -35,6 +35,7 @@ export default function HeroSection() {
           alt={`Home exterior in ${season} — Sturrock's HVAC Solutions serves Loudoun, Fairfax, and Frederick counties year-round`}
           fill
           priority
+          unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1536px) 100vw, 1920px"
           className="object-cover object-[right_40%_top_75%]"
         />
