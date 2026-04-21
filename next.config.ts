@@ -1,8 +1,5 @@
 import type { NextConfig } from "next";
 import { execSync } from "child_process";
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
-
-initOpenNextCloudflareForDev();
 
 const commitHash = execSync("git rev-parse --short HEAD")
   .toString()
@@ -11,35 +8,37 @@ const commitHash = execSync("git rev-parse --short HEAD")
 const buildTimestamp = new Date().toISOString();
 
 const nextConfig: NextConfig = {
+  // Static export — every page builds to a plain .html file, served from
+  // Cloudflare Pages' CDN edge. No Worker runs on page loads, so we are
+  // immune to the 10ms CPU budget that caused Error 1102 in the
+  // OpenNext + Workers setup. The single dynamic endpoint
+  // (/api/request-service) lives as a Pages Function in functions/api/.
+  output: "export",
+
   reactStrictMode: true,
 
   poweredByHeader: false,
+
+  // No Image Optimization API in static export — every <Image> must be
+  // unoptimized. Setting this globally avoids needing the prop on every
+  // usage site.
+  images: {
+    unoptimized: true,
+  },
+
+  // Trailing-slash matters for Pages: with output: "export" + this flag
+  // off, /about builds to out/about.html. Pages serves out/about.html
+  // for /about (no redirect), and out/about/index.html for /about/. We
+  // pick the .html-file form; Cloudflare Pages handles either.
+  trailingSlash: false,
 
   env: {
     NEXT_PUBLIC_BUILD_ID: commitHash,
     NEXT_PUBLIC_BUILD_TIMESTAMP: buildTimestamp,
   },
 
-  async headers() {
-    // NOTE: keep this list minimal. Each rule runs a path-to-regexp match
-    // on every response. PR #28 added 3 extra Cache-Control rules and
-    // Lighthouse started returning Cloudflare Error 1102 (Worker CPU
-    // budget, 10ms on Free tier). Reverted to just nosniff to stay under
-    // budget. If we need explicit cache-control on static assets again,
-    // set them at the Cloudflare zone level (Page Rules) or upgrade to
-    // Workers Paid.
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          // Prevent MIME-type sniffing — mitigates a class of XSS that
-          // relies on the browser ignoring Content-Type and executing a
-          // response as a different type (e.g. JS served as image).
-          { key: "X-Content-Type-Options", value: "nosniff" },
-        ],
-      },
-    ];
-  },
+  // headers() is unsupported in static export. Security headers are set
+  // via the Cloudflare Pages _headers file at the project root.
 };
 
 export default nextConfig;

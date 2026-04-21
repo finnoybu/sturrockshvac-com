@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "cf:build": "opennextjs-cloudflare build",
-    "start": "next start",
+    "pages:dev": "wrangler pages dev out --port 8788",
+    "pages:deploy": "wrangler pages deploy out",
     "lint": "eslint . --max-warnings=0"
   },
   "repository": {
@@ -32,7 +32,7 @@
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.16.6",
+    "@cloudflare/workers-types": "^4.20240821.0",
     "@tailwindcss/postcss": "^4.0.6",
     "@types/node": "^25.2.3",
     "@types/react": "^19.2.14",
@@ -41,6 +41,7 @@
     "eslint-config-next": "^13.5.11",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.0.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^3.78.0"
   }
 }

@@ -7,9 +7,18 @@ import {
   countyOverviews,
 } from "@/lib/content";
 
+// Required for `output: "export"` — without it, Next.js refuses to
+// statically generate sitemap.xml because the function is technically
+// ambiguous about static-vs-dynamic.
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = `https://${brand.domain}`;
-  const now = new Date();
+  // Use a fixed date — build timestamp — instead of `new Date()` so the
+  // generated sitemap is fully deterministic per build.
+  const now = new Date(
+    process.env.NEXT_PUBLIC_BUILD_TIMESTAMP || Date.now(),
+  );
 
   const staticRoutes = [
     "",

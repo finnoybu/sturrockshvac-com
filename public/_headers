@@ -1,0 +1,31 @@
+# Cloudflare Pages — applied to every static asset response.
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Long cache for content-hashed Next.js static assets.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Hero, brand, and image assets — cache for a day at the edge,
+# revalidate in the background for a week after.
+/hero/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/brands/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Favicon / OG / logo — cache aggressively.
+/favicon.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/icon.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/apple-icon.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/logo.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/og-image.jpg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
