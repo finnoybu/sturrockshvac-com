@@ -34,8 +34,9 @@ const ALLOWED_ORIGINS = new Set<string>([
 function isAllowedOrigin(origin: string | null): boolean {
   if (!origin) return true; // same-origin
   if (ALLOWED_ORIGINS.has(origin)) return true;
-  // Pages preview URLs: <hash>.sturrockshvac-com.pages.dev (or similar).
-  if (/^https:\/\/[a-z0-9-]+\.pages\.dev$/.test(origin)) return true;
+  // Pages preview URLs: <hash>.<project>.pages.dev
+  // e.g. c8e03a38.sturrockshvac-com.pages.dev
+  if (/^https:\/\/[a-z0-9.-]+\.pages\.dev$/.test(origin)) return true;
   return false;
 }
 
