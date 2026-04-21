@@ -10,6 +10,7 @@ import {
   regionalLandingPages,
   services,
 } from "@/lib/content";
+import { buildBreadcrumbList } from "@/lib/schema";
 
 // This route handles 2-segment service-area URLs. Two kinds of pages
 // share this URL shape:
@@ -249,6 +250,27 @@ function IndependentCityPage({
         </section>
 
         <Script
+          id={`breadcrumb-schema-independent-city-${city.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildBreadcrumbList([
+                { name: "Home", path: "/" },
+                { name: "Service Areas", path: "/service-areas" },
+                {
+                  name: city.state === "VA" ? "Virginia" : "Maryland",
+                  path: `/service-areas/${city.stateSlug}`,
+                },
+                {
+                  name: city.name,
+                  path: `/service-areas/${city.stateSlug}/${city.countySlug}`,
+                },
+              ]),
+            ),
+          }}
+        />
+
+        <Script
           id={`independent-city-schema-${city.slug}`}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -442,6 +464,27 @@ function CountyOverviewPage({
             </Link>
           </div>
         </section>
+
+        <Script
+          id={`breadcrumb-schema-county-${overview.slug}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildBreadcrumbList([
+                { name: "Home", path: "/" },
+                { name: "Service Areas", path: "/service-areas" },
+                {
+                  name: overview.state === "VA" ? "Virginia" : "Maryland",
+                  path: `/service-areas/${overview.stateSlug}`,
+                },
+                {
+                  name: overview.name,
+                  path: `/service-areas/${overview.stateSlug}/${overview.slug}`,
+                },
+              ]),
+            ),
+          }}
+        />
 
         <Script
           id={`county-overview-schema-${overview.slug}`}
